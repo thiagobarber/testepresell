@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZenFit — Você já conhece?</title>
+<!-- Acelera o carregamento do destino: pré-conexão e pré-carregamento do redirect -->
+<link rel="preconnect" href="https://ev.braip.com" crossorigin>
+<link rel="dns-prefetch" href="https://ev.braip.com">
+<link rel="preconnect" href="https://saude-beleza.site">
+<link rel="dns-prefetch" href="https://saude-beleza.site">
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
   html,body{height:100%;overflow:hidden;}
@@ -71,6 +76,8 @@
   .rodape{background:#f6f9f8;border-top:1px solid #e4ece9;padding:8px 12px 10px;text-align:center;font-size:9px;color:#7d8c93;line-height:1.5;flex:0 0 auto;}
   .rodape strong{color:#5b6b70;}
   .rodape .dot{color:#c2cdd2;margin:0 3px;}
+  .rodape .linklegal{display:inline-block;margin-top:4px;color:#0C7051;font-weight:700;text-decoration:underline;font-size:9.5px;}
+  .rodape .linklegal:hover{color:#0a5c43;}
 
   @media(max-height:640px){
     .head h2{font-size:15.5px;}
@@ -101,8 +108,8 @@
       </div>
 
       <div class="acoes">
-        <a href="https://ev.braip.com/campanhas/cpa/came0o69k" class="btn btn-sim">Sim, já conheço</a>
-        <a href="https://ev.braip.com/campanhas/cpa/came0o69k" class="btn btn-nao">Não conheço</a>
+        <a href="https://ev.braip.com/campanhas/cpa/came0o69k" class="btn btn-sim" target="_blank" rel="noopener">Sim, já conheço</a>
+        <a href="https://ev.braip.com/campanhas/cpa/came0o69k" class="btn btn-nao" target="_blank" rel="noopener">Não conheço</a>
       </div>
 
       <div class="selos">
@@ -118,6 +125,8 @@
         <strong>ANVISA</strong>: fabricado, testado e aprovado por indústria credenciada.
         <br>
         Suplemento alimentar — não substitui alimentação equilibrada. Consulte seu médico.
+        <br>
+        <a href="politica-privacidade.html" target="_blank" rel="noopener" class="linklegal">Política de Privacidade</a>
       </div>
     </div>
   </div>
@@ -127,6 +136,11 @@
     fechar.addEventListener('click',function(){overlay.style.display='none';});
     overlay.addEventListener('click',function(e){if(e.target===overlay)overlay.style.display='none';});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')overlay.style.display='none';});
+
+    // Assim que a página abre, já começa a carregar o destino em segundo plano
+    var destino="https://ev.braip.com/campanhas/cpa/came0o69k";
+    if("requestIdleCallback" in window){requestIdleCallback(function(){var i=new Image();i.src=destino;});}
+    else if("fetch" in window){fetch(destino,{mode:"no-cors"}).catch(function(){});}
   </script>
 </body>
 </html>
