@@ -313,14 +313,18 @@
     .sub{font-size:.92rem}
     .sub .sub-more{display:none}
     /* imagem curta (formato banner, foco nas cejas): CTA fica na primeira dobra */
-    .hero-visual{margin-top:22px}
-    .hero-visual img{height:min(62vw,290px);object-fit:cover;object-position:50% 42%}
+    .hero-visual{margin-top:22px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+    .hero-visual img{order:-1;height:min(62vw,290px);object-fit:cover;object-position:50% 42%}
     .hero-visual::before{inset:-8px;border-radius:22px}
-    .float-a{left:8px;bottom:12px;padding:9px 13px}
-    .float-a .t{font-size:.78rem}
-    .float-a .s{font-size:.66rem}
-    .float-b{right:8px;top:12px;padding:9px 13px;font-size:.72rem;gap:8px}
-    .float-b .ico{width:30px;height:30px;border-radius:9px}
+    /* cards viram chips abaixo da foto: nao tampam mais a imagem */
+    .float-card{position:static;align-items:center;padding:8px 13px;border-radius:100px;box-shadow:none}
+    .float-a{display:flex;gap:8px}
+    .float-a .stars{font-size:.75rem;letter-spacing:1px}
+    .float-a .t{font-size:.72rem;margin-top:0}
+    .float-a .s{display:none}
+    .float-b{font-size:.72rem;gap:7px}
+    .float-b .ico{width:26px;height:26px;border-radius:50%}
+    .float-b .ico svg{width:14px;height:14px}
 
     /* CTA ocupa a largura toda = toque fácil */
     .hero-cta{margin-top:20px}
@@ -639,7 +643,7 @@
       <div>
         <h4>Contacto y soporte</h4>
         <ul>
-          <li class="foot-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87f4e8f7e8f5f3e2c7e4f2f5f4e8e3e2e4e2ede6f4a9e4e8ea">[email&#160;protected]</a></li>
+          <li class="foot-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3b48544b54494f5e7b584e4948545f5e585e515a4815585456">[email&#160;protected]</a></li>
           <li class="foot-contact">Lun. a Vie., 9h a 18h</li>
           <li class="foot-contact">Producto entregado vía Hotmart</li>
         </ul>
@@ -676,7 +680,7 @@
     <h5>4. Cookies</h5>
     <p>Podemos utilizar cookies para medir el rendimiento de esta página y mejorar la experiencia de navegación. Puedes borrar o bloquear las cookies en cualquier momento desde la configuración de tu navegador.</p>
     <h5>5. Tus derechos (protección de datos)</h5>
-    <p>Conforme a la normativa de protección de datos aplicable, puedes solicitar en cualquier momento el acceso, la corrección o la eliminación de tus datos personales, así como revocar el consentimiento de las comunicaciones, escribiendo a <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ed9e829d829f9988ad8e989f9e8289888e88878c9ec38e8280">[email&#160;protected]</a>.</p>
+    <p>Conforme a la normativa de protección de datos aplicable, puedes solicitar en cualquier momento el acceso, la corrección o la eliminación de tus datos personales, así como revocar el consentimiento de las comunicaciones, escribiendo a <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96e5f9e6f9e4e2f3d6f5e3e4e5f9f2f3f5f3fcf7e5b8f5f9fb">[email&#160;protected]</a>.</p>
     <h5>6. Seguridad</h5>
     <p>Adoptamos medidas técnicas y organizativas razonables para proteger tu información contra accesos no autorizados, pérdida o alteración indebida.</p>
   </div>
@@ -696,7 +700,7 @@
     <h5>4. Resultados</h5>
     <p>Los resultados dependen de la dedicación y de la aplicación práctica del contenido por parte de cada alumno. Ningún resultado financiero o profesional está garantizado de forma individual.</p>
     <h5>5. Soporte</h5>
-    <p>Las dudas sobre acceso, contenido o pago pueden enviarse a <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4635293629343223062533343529222325232c27356825292b">[email&#160;protected]</a> y serán respondidas en un máximo de 48 horas hábiles.</p>
+    <p>Las dudas sobre acceso, contenido o pago pueden enviarse a <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="50233f203f22243510332522233f343533353a31237e333f3d">[email&#160;protected]</a> y serán respondidas en un máximo de 48 horas hábiles.</p>
   </div>
 </div>
 
@@ -743,5 +747,5 @@
   });
 })();
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a41ea56e5dc9c5f6',t:'MTc5MDU1NTQ5Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a41ecc21ef763236',t:'MTc5MDU1NzA4MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
