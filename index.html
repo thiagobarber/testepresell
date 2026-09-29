@@ -77,13 +77,13 @@
   .cd-num circle{fill:none;stroke-width:6}
   .cd-num .track{stroke:rgba(255,255,255,.12)}
   .cd-num .prog{stroke:var(--pink);stroke-linecap:round;stroke-dasharray:289;stroke-dashoffset:289;filter:drop-shadow(0 0 6px var(--pink))}
-  .countdown.run .prog{animation:ring 4.2s linear forwards}
+  .countdown.run .prog{animation:ring 6s linear forwards}
   @keyframes ring{to{stroke-dashoffset:0}}
   #cdn{
     font-size:clamp(48px,14vw,88px);font-weight:900;line-height:1;
     background:linear-gradient(180deg,#fff,var(--pink2));-webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  #cdn.pop{animation:pop 1.4s ease-out}
+  #cdn.pop{animation:pop 2s ease-out}
   @keyframes pop{0%{transform:scale(1.9);opacity:0}25%{transform:scale(1);opacity:1}85%{opacity:1}100%{transform:scale(.85);opacity:.2}}
   .cd-bot{font-size:clamp(12px,3vw,15px);color:var(--muted)}
   .cd-bot .dots::after{content:"";animation:dots 1.2s steps(4) infinite}
@@ -218,7 +218,7 @@
             <svg viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="46"/><circle class="prog" cx="50" cy="50" r="46"/></svg>
             <span id="cdn">3</span>
           </div>
-          <div class="cd-bot">Preparando sua aula<span class="dots"></span> 🔊 confira se o som está ligado</div>
+          <div class="cd-bot">Carregando sua aula<span class="dots"></span> 🔊 ative o som</div>
         </div>
         <iframe
           id="vsl"
@@ -330,24 +330,22 @@
 
 <script>
 
-  // Contagem 3-2-1 sobre o vídeo (o iframe carrega por trás, sem atraso)
+  // Contagem 3-2-1 = tempo de carregamento do vídeo.
+  // O iframe já carrega por trás desde o início; quando a contagem acaba, o vídeo já está tocando.
+  // Ajuste aqui o tempo total (em segundos) caso o vídeo demore mais ou menos:
+  const TEMPO_TOTAL = 6;
   (function(){
-    const box=document.getElementById('countdown'), n=document.getElementById('cdn'), f=document.getElementById('vsl');
-    let loaded=false, done=false;
-    const hide=()=>{ if(loaded&&done) box.classList.add('off'); };
-    f.addEventListener('load',()=>{loaded=true;hide();});
-    setTimeout(()=>{loaded=true;hide();},9000); // segurança
-    const steps=['3','2','1'];
-    let i=0;
+    const box=document.getElementById('countdown'), n=document.getElementById('cdn');
+    const passo = TEMPO_TOTAL/3;
+    box.style.setProperty('--passo', passo+'s');
+    box.querySelector('.prog').style.animationDuration = TEMPO_TOTAL+'s';
+    const steps=['3','2','1']; let i=0;
     function tick(){
-      if(i>=steps.length){
-        done=true;
-        if(!loaded){ n.textContent='…'; n.classList.remove('pop'); }
-        hide(); return;
-      }
+      if(i>=steps.length){ box.classList.add('off'); return; }
       n.textContent=steps[i];
+      n.style.animationDuration = passo+'s';
       n.classList.remove('pop'); void n.offsetWidth; n.classList.add('pop');
-      i++; setTimeout(tick,1400);
+      i++; setTimeout(tick, passo*1000);
     }
     requestAnimationFrame(()=>box.classList.add('run'));
     tick();
