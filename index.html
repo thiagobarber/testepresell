@@ -1,665 +1,2776 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-ES">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Discover How to Control Your Blood Sugar Levels | Free Video Presentation</title>
-<meta name="description" content="Discover how a simple 5-second daily habit may help you support healthy blood sugar levels. Watch the free video presentation now." />
-<meta name="robots" content="index, follow" />
-<style>
-  :root{
-    --ink:#0d1321;
-    --ink-soft:#3b4559;
-    --muted:#6b7488;
-    --line:#e4e8ef;
-    --bg:#ffffff;
-    --bg-soft:#f6f8fb;
-    --red:#d92d20;
-    --red-dark:#a81e14;
-    --green:#12a150;
-    --green-dark:#0b7a3b;
-    --blue:#12294d;
-    --radius:14px;
-    --shadow:0 10px 30px rgba(13,19,33,.10);
-    --maxw:820px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size:17px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  img,svg{max-width:100%;display:block}
-  a{color:var(--blue)}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Aura Finance | Gestión y Asistente Financiero Personal</title>
+  
+  <!-- Tipografía Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  /* ---------- Top bar ---------- */
-  .topbar{
-    border-bottom:1px solid var(--line);
-    background:#fff;
-    padding:12px 16px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-  }
-  .brand{
-    display:flex;align-items:center;gap:10px;
-    font-weight:800;letter-spacing:-.02em;font-size:18px;color:var(--ink);
-    text-decoration:none;
-  }
-  .brand .dot{width:26px;height:26px;border-radius:50%;background:linear-gradient(140deg,#12a150,#0b7a3b);box-shadow:inset 0 0 0 4px rgba(255,255,255,.25)}
-  .brand small{display:block;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-
-  /* ---------- Layout ---------- */
-  main{max-width:var(--maxw);margin:0 auto;padding:26px 18px 40px}
-  section{margin:0 0 30px}
-
-  /* ---------- AIDA: ATTENTION ---------- */
-  .eyebrow{
-    display:inline-block;
-    background:#fdeceb;
-    color:var(--red-dark);
-    border:1px solid #f7cfcb;
-    font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-    padding:7px 12px;border-radius:999px;margin:0 0 16px;
-  }
-  h1{
-    font-size:clamp(28px,5.6vw,46px);
-    line-height:1.12;
-    letter-spacing:-.025em;
-    margin:0 0 14px;
-    font-weight:900;
-  }
-  h1 .hl{
-    background:linear-gradient(180deg,transparent 62%,#ffe08a 62%);
-    padding:0 2px;border-radius:3px;
-  }
-  .subhead{
-    font-size:clamp(17px,2.4vw,21px);
-    color:var(--ink-soft);
-    margin:0 0 10px;
-    font-weight:500;
-  }
-  .subhead strong{color:var(--ink)}
-  .kicker{font-size:15px;color:var(--muted);margin:0}
-
-  /* ---------- INTEREST / video simulator ---------- */
-  .player{
-    position:relative;
-    aspect-ratio:16/9;
-    width:100%;
-    border-radius:var(--radius);
-    overflow:hidden;
-    background:
-      radial-gradient(120% 90% at 50% 10%, rgba(255,255,255,.14), transparent 60%),
-      linear-gradient(160deg,#131a2b 0%,#0a0f1c 55%,#05080f 100%);
-    border:1px solid #1d2740;
-    box-shadow:0 18px 50px rgba(5,8,15,.35);
-    cursor:pointer;
-    display:block;
-  }
-  .player .thumb{
-    position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;z-index:0;
-    filter:saturate(1.06) contrast(1.03);
-  }
-  .player .scrim{
-    position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(180deg,rgba(6,10,20,.46) 0%,rgba(6,10,20,.04) 34%,rgba(6,10,20,.82) 100%);
-  }
-  .headline-wrap{
-    position:absolute;left:16px;right:16px;bottom:64px;z-index:3;
-    display:flex;flex-direction:column;align-items:flex-start;gap:7px;
-    text-align:left;pointer-events:none;
-  }
-  .headline-wrap .tag{
-    background:#ffd400;color:#10192b;
-    font-size:clamp(9px,1.35vw,12px);font-weight:900;
-    letter-spacing:.14em;text-transform:uppercase;
-    padding:4px 9px;border-radius:5px;
-  }
-  .headline-wrap .big{
-    color:#fff;font-weight:900;letter-spacing:-.015em;
-    font-size:clamp(15px,2.35vw,25px);line-height:1.15;
-    text-transform:uppercase;
-    text-shadow:0 2px 4px rgba(0,0,0,.85),0 6px 18px rgba(0,0,0,.6);
-    max-width:78%;
-  }
-  .headline-wrap .big em{font-style:normal;color:#ffe45c}
-  .player .center{
-    position:absolute;inset:0;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;gap:12px;text-align:center;padding:18px;z-index:2;
-  }
-  @media (min-width:720px){
-    .player .center{align-items:flex-start;padding-left:24px}
-    .play-btn{margin-left:0}
-  }
-  .play-btn{
-    width:86px;height:86px;border-radius:50%;
-    background:linear-gradient(140deg,#ff3b30,#c91d13);
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 12px 30px rgba(201,29,19,.45);
-    position:relative;
-    transition:transform .18s ease;
-  }
-  .player:hover .play-btn{transform:scale(1.06)}
-  .play-btn::before,.play-btn::after{
-    content:"";position:absolute;inset:0;border-radius:50%;
-    border:2px solid rgba(255,59,48,.55);
-    animation:ring 2.4s ease-out infinite;
-  }
-  .play-btn::after{animation-delay:1.2s}
-  @keyframes ring{0%{transform:scale(1);opacity:.75}100%{transform:scale(1.85);opacity:0}}
-  .play-btn svg{margin-left:6px}
-  .player .hint{color:#eaf1ff;font-size:clamp(10.5px,1.5vw,13px);font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-shadow:0 2px 8px rgba(0,0,0,.8)}
-  .badge-live{
-    position:absolute;top:12px;left:12px;z-index:3;
-    background:rgba(217,45,32,.92);color:#fff;font-size:11px;font-weight:800;
-    letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;
-    display:flex;align-items:center;gap:6px;
-  }
-  .badge-live i{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.2s infinite}
-  @keyframes blink{50%{opacity:.25}}
-  .badge-hd{
-    position:absolute;top:12px;right:12px;z-index:3;
-    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
-    color:#e8eefc;font-size:11px;font-weight:800;letter-spacing:.08em;padding:4px 8px;border-radius:6px;
-  }
-  /* fake controls */
-  .controls{
-    position:absolute;left:0;right:0;bottom:0;z-index:3;
-    padding:10px 12px 12px;
-    background:linear-gradient(180deg,transparent,rgba(0,0,0,.72));
-  }
-  .bar{height:5px;border-radius:99px;background:rgba(255,255,255,.25);overflow:hidden}
-  .bar span{display:block;height:100%;width:14%;background:#ff3b30;border-radius:99px}
-  .controls .row{
-    display:flex;align-items:center;justify-content:space-between;
-    color:#dbe4f5;font-size:12px;font-weight:600;margin-top:8px;
-  }
-  .controls .row .left{display:flex;align-items:center;gap:10px}
-  .controls svg{opacity:.9}
-
-  /* loading overlay */
-  .loading{
-    position:absolute;inset:0;z-index:6;background:rgba(5,8,15,.92);
-    display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:20px;
-  }
-  .loading.on{display:flex}
-  .spinner{
-    width:44px;height:44px;border-radius:50%;
-    border:3px solid rgba(255,255,255,.22);border-top-color:#ff3b30;
-    animation:spin .8s linear infinite;
-  }
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .loading p{color:#fff;font-weight:700;margin:0;font-size:15px}
-
-  /* ---------- CTA ---------- */
-  .cta-block{text-align:center;margin-top:22px}
-  .cta{
-    display:inline-flex;align-items:center;justify-content:center;gap:12px;
-    width:100%;max-width:560px;
-    background:linear-gradient(180deg,#16b85c,#0b7a3b);
-    color:#fff;text-decoration:none;
-    font-size:clamp(17px,2.6vw,22px);font-weight:900;letter-spacing:.02em;
-    text-transform:uppercase;
-    padding:20px 24px;border-radius:12px;
-    box-shadow:0 10px 0 #085c2c, 0 18px 34px rgba(11,122,59,.35);
-    transition:transform .12s ease, box-shadow .12s ease;
-    animation:breathe 2.6s ease-in-out infinite;
-    line-height:1.2;text-align:center;
-  }
-  @keyframes breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-  .cta:hover{transform:translateY(-2px);box-shadow:0 12px 0 #085c2c,0 22px 40px rgba(11,122,59,.4)}
-  .cta:active{transform:translateY(4px);box-shadow:0 5px 0 #085c2c}
-  .cta .tri{
-    width:0;height:0;flex:0 0 auto;
-    border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;
-  }
-  .cta-note{font-size:14px;color:var(--muted);margin:14px 0 0}
-  .cta-note strong{color:var(--ink-soft)}
-  .read-link{display:inline-block;margin-top:10px;font-size:14.5px;font-weight:700;color:var(--blue)}
-
-  /* ---------- Trust strip ---------- */
-  .trust{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
-    margin-top:22px;
-  }
-  .trust div{
-    background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;
-    padding:12px 10px;text-align:center;font-size:12.5px;font-weight:700;color:var(--ink-soft);line-height:1.35;
-  }
-  .trust b{display:block;font-size:15px;color:var(--ink)}
-
-  /* ---------- DESIRE ---------- */
-  .card{
-    border:1px solid var(--line);border-radius:var(--radius);
-    background:#fff;box-shadow:var(--shadow);
-    padding:24px 22px;
-  }
-  h2{
-    font-size:clamp(21px,3.4vw,28px);line-height:1.2;letter-spacing:-.02em;
-    margin:0 0 8px;font-weight:900;
-  }
-  h3{font-size:18px;margin:0 0 6px;font-weight:800}
-  .lead{margin:0 0 16px;color:var(--ink-soft)}
-  ul.checks{list-style:none;margin:0;padding:0;display:grid;gap:13px}
-  ul.checks li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px}
-  ul.checks .tick{
-    flex:0 0 auto;width:24px;height:24px;border-radius:50%;
-    background:#e7f7ee;border:1px solid #bfe9d1;color:var(--green-dark);
-    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;margin-top:2px;
-  }
-  ul.checks .tick.no{background:#fdeceb;border-color:#f7cfcb;color:var(--red-dark)}
-  ul.checks li b{display:block}
-  ul.checks li span.txt{color:var(--ink-soft);font-size:15px}
-
-  .quote{
-    border-left:4px solid #ffd166;background:#fffdf4;
-    padding:14px 16px;border-radius:0 10px 10px 0;margin:18px 0 0;
-    font-size:15.5px;color:var(--ink-soft);font-style:italic;
-  }
-  .quote b{font-style:normal;color:var(--ink)}
-
-  /* ---------- ACTION ---------- */
-  .action{background:var(--blue);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
-  .action h2{color:#fff}
-  .action p{color:#c8d5ea;margin:0 0 18px}
-  .action .cta{box-shadow:0 10px 0 #085c2c,0 18px 34px rgba(0,0,0,.35)}
-  .action .meta{font-size:13px;color:#9fb3d1;margin-top:14px;letter-spacing:.04em}
-
-  /* ---------- FAQ ---------- */
-  details{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fff;margin-bottom:10px}
-  details[open]{background:var(--bg-soft)}
-  summary{cursor:pointer;font-weight:800;font-size:15.5px}
-  details p{margin:10px 0 0;color:var(--ink-soft);font-size:15px}
-
-  /* ---------- Footer ---------- */
-  footer{background:#0b1220;color:#a9b6cc;padding:34px 18px 26px;font-size:13.5px}
-  .fwrap{max-width:var(--maxw);margin:0 auto}
-  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:26px}
-  footer h4{color:#fff;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px}
-  footer p{margin:0 0 10px;line-height:1.65}
-  footer ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
-  footer button.link{
-    background:none;border:0;padding:0;color:#cfd9ea;font:inherit;font-weight:600;
-    cursor:pointer;text-align:left;text-decoration:underline;text-underline-offset:3px;
-  }
-  footer button.link:hover{color:#fff}
-  .disclosure{
-    border-top:1px solid #1e2a42;margin-top:24px;padding-top:18px;font-size:12px;color:#8a99b4;line-height:1.7;
-  }
-  .copy{border-top:1px solid #1e2a42;margin-top:16px;padding-top:14px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:12px;color:#7f8ea9}
-
-  /* ---------- Modal ---------- */
-  .modal{
-    position:fixed;inset:0;z-index:50;background:rgba(6,10,20,.72);
-    display:none;align-items:center;justify-content:center;padding:18px;
-  }
-  .modal.on{display:flex}
-  .modal .box{
-    background:#fff;color:var(--ink);border-radius:14px;max-width:720px;width:100%;
-    max-height:84vh;overflow:auto;padding:24px 22px;box-shadow:0 30px 70px rgba(0,0,0,.4);
-  }
-  .modal .box h3{font-size:20px;margin:0 0 12px}
-  .modal .box h4{font-size:15px;margin:18px 0 6px}
-  .modal .box p,.modal .box li{font-size:14.5px;color:var(--ink-soft)}
-  .modal .close{
-    position:sticky;top:0;float:right;background:#f1f4f8;border:1px solid var(--line);
-    border-radius:8px;width:34px;height:34px;font-size:18px;font-weight:800;color:var(--ink-soft);cursor:pointer;
-  }
-
-  @media (max-width:720px){
-    .fgrid{grid-template-columns:1fr}
-    .trust{grid-template-columns:1fr}
-    .trust div{text-align:left;display:flex;gap:10px;align-items:center}
-    .trust b{display:inline}
-    main{padding:18px 15px 32px}
-  }
-</style>
-</head>
-<body>
-
-<!-- ===== Top bar ===== -->
-<header class="topbar">
-  <a class="brand" href="#watch">
-    <span class="dot" aria-hidden="true"></span>
-    <span>Blood Sugar Blaster
-      <small>Free video presentation</small>
-    </span>
-  </a>
-</header>
-
-<main>
-
-  <!-- ======================= A — ATTENTION ======================= -->
-  <section>
-    <p class="eyebrow">Attention: if you struggle with high blood sugar…</p>
-    <h1>Discover how to control your <span class="hl">blood sugar levels</span> — without starving yourself or living at the gym</h1>
-    <p class="subhead">
-      Find out how a simple <strong>5-second daily habit</strong> can help you support steady blood sugar levels
-      and feel more energetic again — starting today.
-    </p>
-    <p class="kicker">Free video presentation · No credit card required · Watch it while it's still online</p>
-  </section>
-
-  <!-- ======================= I — INTEREST (video simulator) ======================= -->
-  <section id="watch">
-    <a class="player"
-       href="https://bloodsugarblaster.com/index-vsl-ds24#aff=thiagobarber"
-       id="videoPlayer"
-       aria-label="Play the free video presentation">
-      <span class="badge-live"><i aria-hidden="true"></i> Playing now</span>
-      <span class="badge-hd">HD</span>
-
-      <img class="thumb" src="assets/player-thumb.jpg" alt="Man checking a healthy blood sugar reading at home" />
-      <span class="scrim" aria-hidden="true"></span>
-
-      <span class="center">
-        <span class="play-btn" aria-hidden="true">
-          <svg width="30" height="34" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M28.5 15.3 2.6.6C1.6 0 0 .7 0 2v30c0 1.3 1.6 2 2.6 1.4l25.9-14.7c1-.6 1-2.1 0-2.7Z" fill="#fff"/>
-          </svg>
-        </span>
-        <span class="hint">Click to play the free presentation</span>
-      </span>
-
-      <span class="headline-wrap">
-        <span class="tag">Free video presentation</span>
-        <span class="big">The 5-second habit that helps <em>steady your blood sugar</em></span>
-      </span>
-
-      <span class="controls" aria-hidden="true">
-        <span class="bar"><span></span></span>
-        <span class="row">
-          <span class="left">
-            <svg width="12" height="14" viewBox="0 0 12 14" fill="#dbe4f5"><path d="M0 0h4v14H0zM8 0h4v14H8z"/></svg>
-            <span>00:00 / 12:47</span>
-          </span>
-          <span class="left">
-            <svg width="15" height="14" viewBox="0 0 15 14" fill="#dbe4f5"><path d="M7.5 2 4.2 5H1v4h3.2L7.5 12zM10 3.2a5 5 0 0 1 0 7.6l1 1.2a6.5 6.5 0 0 0 0-10z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="#dbe4f5"><path d="M1 1h3v12H1zM6 1h3v12H6zM11 1h3v12h-3z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="#dbe4f5"><path d="M1 5h12L7 12z"/></svg>
-          </span>
-        </span>
-      </span>
-
-      <!-- simulated loading -->
-      <span class="loading" id="loading" aria-live="polite">
-        <span class="spinner" aria-hidden="true"></span>
-        <p id="loadingText">Preparing your video… please wait</p>
-      </span>
-    </a>
-
-    <!-- ======================= CTA (below the video) ======================= -->
-    <div class="cta-block">
-      <a class="cta" id="ctaButton" href="https://bloodsugarblaster.com/index-vsl-ds24#aff=thiagobarber">
-        <span class="tri" aria-hidden="true"></span> Watch Video
-      </a>
-      <p class="cta-note"><strong>100% free to watch.</strong> Sound on — the first 30 seconds are the most important.</p>
-      <a class="read-link" href="https://bloodsugarblaster.com/index-vsl-ds24#aff=thiagobarber">Prefer to read instead? Click here for the text version</a>
-    </div>
-
-    <div class="trust">
-      <div><b>5 seconds</b> per day</div>
-      <div><b>100% natural</b> ingredients</div>
-      <div><b>Free</b> to watch today</div>
-    </div>
-  </section>
-
-  <!-- ======================= I — INTEREST (details) ======================= -->
-  <section class="card">
-    <h2>What you'll discover inside this free presentation</h2>
-    <p class="lead">No hype, no impossible diets. Just the simple daily routine thousands of people are using to feel better after 40.</p>
-    <ul class="checks">
-      <li><span class="tick" aria-hidden="true">✓</span><span class="txt"><b>The 5-second morning habit</b> that supports healthy blood sugar levels — you can do it before your coffee is ready.</span></li>
-      <li><span class="tick" aria-hidden="true">✓</span><span class="txt"><b>The "silent" foods</b> that quietly spike your blood sugar — and the surprising swaps that keep your levels steady.</span></li>
-      <li><span class="tick" aria-hidden="true">✓</span><span class="txt"><b>Why willpower isn't the problem</b> — and what to focus on instead of counting every carb.</span></li>
-      <li><span class="tick" aria-hidden="true">✓</span><span class="txt"><b>How to support steady energy</b> so you're not crashing in the afternoon or dragging yourself to bed.</span></li>
-      <li><span class="tick" aria-hidden="true">✓</span><span class="txt"><b>A simple, budget-friendly routine</b> that fits into your normal day — no gym required.</span></li>
-    </ul>
-    <p class="quote">
-      <b>Important:</b> this presentation is educational and free to watch. It is not a substitute for medical care,
-      and it never asks you to stop any treatment you're already following.
-    </p>
-  </section>
-
-  <!-- ======================= D — DESIRE ======================= -->
-  <section class="card">
-    <h2>Imagine waking up and feeling in control again</h2>
-    <p class="lead">Steady numbers. Steady energy. No guessing at every meal.</p>
-    <ul class="checks">
-      <li><span class="tick" aria-hidden="true">✓</span><span class="txt"><b>Mornings without the dread</b> of checking your meter.</span></li>
-      <li><span class="tick" aria-hidden="true">✓</span><span class="txt"><b>Afternoons without the crash</b> — real energy to enjoy your family, your work, your life.</span></li>
-      <li><span class="tick" aria-hidden="true">✓</span><span class="txt"><b>Meals without the fear</b> — learn how to eat the foods you love in a smarter order.</span></li>
-      <li><span class="tick" aria-hidden="true">✓</span><span class="txt"><b>A routine you can actually keep</b> — because it takes seconds, not hours.</span></li>
-    </ul>
-    <ul class="checks" style="margin-top:16px">
-      <li><span class="tick no" aria-hidden="true">✕</span><span class="txt"><b>Not another starvation diet.</b></span></li>
-      <li><span class="tick no" aria-hidden="true">✕</span><span class="txt"><b>Not hours of exhausting exercise.</b></span></li>
-      <li><span class="tick no" aria-hidden="true">✕</span><span class="txt"><b>Not an expensive, complicated protocol.</b></span></li>
-    </ul>
-  </section>
-
-  <!-- ======================= A — ACTION ======================= -->
-  <section class="action">
-    <h2>Ready? Watch the free video now</h2>
-    <p>In the next few minutes you'll know exactly what the 5-second habit is — and how to start using it tomorrow morning.</p>
-    <a class="cta" href="https://bloodsugarblaster.com/index-vsl-ds24#aff=thiagobarber">
-      <span class="tri" aria-hidden="true"></span> Watch Video
-    </a>
-    <p class="meta">Free presentation · Takes less than 13 minutes · No sign-up needed</p>
-  </section>
-
-  <!-- ======================= FAQ ======================= -->
-  <section>
-    <h2>Frequently asked questions</h2>
-    <details open>
-      <summary>Is the video really free?</summary>
-      <p>Yes. The presentation is completely free to watch and you don't need to enter any payment information to see it.</p>
-    </details>
-    <details>
-      <summary>How long is the video?</summary>
-      <p>It runs about 13 minutes. Watch it with the sound on and give it your full attention — the key part is explained early on.</p>
-    </details>
-    <details>
-      <summary>Do I need to stop my current treatment?</summary>
-      <p>No. Nothing on this page should be used as a reason to change, stop or replace any medical treatment. Always talk to your doctor before making changes to your routine, diet or medication.</p>
-    </details>
-    <details>
-      <summary>Who is this for?</summary>
-      <p>Adults who want to understand blood sugar in plain English, especially people over 40 who are tired of feeling drained and confused about what to eat.</p>
-    </details>
-  </section>
-
-</main>
-
-<!-- ======================= FOOTER ======================= -->
-<footer>
-  <div class="fwrap">
-    <div class="fgrid">
-      <div>
-        <h4>Information</h4>
-        <p><strong style="color:#fff">Blood Sugar Blaster — Free Video Presentation</strong></p>
-        <p>This page is an independent promotional page that presents an educational video about blood sugar support. It is intended for adults aged 18 and over.</p>
-      </div>
-      <div>
-        <h4>Policies</h4>
-        <ul>
-          <li><button class="link" data-modal="privacy">Privacy Policy</button></li>
-          <li><button class="link" data-modal="terms">Terms of Use</button></li>
-          <li><button class="link" data-modal="disclaimer">Medical &amp; Earnings Disclaimer</button></li>
-          <li><button class="link" data-modal="cookies">Cookie Policy</button></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Quick links</h4>
-        <ul>
-          <li><a href="#watch" style="color:#cfd9ea;text-decoration:underline">Watch the video</a></li>
-          <li><button class="link" data-modal="contact">Contact &amp; Support</button></li>
-          <li><button class="link" data-modal="affiliate">Affiliate Disclosure</button></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="disclosure">
-      <p><strong style="color:#cfd9ea">Medical disclaimer:</strong> The content on this page is provided for general informational and educational purposes only and is not medical advice. Statements have not been evaluated by the Food and Drug Administration. No product mentioned is intended to diagnose, treat, cure or prevent any disease. Always consult a qualified healthcare professional before starting any supplement, diet or exercise program, and never stop or change prescribed medication without medical guidance. Individual results vary.</p>
-      <p><strong style="color:#cfd9ea">Advertising disclosure:</strong> This is a promotional page and the owner may receive compensation if you purchase a product through the links on this page. This helps support the free content provided here and does not increase the price you pay.</p>
-      <p><strong style="color:#cfd9ea">Results disclaimer:</strong> Testimonials or examples shown in the video are not typical and do not guarantee that you will achieve the same or similar results.</p>
-    </div>
-
-    <div class="copy">
-      <span>© <span id="year">2026</span> Blood Sugar Blaster Presentation Page. All rights reserved.</span>
-      <span>Made for informational purposes only · English (US)</span>
-    </div>
-  </div>
-</footer>
-
-<!-- ======================= MODALS ======================= -->
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="box">
-    <button class="close" id="modalClose" aria-label="Close">×</button>
-    <div id="modalBody"></div>
-  </div>
-</div>
-
-<script>
-  /* ---------- current year ---------- */
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  /* ---------- video simulator ---------- */
-  var player   = document.getElementById('videoPlayer');
-  var loading  = document.getElementById('loading');
-  var loadText = document.getElementById('loadingText');
-
-  player.addEventListener('click', function () {
-    loading.classList.add('on');
-    loadText.textContent = 'Preparing your video… please wait';
-    /* simulates the player buffering before opening the presentation */
-    setTimeout(function () {
-      loadText.textContent = 'Opening the presentation…';
-    }, 1600);
-  });
-
-  /* ---------- policy modals ---------- */
-  var content = {
-    privacy: {
-      title: 'Privacy Policy',
-      html: `
-        <p><em>Last updated: <span class="yr"></span></em></p>
-        <h4>1. Information we collect</h4>
-        <p>We may collect information you voluntarily provide (such as your name and email address when you contact us) and limited technical data automatically sent by your browser, including IP address, device type, browser, referring page and time of visit.</p>
-        <h4>2. How we use information</h4>
-        <p>We use this information to operate and improve this page, respond to your messages, measure the performance of our content and advertising, prevent fraud, and comply with legal obligations.</p>
-        <h4>3. Cookies and similar technologies</h4>
-        <p>This page and its partners may use cookies, pixels and similar technologies to remember preferences, measure traffic and show relevant advertising. You can block or delete cookies in your browser settings at any time.</p>
-        <h4>4. Sharing</h4>
-        <p>We do not sell your personal information. We may share it with service providers (hosting, analytics, email, payment and affiliate tracking partners) who process it on our behalf, or when required by law.</p>
-        <h4>5. Third-party links</h4>
-        <p>Clicking the video or the buttons on this page takes you to a third-party website with its own privacy practices. We are not responsible for the content or privacy policies of external sites.</p>
-        <h4>6. Data retention and security</h4>
-        <p>We keep personal data only as long as necessary for the purposes described above and apply reasonable technical and organizational measures to protect it. No method of transmission over the internet is 100% secure.</p>
-        <h4>7. Your rights</h4>
-        <p>Depending on your location, you may request access, correction, deletion, restriction or portability of your personal data, and object to certain processing. To exercise these rights, contact us using the details below.</p>
-        <h4>8. Children</h4>
-        <p>This page is not intended for anyone under 18, and we do not knowingly collect data from children.</p>
-        <h4>9. Contact</h4>
-        <p>Privacy questions: <a href="mailto:support@example.com">support@example.com</a></p>
-      `
-    },
-    terms: {
-      title: 'Terms of Use',
-      html: `
-        <p>By accessing and using this page you agree to the terms below. If you do not agree, please do not use the page.</p>
-        <h4>1. Purpose</h4>
-        <p>This page provides access to an educational video presentation and general information about blood sugar support. It is for adults aged 18 or older.</p>
-        <h4>2. No medical advice</h4>
-        <p>Nothing here constitutes medical advice, diagnosis or treatment. Always consult a qualified healthcare professional regarding your health, diet, supplements and medication.</p>
-        <h4>3. Intellectual property</h4>
-        <p>All text, layout, graphics and other content on this page are protected by copyright and may not be copied, reproduced or redistributed without prior written permission.</p>
-        <h4>4. Acceptable use</h4>
-        <p>You agree not to use this page for unlawful purposes, attempt to interfere with its operation, or scrape, republish or misrepresent its content.</p>
-        <h4>5. Limitation of liability</h4>
-        <p>This page is provided "as is" and "as available", without warranties of any kind. We are not liable for any direct or indirect damages arising from the use of, or inability to use, this page or any third-party website linked from it.</p>
-        <h4>6. Changes</h4>
-        <p>We may update these terms at any time. Continued use of the page after changes are posted means you accept the revised terms.</p>
-      `
-    },
-    disclaimer: {
-      title: 'Medical & Earnings Disclaimer',
-      html: `
-        <h4>Medical disclaimer</h4>
-        <p>The information on this page and in the video presentation is for general informational and educational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis or treatment. Statements regarding dietary supplements have not been evaluated by the Food and Drug Administration and are not intended to diagnose, treat, cure or prevent any disease.</p>
-        <p>Always seek the advice of a physician or other qualified health provider with any questions about a medical condition, and never disregard professional medical advice because of something you read or watched here. Never stop, change or delay prescribed medication based on this content.</p>
-        <h4>Individual results</h4>
-        <p>Results vary from person to person and depend on factors outside our control, including genetics, age, diet, lifestyle, adherence and existing health conditions. Stories or examples shown in the presentation are individual experiences and are not typical or guaranteed.</p>
-        <h4>Earnings and results disclaimer</h4>
-        <p>Any references to results of any kind are examples only. There is no guarantee that you will achieve the same or similar outcomes.</p>
-        <h4>External links</h4>
-        <p>Links on this page lead to third-party websites that are solely responsible for their own content, claims, products and policies.</p>
-      `
-    },
-    cookies: {
-      title: 'Cookie Policy',
-      html: `
-        <p>This page uses cookies and similar technologies to keep the page working correctly, to understand how visitors use it and to measure the performance of advertising campaigns.</p>
-        <h4>Types of cookies used</h4>
-        <ul>
-          <li><strong>Essential:</strong> required for basic page functions such as security and load balancing.</li>
-          <li><strong>Analytics:</strong> help us understand which sections are read most and where visitors come from.</li>
-          <li><strong>Marketing/Affiliate:</strong> allow us and our partners to track clicks from this page so that commissions and campaign results can be measured.</li>
-        </ul>
-        <h4>Managing cookies</h4>
-        <p>You can accept, block or delete cookies at any time in your browser settings. Disabling cookies may affect how parts of this page behave.</p>
-      `
-    },
-    affiliate: {
-      title: 'Affiliate Disclosure',
-      html: `
-        <p>This page contains affiliate and promotional links. If you click a link, watch the presentation and then purchase a product, the owner of this page may receive a commission or other compensation from the vendor.</p>
-        <p>This compensation supports the creation of free content and does not change the price you pay. We only promote offers we believe may be useful to our audience, but we do not manufacture, ship, bill or provide support for third-party products.</p>
-        <p>Any questions about orders, shipping, billing, refunds or product support must be directed to the vendor's own customer service using the contact details provided on their website.</p>
-      `
-    },
-    contact: {
-      title: 'Contact & Support',
-      html: `
-        <p>Questions about this page, its content or these policies? Send us a message and we'll get back to you as soon as possible.</p>
-        <h4>Email</h4>
-        <p><a href="mailto:support@example.com">support@example.com</a></p>
-        <h4>Support hours</h4>
-        <p>Monday to Friday, 9:00 AM – 6:00 PM (local business hours). Replies usually within 1–2 business days.</p>
-        <h4>Orders and refunds</h4>
-        <p>For order status, shipping, billing, refunds or product-related questions, please contact the vendor's customer service directly — their details appear on their website and in your purchase confirmation email.</p>
-      `
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#10b981', // Verde financiero principal
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            surface: {
+              light: '#F8FAFC',
+              card: '#FFFFFF',
+              dark: '#0F172A',
+              darkcard: '#1E293B',
+              darkborder: '#334155'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+          }
+        }
+      }
     }
-  };
+  </script>
 
-  var modal      = document.getElementById('modal');
-  var modalBody  = document.getElementById('modalBody');
-  var modalClose = document.getElementById('modalClose');
+  <!-- React 18 & Babel Standalone -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  function openModal(key){
-    var item = content[key];
-    if(!item) return;
-    modalBody.innerHTML = '<h3 id="modalTitle">' + item.title + '</h3>' + item.html;
-    modalBody.querySelectorAll('.yr').forEach(function(el){ el.textContent = new Date().getFullYear(); });
-    modal.classList.add('on');
-    modal.querySelector('.box').scrollTop = 0;
-  }
-  function closeModal(){ modal.classList.remove('on'); }
+  <!-- Chart.js para visualización de datos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  document.querySelectorAll('[data-modal]').forEach(function(btn){
-    btn.addEventListener('click', function(){ openModal(btn.getAttribute('data-modal')); });
-  });
-  modalClose.addEventListener('click', closeModal);
-  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
-</script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* Estilos base y transiciones suaves */
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      background-color: #f8fafc;
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+    .dark body {
+      background-color: #0b1120;
+      color: #f8fafc;
+    }
+    /* Scrollbar minimalista */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: #334155;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-surface-light dark:bg-[#0B1120] text-slate-800 dark:text-slate-100 transition-colors duration-200">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useMemo, useRef } = React;
+
+    // =========================================================================
+    // 1. UTILIDADES Y FORMATEO ESPAÑOL DE ESPAÑA
+    // =========================================================================
+    const formatEUR = (amount) => {
+      const val = Number(amount) || 0;
+      return new Intl.NumberFormat('es-ES', {
+        style: 'currency',
+        currency: 'EUR',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(val);
+    };
+
+    const formatDateES = (dateStr) => {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      return new Intl.DateTimeFormat('es-ES', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      }).format(d);
+    };
+
+    const CATEGORIES = {
+      housing: { name: 'Vivienda', icon: '🏠', color: '#3B82F6' },
+      food: { name: 'Alimentación', icon: '🍔', color: '#10B981' },
+      transport: { name: 'Transporte', icon: '🚗', color: '#F59E0B' },
+      leisure: { name: 'Ocio', icon: '🎮', color: '#EC4899' },
+      subscriptions: { name: 'Suscripciones', icon: '💳', color: '#8B5CF6' },
+      health: { name: 'Salud', icon: '🏥', color: '#EF4444' },
+      education: { name: 'Educación', icon: '📚', color: '#06B6D4' },
+      shopping: { name: 'Compras', icon: '🛍', color: '#F97316' },
+      technology: { name: 'Tecnología', icon: '📱', color: '#6366F1' },
+      savings: { name: 'Ahorro', icon: '💰', color: '#059669' },
+      investment: { name: 'Inversión', icon: '📈', color: '#14B8A6' },
+      debt: { name: 'Deudas', icon: '⚖️', color: '#DC2626' },
+      salary: { name: 'Nómina', icon: '💼', color: '#10B981' },
+      extra: { name: 'Ingresos extras', icon: '✨', color: '#34D399' }
+    };
+
+    // =========================================================================
+    // 2. CAPA DE PERSISTENCIA Y SERVICIOS (LISTA PARA BACKEND)
+    // =========================================================================
+    const STORAGE_KEY = 'aura_finance_master_data_v1';
+
+    const INITIAL_DEMO_DATA = {
+      user: {
+        id: 'usr_demo_101',
+        name: 'Alejandro',
+        surname: 'Martínez',
+        email: 'alejandro.martinez@ejemplo.es',
+        currency: 'EUR',
+        plan: 'pro',
+        country: 'España',
+        theme: 'light',
+        onboardingCompleted: true
+      },
+      transactions: [
+        { id: 'tx_1', concept: 'Nómina mensual', amount: 2850.00, type: 'income', category: 'salary', date: '2026-10-01', account: 'Cuenta Nómina BBVA', notes: 'Mes en curso' },
+        { id: 'tx_2', concept: 'Hipoteca vivienda', amount: 720.00, type: 'expense', category: 'housing', date: '2026-10-02', account: 'Cuenta Nómina BBVA', notes: 'Cuota fija mensual' },
+        { id: 'tx_3', concept: 'Compra Mercadona', amount: 168.45, type: 'expense', category: 'food', date: '2026-10-03', account: 'Tarjeta Visa Débito', notes: 'Alimentación semanal' },
+        { id: 'tx_4', concept: 'Abono Transporte Renfe', amount: 54.60, type: 'expense', category: 'transport', date: '2026-10-04', account: 'Tarjeta Visa Débito', notes: 'Mensual' },
+        { id: 'tx_5', concept: 'Restaurante fin de semana', amount: 84.00, type: 'expense', category: 'leisure', date: '2026-10-05', account: 'Tarjeta Visa Débito', notes: 'Cena amigos' },
+        { id: 'tx_6', concept: 'Suscripción Netflix & Spotify', amount: 27.98, type: 'expense', category: 'subscriptions', date: '2026-10-06', account: 'Cuenta Nómina BBVA', notes: 'Servicios de streaming' },
+        { id: 'tx_7', concept: 'Gimnasio mensual', amount: 39.90, type: 'expense', category: 'health', date: '2026-10-07', account: 'Cuenta Nómina BBVA', notes: 'Cuota club deportivo' },
+        { id: 'tx_8', concept: 'Ingreso freelance consultoría', amount: 450.00, type: 'income', category: 'extra', date: '2026-10-08', account: 'Cuenta Nómina BBVA', notes: 'Proyecto web auxiliar' },
+        { id: 'tx_9', concept: 'Aportación Fondo Inversión Indexado', amount: 300.00, type: 'expense', category: 'investment', date: '2026-10-09', account: 'MyInvestor', notes: 'MSCI World ETF' },
+        { id: 'tx_10', concept: 'Factura Fibra y Móvil O2', amount: 38.00, type: 'expense', category: 'housing', date: '2026-10-10', account: 'Cuenta Nómina BBVA', notes: 'Internet doméstico' }
+      ],
+      budgets: [
+        { category: 'housing', limit: 800 },
+        { category: 'food', limit: 400 },
+        { category: 'transport', limit: 120 },
+        { category: 'leisure', limit: 200 },
+        { category: 'subscriptions', limit: 50 },
+        { category: 'health', limit: 80 }
+      ],
+      goals: [
+        { id: 'goal_1', name: 'Fondo de emergencia (6 meses)', target: 8400, current: 4800, deadline: '2027-04-30', category: 'emergency', priority: 'high', icon: '🛡️' },
+        { id: 'goal_2', name: 'Viaje a Japón en otoño', target: 4500, current: 2150, deadline: '2027-10-31', category: 'travel', priority: 'medium', icon: '✈️' },
+        { id: 'goal_3', name: 'Entrada para compra de piso', target: 35000, current: 11200, deadline: '2029-12-31', category: 'housing', priority: 'high', icon: '🏠' },
+        { id: 'goal_4', name: 'Coche híbrido enchufable', target: 12000, current: 3400, deadline: '2028-06-30', category: 'car', priority: 'low', icon: '🚗' }
+      ],
+      debts: [
+        { id: 'debt_1', name: 'Préstamo vehículo', total: 6400, remaining: 3800, monthlyPayment: 195, interestRate: 6.2, endDate: '2028-05-15', type: 'Préstamo personal' },
+        { id: 'debt_2', name: 'Tarjeta de crédito aplazado', total: 1200, remaining: 450, monthlyPayment: 75, interestRate: 14.5, endDate: '2027-04-01', type: 'Tarjeta revolving' }
+      ],
+      investments: [
+        { id: 'inv_1', name: 'Vanguard Global Stock Index (MyInvestor)', type: 'Fondo Indexado', invested: 7500, current: 8940, returnRate: 19.2 },
+        { id: 'inv_2', name: 'Cuenta Remunerada Trade Republic 3,75%', type: 'Cuenta Remunerada', invested: 4500, current: 4625, returnRate: 2.78 },
+        { id: 'inv_3', name: 'Letras del Tesoro Español 12m', type: 'Renta Fija Pública', invested: 3000, current: 3095, returnRate: 3.16 }
+      ],
+      habits: [
+        { id: 'h_1', title: 'Registrar gastos del día', streak: 14, completedToday: true },
+        { id: 'h_2', title: 'Revisar suscripciones inactivas', streak: 3, completedToday: true },
+        { id: 'h_3', title: 'Págate a ti primero (Ahorro inicial)', streak: 8, completedToday: true },
+        { id: 'h_4', title: 'Comprobar saldo semanal los domingos', streak: 21, completedToday: false }
+      ],
+      notifications: [
+        { id: 'n_1', title: 'Presupuesto de Alimentación', message: 'Has alcanzado el 42% del límite mensual fijado.', type: 'info', time: 'Hace 2 horas', read: false },
+        { id: 'n_2', title: 'Objetivo Viaje a Japón', message: '¡Estás a menos de 2.350 € de completar el objetivo!', type: 'success', time: 'Ayer', read: false },
+        { id: 'n_3', title: 'Vencimiento de cuota', message: 'El 15 de este mes se pasará la cuota de tu préstamo (195,00 €).', type: 'warning', time: 'Hace 3 días', read: true }
+      ]
+    };
+
+    // Capa de abstracción de almacenamiento (Database Adapter)
+    const db = {
+      get: () => {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_DEMO_DATA));
+            return INITIAL_DEMO_DATA;
+          }
+          return JSON.parse(raw);
+        } catch (e) {
+          console.error('Error accediendo a almacenamiento local:', e);
+          return INITIAL_DEMO_DATA;
+        }
+      },
+      set: (data) => {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        } catch (e) {
+          console.error('Error guardando en almacenamiento:', e);
+        }
+      },
+      reset: () => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_DEMO_DATA));
+        return INITIAL_DEMO_DATA;
+      }
+    };
+
+    // =========================================================================
+    // 3. COMPONENTE ICONOS LUCIDE SEGURO
+    // =========================================================================
+    const Icon = ({ name, size = 18, className = "" }) => {
+      const containerRef = useRef(null);
+      useEffect(() => {
+        if (window.lucide && containerRef.current) {
+          containerRef.current.innerHTML = `<i data-lucide="${name}" class="${className}" style="width:${size}px; height:${size}px;"></i>`;
+          window.lucide.createIcons({
+            root: containerRef.current
+          });
+        }
+      }, [name, size, className]);
+      return <span ref={containerRef} className={`inline-flex items-center justify-center align-middle ${className}`} />;
+    };
+
+    // =========================================================================
+    // 4. COMPONENTES UI REUTILIZABLES (DESIGN SYSTEM)
+    // =========================================================================
+    const Card = ({ children, className = "", title, subtitle, action }) => (
+      <div className={`bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 md:p-6 shadow-sm shadow-slate-100 dark:shadow-none transition-all ${className}`}>
+        {(title || action) && (
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              {title && <h3 className="font-semibold text-slate-900 dark:text-white text-base tracking-tight">{title}</h3>}
+              {subtitle && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{subtitle}</p>}
+            </div>
+            {action && <div>{action}</div>}
+          </div>
+        )}
+        {children}
+      </div>
+    );
+
+    const StatCard = ({ title, value, detail, icon, trend, trendValue, badgeColor = "brand" }) => (
+      <Card className="hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+        <div className="flex items-start justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">{title}</p>
+            <h4 className="text-2xl lg:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">{value}</h4>
+          </div>
+          <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-100 dark:border-slate-700">
+            <Icon name={icon} size={20} />
+          </div>
+        </div>
+        {(detail || trend) && (
+          <div className="mt-3 flex items-center gap-2 text-xs">
+            {trend && (
+              <span className={`inline-flex items-center font-medium ${trend === 'up' ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}`}>
+                <Icon name={trend === 'up' ? 'arrow-up-right' : 'arrow-down-right'} size={14} className="mr-0.5" />
+                {trendValue}
+              </span>
+            )}
+            <span className="text-slate-500 dark:text-slate-400">{detail}</span>
+          </div>
+        )}
+      </Card>
+    );
+
+    const Button = ({ children, variant = "primary", size = "md", onClick, disabled, className = "", type = "button", icon }) => {
+      const base = "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+      const sizes = {
+        sm: "px-3 py-1.5 text-xs gap-1.5",
+        md: "px-4 py-2 text-sm gap-2",
+        lg: "px-5 py-2.5 text-base gap-2.5"
+      };
+      const variants = {
+        primary: "bg-emerald-600 hover:bg-emerald-700 text-white focus:ring-emerald-500 shadow-sm shadow-emerald-600/20 active:scale-[0.98]",
+        secondary: "bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 focus:ring-slate-400",
+        outline: "border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300 focus:ring-slate-300",
+        danger: "bg-rose-600 hover:bg-rose-700 text-white focus:ring-rose-500 shadow-sm",
+        ghost: "hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400"
+      };
+      return (
+        <button
+          type={type}
+          onClick={onClick}
+          disabled={disabled}
+          className={`${base} ${sizes[size]} ${variants[variant]} ${className}`}
+        >
+          {icon && <Icon name={icon} size={size === 'sm' ? 14 : size === 'lg' ? 18 : 16} />}
+          {children}
+        </button>
+      );
+    };
+
+    const ProgressBar = ({ value, max, color = "bg-emerald-500", showLabel = false, height = "h-2" }) => {
+      const percentage = Math.min(100, Math.max(0, Math.round((value / max) * 100))) || 0;
+      return (
+        <div className="w-full">
+          <div className={`w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden ${height}`}>
+            <div
+              className={`h-full ${color} rounded-full transition-all duration-500 ease-out`}
+              style={{ width: `${percentage}%` }}
+            />
+          </div>
+          {showLabel && (
+            <div className="flex justify-between items-center text-xs text-slate-500 dark:text-slate-400 mt-1.5">
+              <span>{percentage}% completado</span>
+              <span>{formatEUR(value)} de {formatEUR(max)}</span>
+            </div>
+          )}
+        </div>
+      );
+    };
+
+    const Modal = ({ isOpen, onClose, title, children, maxWidth = "max-w-lg" }) => {
+      if (!isOpen) return null;
+      return (
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="fixed inset-0" onClick={onClose}></div>
+          <div className={`relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full ${maxWidth} p-6 shadow-2xl z-10 animate-in fade-in zoom-in-95 duration-150`}>
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">{title}</h3>
+              <button onClick={onClose} className="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+                <Icon name="x" size={18} />
+              </button>
+            </div>
+            {children}
+          </div>
+        </div>
+      );
+    };
+
+    // =========================================================================
+    // 5. MOTOR DE SALUD FINANCIERA (HEALTH SCORE DINÁMICO)
+    // =========================================================================
+    const calculateFinancialHealth = (data) => {
+      const currentMonthIncome = data.transactions
+        .filter(t => t.type === 'income')
+        .reduce((acc, t) => acc + t.amount, 0);
+
+      const currentMonthExpense = data.transactions
+        .filter(t => t.type === 'expense')
+        .reduce((acc, t) => acc + t.amount, 0);
+
+      const totalSavings = (currentMonthIncome - currentMonthExpense);
+      const savingsRate = currentMonthIncome > 0 ? (totalSavings / currentMonthIncome) * 100 : 0;
+
+      // 1. Puntuación Tasa de ahorro (máx 30 puntos)
+      let savingsScore = 0;
+      if (savingsRate >= 30) savingsScore = 30;
+      else if (savingsRate >= 20) savingsScore = 24;
+      else if (savingsRate >= 10) savingsScore = 18;
+      else if (savingsRate > 0) savingsScore = 10;
+
+      // 2. Fondo de emergencia (máx 25 puntos)
+      const emergencyGoal = data.goals.find(g => g.category === 'emergency');
+      let emergencyScore = 10;
+      if (emergencyGoal && emergencyGoal.target > 0) {
+        const ratio = emergencyGoal.current / emergencyGoal.target;
+        emergencyScore = Math.min(25, Math.round(ratio * 25));
+      }
+
+      // 3. Ratio de Deuda (máx 25 puntos)
+      const totalMonthlyDebtPayments = data.debts.reduce((sum, d) => sum + d.monthlyPayment, 0);
+      const debtRatio = currentMonthIncome > 0 ? (totalMonthlyDebtPayments / currentMonthIncome) * 100 : 0;
+      let debtScore = 25;
+      if (debtRatio > 40) debtScore = 5;
+      else if (debtRatio > 30) debtScore = 12;
+      else if (debtRatio > 15) debtScore = 18;
+
+      // 4. Inversiones y Patrimonio (máx 20 puntos)
+      const totalInvested = data.investments.reduce((sum, i) => sum + i.current, 0);
+      let investScore = totalInvested > 10000 ? 20 : totalInvested > 3000 ? 15 : totalInvested > 500 ? 10 : 5;
+
+      const totalScore = Math.min(100, Math.max(0, savingsScore + emergencyScore + debtScore + investScore));
+
+      let message = "Tu situación financiera está evolucionando favorablemente.";
+      let badge = "Óptima";
+      let color = "text-emerald-600";
+
+      if (totalScore < 50) {
+        message = "Atención prioritaria: Reduce gastos inmediatos y amortiza deudas con interés elevado.";
+        badge = "Vulnerable";
+        color = "text-rose-600";
+      } else if (totalScore < 75) {
+        message = "Vas por buen camino. Reforzar tu fondo de emergencia te dará una protección completa.";
+        badge = "Estable";
+        color = "text-amber-600";
+      }
+
+      return {
+        score: totalScore,
+        savingsScore,
+        emergencyScore,
+        debtScore,
+        investScore,
+        message,
+        badge,
+        color,
+        savingsRate: Math.max(0, savingsRate).toFixed(1)
+      };
+    };
+
+    // =========================================================================
+    // 6. ONBOARDING INTELIGENTE (7 PASOS)
+    // =========================================================================
+    const OnboardingWizard = ({ onComplete }) => {
+      const [step, setStep] = useState(1);
+      const [formData, setFormData] = useState({
+        situation: 'Quiero ahorrar más y organizar mis cuentas',
+        salary: 2600,
+        otherIncome: 200,
+        housingExpense: 750,
+        foodExpense: 380,
+        transportExpense: 90,
+        leisureExpense: 180,
+        subscriptionsExpense: 35,
+        currentSavings: 4200,
+        hasDebts: 'yes',
+        debtType: 'Préstamo coche',
+        debtRemaining: 3200,
+        debtMonthly: 180,
+        debtInterest: 5.9,
+        primaryGoalName: 'Crear Fondo de Emergencia',
+        primaryGoalAmount: 6000,
+        primaryGoalMonths: 12
+      });
+
+      const next = () => setStep(s => Math.min(7, s + 1));
+      const prev = () => setStep(s => Math.max(1, s - 1));
+
+      const finish = () => {
+        if (window.confetti) {
+          window.confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+        }
+        onComplete(formData);
+      };
+
+      return (
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-center p-4">
+          <div className="w-full max-w-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-xl relative overflow-hidden">
+            {/* Barra superior de progreso */}
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-2">
+                <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold">
+                  <Icon name="sparkles" size={20} />
+                </div>
+                <span className="font-bold text-slate-900 dark:text-white text-lg">Aura Finance</span>
+              </div>
+              <span className="text-xs font-semibold px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full">
+                Paso {step} de 7
+              </span>
+            </div>
+
+            <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full mb-8 overflow-hidden">
+              <div className="bg-emerald-500 h-full transition-all duration-300" style={{ width: `${(step / 7) * 100}%` }}></div>
+            </div>
+
+            {/* Paso 1: Situación actual */}
+            {step === 1 && (
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Vamos a poner tus finanzas en orden.</h2>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">¿Cuál describe mejor tu prioridad en este momento?</p>
+                <div className="space-y-3">
+                  {[
+                    { label: 'Quiero ahorrar más mes a mes', desc: 'Aumentar mi colchón y reducir fugas de dinero innecesarias' },
+                    { label: 'Quiero controlar mis gastos diarios', desc: 'Tener trazabilidad exacta de dónde acaba cada euro' },
+                    { label: 'Tengo deudas que quiero liquidar', desc: 'Crear un plan matemático de amortización acelerada' },
+                    { label: 'Quiero empezar a invertir con cabeza', desc: 'Hacer crecer mi patrimonio a medio y largo plazo' },
+                    { label: 'Quiero comprar una vivienda o gran meta', desc: 'Planificar el ahorro necesario para la entrada' },
+                    { label: 'Quiero organizar toda mi vida financiera', desc: 'Una visión 360° unificada, limpia y predecible' }
+                  ].map((item, idx) => (
+                    <label key={idx} className={`flex items-start p-4 rounded-xl border cursor-pointer transition-all ${formData.situation === item.label ? 'border-emerald-500 bg-emerald-50/40 dark:bg-emerald-950/20' : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'}`}>
+                      <input
+                        type="radio"
+                        name="situation"
+                        className="mt-1 text-emerald-600 focus:ring-emerald-500"
+                        checked={formData.situation === item.label}
+                        onChange={() => setFormData({ ...formData, situation: item.label })}
+                      />
+                      <div className="ml-3">
+                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">{item.label}</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">{item.desc}</p>
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Paso 2: Ingresos mensuales */}
+            {step === 2 && (
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">¿Cuáles son tus ingresos mensuales habituales?</h2>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">Introduce importes netos aproximados en euros.</p>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Salario o nómina neta</label>
+                    <div className="relative">
+                      <input
+                        type="number"
+                        className="w-full pl-4 pr-12 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white font-medium"
+                        value={formData.salary}
+                        onChange={(e) => setFormData({ ...formData, salary: Number(e.target.value) })}
+                      />
+                      <span className="absolute right-4 top-3 text-slate-400 font-medium">€/mes</span>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Otros ingresos o extras (freelance, rentas, etc.)</label>
+                    <div className="relative">
+                      <input
+                        type="number"
+                        className="w-full pl-4 pr-12 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white font-medium"
+                        value={formData.otherIncome}
+                        onChange={(e) => setFormData({ ...formData, otherIncome: Number(e.target.value) })}
+                      />
+                      <span className="absolute right-4 top-3 text-slate-400 font-medium">€/mes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Paso 3: Gastos mensuales */}
+            {step === 3 && (
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Tus gastos esenciales estimados</h2>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">Podrás ajustarlos al céntimo en cualquier momento posterior.</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">🏠 Vivienda (Alquiler/Hipoteca)</label>
+                    <input
+                      type="number"
+                      className="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                      value={formData.housingExpense}
+                      onChange={(e) => setFormData({ ...formData, housingExpense: Number(e.target.value) })}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">🍔 Alimentación y supermercado</label>
+                    <input
+                      type="number"
+                      className="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                      value={formData.foodExpense}
+                      onChange={(e) => setFormData({ ...formData, foodExpense: Number(e.target.value) })}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">🚗 Transporte / Combustible</label>
+                    <input
+                      type="number"
+                      className="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                      value={formData.transportExpense}
+                      onChange={(e) => setFormData({ ...formData, transportExpense: Number(e.target.value) })}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">🎮 Ocio y salidas</label>
+                    <input
+                      type="number"
+                      className="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                      value={formData.leisureExpense}
+                      onChange={(e) => setFormData({ ...formData, leisureExpense: Number(e.target.value) })}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Paso 4: Ahorros actuales */}
+            {step === 4 && (
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">¿De cuánto dinero dispones hoy en cuentas o depósitos?</h2>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">Tu liquidez inmediata disponible sin incluir inmuebles ni vehículos.</p>
+                <div className="p-6 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 text-center">
+                  <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider block mb-2">Liquidez total disponible</span>
+                  <div className="inline-flex items-center gap-2">
+                    <input
+                      type="number"
+                      className="text-3xl md:text-4xl font-extrabold text-center bg-transparent border-b-2 border-emerald-500 focus:outline-none w-48 text-slate-900 dark:text-white"
+                      value={formData.currentSavings}
+                      onChange={(e) => setFormData({ ...formData, currentSavings: Number(e.target.value) })}
+                    />
+                    <span className="text-3xl font-bold text-slate-400">€</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Paso 5: Deudas */}
+            {step === 5 && (
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">¿Tienes algún préstamo o tarjeta pendiente?</h2>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">Conocer tus pasivos nos ayuda a optimizar tu flujo mensual.</p>
+                <div className="space-y-4">
+                  <div className="flex gap-4">
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, hasDebts: 'no' })}
+                      className={`flex-1 py-3 rounded-xl border text-sm font-semibold ${formData.hasDebts === 'no' ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300' : 'border-slate-200 dark:border-slate-800'}`}
+                    >
+                      Sin deudas
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, hasDebts: 'yes' })}
+                      className={`flex-1 py-3 rounded-xl border text-sm font-semibold ${formData.hasDebts === 'yes' ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300' : 'border-slate-200 dark:border-slate-800'}`}
+                    >
+                      Tengo préstamos / tarjetas
+                    </button>
+                  </div>
+                  {formData.hasDebts === 'yes' && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-3">
+                      <div>
+                        <label className="text-xs font-medium text-slate-600 dark:text-slate-300 block mb-1">Concepto de la deuda</label>
+                        <input
+                          type="text"
+                          className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                          value={formData.debtType}
+                          onChange={(e) => setFormData({ ...formData, debtType: e.target.value })}
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-medium text-slate-600 dark:text-slate-300 block mb-1">Importe pendiente (€)</label>
+                        <input
+                          type="number"
+                          className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                          value={formData.debtRemaining}
+                          onChange={(e) => setFormData({ ...formData, debtRemaining: Number(e.target.value) })}
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-medium text-slate-600 dark:text-slate-300 block mb-1">Cuota mensual (€)</label>
+                        <input
+                          type="number"
+                          className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                          value={formData.debtMonthly}
+                          onChange={(e) => setFormData({ ...formData, debtMonthly: Number(e.target.value) })}
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-medium text-slate-600 dark:text-slate-300 block mb-1">Tipo de interés anual (%)</label>
+                        <input
+                          type="number"
+                          step="0.1"
+                          className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                          value={formData.debtInterest}
+                          onChange={(e) => setFormData({ ...formData, debtInterest: Number(e.target.value) })}
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Paso 6: Objetivos */}
+            {step === 6 && (
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">¿Qué quieres conseguir con tu dinero?</h2>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">El dinero con propósito es mucho más fácil de ahorrar.</p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                  {[
+                    { label: 'Fondo de emergencia', icon: '🛡️' },
+                    { label: 'Viaje soñado', icon: '✈️' },
+                    { label: 'Comprar piso', icon: '🏠' },
+                    { label: 'Comprar coche', icon: '🚗' },
+                    { label: 'Estudios / Máster', icon: '🎓' },
+                    { label: 'Jubilación', icon: '🏖️' },
+                    { label: 'Libertad financiera', icon: '🚀' },
+                    { label: 'Otro objetivo', icon: '🎯' }
+                  ].map((obj, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setFormData({ ...formData, primaryGoalName: obj.label })}
+                      className={`p-3 rounded-xl border text-center flex flex-col items-center gap-1.5 transition-all ${formData.primaryGoalName === obj.label ? 'border-emerald-500 bg-emerald-50/60 dark:bg-emerald-950/30 font-semibold text-emerald-800 dark:text-emerald-300' : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                    >
+                      <span className="text-2xl">{obj.icon}</span>
+                      <span className="text-xs leading-tight">{obj.label}</span>
+                    </button>
+                  ))}
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs font-medium text-slate-600 dark:text-slate-300 block mb-1">Importe del objetivo (€)</label>
+                    <input
+                      type="number"
+                      className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                      value={formData.primaryGoalAmount}
+                      onChange={(e) => setFormData({ ...formData, primaryGoalAmount: Number(e.target.value) })}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs font-medium text-slate-600 dark:text-slate-300 block mb-1">Plazo previsto (meses)</label>
+                    <input
+                      type="number"
+                      className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                      value={formData.primaryGoalMonths}
+                      onChange={(e) => setFormData({ ...formData, primaryGoalMonths: Number(e.target.value) })}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Paso 7: Prioridad y Estrategia Inicial */}
+            {step === 7 && (
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Tu plan financiero inicial está listo</h2>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">Hemos calculado la estrategia ideal basada en tus números reales.</p>
+                
+                {(() => {
+                  const totalInc = Number(formData.salary) + Number(formData.otherIncome);
+                  const totalExp = Number(formData.housingExpense) + Number(formData.foodExpense) + Number(formData.transportExpense) + Number(formData.leisureExpense);
+                  const margin = Math.max(0, totalInc - totalExp);
+                  const monthlyGoalTarget = Math.round(formData.primaryGoalAmount / Math.max(1, formData.primaryGoalMonths));
+                  const isFeasible = margin >= monthlyGoalTarget;
+
+                  return (
+                    <div className="space-y-4">
+                      <div className="p-4 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 rounded-2xl">
+                        <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-bold mb-1">
+                          <Icon name="check-circle" size={18} />
+                          <span>Estrategia recomendada: "{formData.primaryGoalName}"</span>
+                        </div>
+                        <p className="text-xs text-emerald-700 dark:text-emerald-400 leading-relaxed">
+                          Con tu margen mensual disponible estimado de <strong>{formatEUR(margin)}</strong>, puedes destinar cómodamente <strong>{formatEUR(monthlyGoalTarget)} al mes</strong> para completar tu objetivo en el plazo previsto de {formData.primaryGoalMonths} meses.
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-3 text-center">
+                        <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+                          <p className="text-xs text-slate-400">Ingresos netos</p>
+                          <p className="text-base font-bold text-slate-800 dark:text-slate-100">{formatEUR(totalInc)}</p>
+                        </div>
+                        <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+                          <p className="text-xs text-slate-400">Gastos básicos</p>
+                          <p className="text-base font-bold text-slate-800 dark:text-slate-100">{formatEUR(totalExp)}</p>
+                        </div>
+                        <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+                          <p className="text-xs text-slate-400">Ahorro mensual</p>
+                          <p className="text-base font-bold text-emerald-600 dark:text-emerald-400">{formatEUR(margin)}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
+            )}
+
+            {/* Controles de navegación */}
+            <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
+              {step > 1 ? (
+                <Button variant="outline" onClick={prev} icon="chevron-left">Atrás</Button>
+              ) : <div />}
+
+              {step < 7 ? (
+                <Button variant="primary" onClick={next}>
+                  Continuar <Icon name="chevron-right" size={16} />
+                </Button>
+              ) : (
+                <Button variant="primary" onClick={finish} icon="rocket">
+                  Entrar a mi Dashboard
+                </Button>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    // =========================================================================
+    // 7. LANDING PAGE COMERCIAL Y AUTENTICACIÓN
+    // =========================================================================
+    const LandingPage = ({ onStartApp, onLoginClick }) => (
+      <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white flex flex-col">
+        {/* Barra de navegación superior */}
+        <header className="border-b border-slate-100 dark:border-slate-800/80 sticky top-0 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md z-40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold shadow-md shadow-emerald-600/20">
+                <Icon name="shield-check" size={20} />
+              </div>
+              <span className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">Aura Finance</span>
+            </div>
+
+            <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+              <a href="#como-funciona" className="hover:text-emerald-600 transition-colors">Cómo funciona</a>
+              <a href="#caracteristicas" className="hover:text-emerald-600 transition-colors">Características</a>
+              <a href="#simuladores" className="hover:text-emerald-600 transition-colors">Simuladores</a>
+              <a href="#precios" className="hover:text-emerald-600 transition-colors">Planes y Precios</a>
+              <a href="#faq" className="hover:text-emerald-600 transition-colors">Preguntas frecuentes</a>
+            </nav>
+
+            <div className="flex items-center gap-3">
+              <Button variant="ghost" size="sm" onClick={onLoginClick}>Iniciar sesión</Button>
+              <Button variant="primary" size="sm" onClick={onStartApp}>Empezar gratis</Button>
+            </div>
+          </div>
+        </header>
+
+        {/* Hero Section */}
+        <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-semibold mb-6">
+            <Icon name="sparkles" size={14} /> Asistente de Finanzas Personales en Español de España
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight">
+            Pon tu dinero a trabajar para tus objetivos.
+          </h1>
+          <p className="mt-6 text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Organiza tus gastos, aumenta tu ahorro y convierte tus objetivos en un plan financiero claro, predecible y sin fricciones.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Button size="lg" variant="primary" onClick={onStartApp} icon="arrow-right">
+              Probar aplicación completa ahora
+            </Button>
+            <a href="#precios">
+              <Button size="lg" variant="outline">
+                Ver planes desde 0 €
+              </Button>
+            </a>
+          </div>
+
+          {/* Métricas destacadas en el Hero */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800">
+              <p className="text-xs text-slate-500 dark:text-slate-400">Tasa media de ahorro</p>
+              <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mt-1">+28,4 %</p>
+              <p className="text-xs text-slate-400 mt-0.5">En los primeros 3 meses</p>
+            </div>
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800">
+              <p className="text-xs text-slate-500 dark:text-slate-400">Score Financiero</p>
+              <p className="text-2xl font-bold text-slate-900 dark:text-white mt-1">Algoritmo 360°</p>
+              <p className="text-xs text-slate-400 mt-0.5">Sin estimaciones opacas</p>
+            </div>
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800">
+              <p className="text-xs text-slate-500 dark:text-slate-400">Privacidad y Datos</p>
+              <p className="text-2xl font-bold text-slate-900 dark:text-white mt-1">100% Tuyo</p>
+              <p className="text-xs text-slate-400 mt-0.5">Cifrado y exportable</p>
+            </div>
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800">
+              <p className="text-xs text-slate-500 dark:text-slate-400">Simulaciones</p>
+              <p className="text-2xl font-bold text-slate-900 dark:text-white mt-1">Tiempo Real</p>
+              <p className="text-xs text-slate-400 mt-0.5">Interés compuesto & amortización</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Sección Planes y Precios */}
+        <section id="precios" className="py-20 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Planes transparentes, sin letra pequeña</h2>
+              <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">Empieza hoy con el plan básico o desbloquea todo el potencial con PRO.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Gratuito */}
+              <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">Plan Gratuito</h3>
+                  <p className="text-xs text-slate-500 mt-1">Para dar los primeros pasos en el control de tus finanzas.</p>
+                  <div className="my-6">
+                    <span className="text-4xl font-extrabold text-slate-900 dark:text-white">0 €</span>
+                    <span className="text-slate-400 text-sm"> / para siempre</span>
+                  </div>
+                  <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                    <li className="flex items-center gap-2"><Icon name="check" size={16} className="text-emerald-500" /> Registro de ingresos y gastos</li>
+                    <li className="flex items-center gap-2"><Icon name="check" size={16} className="text-emerald-500" /> Hasta 2 objetivos financieros activos</li>
+                    <li className="flex items-center gap-2"><Icon name="check" size={16} className="text-emerald-500" /> Presupuesto por categorías básicas</li>
+                    <li className="flex items-center gap-2"><Icon name="check" size={16} className="text-emerald-500" /> Calculadoras de interés y fondo de emergencia</li>
+                  </ul>
+                </div>
+                <Button variant="outline" className="w-full mt-8" onClick={onStartApp}>Empezar en Plan Gratuito</Button>
+              </div>
+
+              {/* PRO */}
+              <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border-2 border-emerald-500 shadow-xl relative flex flex-col justify-between">
+                <span className="absolute -top-3.5 right-6 px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full">
+                  MÁS POPULAR
+                </span>
+                <div>
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">Plan PRO Completo</h3>
+                  <p className="text-xs text-slate-500 mt-1">El asistente financiero integral para rentabilizar tu patrimonio.</p>
+                  <div className="my-6">
+                    <span className="text-4xl font-extrabold text-slate-900 dark:text-white">19,90 €</span>
+                    <span className="text-slate-400 text-sm"> / mes (o 15,90 €/mes en plan anual)</span>
+                  </div>
+                  <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                    <li className="flex items-center gap-2"><Icon name="check" size={16} className="text-emerald-500" /> Objetivos financieros ilimitados</li>
+                    <li className="flex items-center gap-2"><Icon name="check" size={16} className="text-emerald-500" /> Asistente de recomendaciones basadas en tus datos</li>
+                    <li className="flex items-center gap-2"><Icon name="check" size={16} className="text-emerald-500" /> Simulador de amortización acelerada de deudas</li>
+                    <li className="flex items-center gap-2"><Icon name="check" size={16} className="text-emerald-500" /> Seguimiento de inversiones y distribución de cartera</li>
+                    <li className="flex items-center gap-2"><Icon name="check" size={16} className="text-emerald-500" /> Exportación en CSV y JSON completo</li>
+                  </ul>
+                </div>
+                <Button variant="primary" className="w-full mt-8" onClick={onStartApp}>Activar Acceso Demo PRO</Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section id="faq" className="py-16 max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl font-bold text-center text-slate-900 dark:text-white mb-8">Preguntas frecuentes</h2>
+          <div className="space-y-4">
+            <Card title="¿Aura Finance comparte mis datos bancarios o fiscales con terceros?">
+              <p className="text-sm text-slate-600 dark:text-slate-300">
+                Rotundamente no. Nuestra filosofía se basa en la privacidad absoluta. Tus datos se procesan en tu propio navegador o mediante canales encriptados de extremo a extremo sin publicidad de terceros.
+              </p>
+            </Card>
+            <Card title="¿Reemplaza este producto el asesoramiento financiero regulado?">
+              <p className="text-sm text-slate-600 dark:text-slate-300">
+                No. Aura Finance es una herramienta de organización, cálculo cuantitativo y educación financiera. No somos una entidad de inversión ni emitimos recomendaciones personalizadas de productos financieros específicos conforme a la normativa de la CNMV.
+              </p>
+            </Card>
+            <Card title="¿Puedo exportar o borrar toda mi información?">
+              <p className="text-sm text-slate-600 dark:text-slate-300">
+                Sí, en cualquier instante desde la pestaña de Perfil puedes descargar un archivo estructurado con todos tus movimientos o reiniciar tus datos con un solo clic.
+              </p>
+            </Card>
+          </div>
+        </section>
+
+        <footer className="mt-auto border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-400">
+          <p>© 2026 Aura Finance. Diseñado y concebido en España. Todos los derechos reservados.</p>
+        </footer>
+      </div>
+    );
+
+    // =========================================================================
+    // 8. PANTALLA DE AUTENTICACIÓN (LOGIN / REGISTRO)
+    // =========================================================================
+    const AuthScreen = ({ onLoginSuccess, onCancel }) => {
+      const [isRegister, setIsRegister] = useState(false);
+      const [email, setEmail] = useState('alejandro.martinez@ejemplo.es');
+      const [password, setPassword] = useState('••••••••••••');
+      const [showPassword, setShowPassword] = useState(false);
+      const [name, setName] = useState('Alejandro');
+      const [surname, setSurname] = useState('Martínez');
+      const [termsAccepted, setTermsAccepted] = useState(true);
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        onLoginSuccess({
+          name: isRegister ? name : 'Alejandro',
+          surname: isRegister ? surname : 'Martínez',
+          email,
+          plan: 'pro'
+        }, isRegister);
+      };
+
+      return (
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-center items-center p-4">
+          <div className="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 shadow-2xl">
+            <div className="text-center mb-6">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xl mx-auto mb-3 shadow-md shadow-emerald-600/30">
+                <Icon name="shield-check" size={26} />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                {isRegister ? 'Crear cuenta en Aura Finance' : 'Iniciar sesión'}
+              </h2>
+              <p className="text-xs text-slate-500 mt-1">
+                {isRegister ? 'Configura tu espacio y toma el control de tu futuro financiero' : 'Introduce tus credenciales para acceder a tu panel'}
+              </p>
+            </div>
+
+            {/* Botones de acceso rápido social */}
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              <button
+                type="button"
+                onClick={() => onLoginSuccess({ name: 'Alejandro', email: 'google.user@ejemplo.es', plan: 'pro' }, false)}
+                className="flex items-center justify-center gap-2 py-2.5 px-3 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+              >
+                <Icon name="globe" size={16} /> Google
+              </button>
+              <button
+                type="button"
+                onClick={() => onLoginSuccess({ name: 'Alejandro', email: 'apple.user@ejemplo.es', plan: 'pro' }, false)}
+                className="flex items-center justify-center gap-2 py-2.5 px-3 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+              >
+                <Icon name="smartphone" size={16} /> Apple
+              </button>
+            </div>
+
+            <div className="flex items-center gap-3 my-4">
+              <div className="flex-1 h-px bg-slate-200 dark:bg-slate-800"></div>
+              <span className="text-xs text-slate-400 uppercase font-semibold">o con email</span>
+              <div className="flex-1 h-px bg-slate-200 dark:bg-slate-800"></div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {isRegister && (
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Nombre</label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Apellidos</label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                      value={surname}
+                      onChange={(e) => setSurname(e.target.value)}
+                    />
+                  </div>
+                </div>
+              )}
+
+              <div>
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Correo electrónico</label>
+                <input
+                  type="email"
+                  required
+                  className="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <div className="flex justify-between items-center mb-1">
+                  <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Contraseña</label>
+                  {!isRegister && (
+                    <button type="button" className="text-xs text-emerald-600 hover:underline">
+                      ¿Has olvidado tu contraseña?
+                    </button>
+                  )}
+                </div>
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    required
+                    className="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600"
+                  >
+                    <Icon name={showPassword ? 'eye-off' : 'eye'} size={16} />
+                  </button>
+                </div>
+              </div>
+
+              {isRegister && (
+                <label className="flex items-start gap-2 pt-1 text-xs text-slate-500 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={termsAccepted}
+                    onChange={(e) => setTermsAccepted(e.target.checked)}
+                    className="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500"
+                  />
+                  <span>Acepto las Condiciones del servicio y la Política de privacidad financiera de España.</span>
+                </label>
+              )}
+
+              <Button type="submit" variant="primary" className="w-full py-3 mt-2">
+                {isRegister ? 'Registrarme e iniciar onboarding' : 'Entrar a mi panel'}
+              </Button>
+            </form>
+
+            <div className="mt-6 text-center text-xs text-slate-500">
+              {isRegister ? (
+                <span>
+                  ¿Ya tienes cuenta?{' '}
+                  <button onClick={() => setIsRegister(false)} className="text-emerald-600 font-semibold hover:underline">
+                    Inicia sesión
+                  </button>
+                </span>
+              ) : (
+                <span>
+                  ¿Aún no tienes cuenta?{' '}
+                  <button onClick={() => setIsRegister(true)} className="text-emerald-600 font-semibold hover:underline">
+                    Crear una cuenta gratis
+                  </button>
+                </span>
+              )}
+            </div>
+
+            <div className="mt-4 text-center">
+              <button onClick={onCancel} className="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                ← Volver a la página principal
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    // =========================================================================
+    // 9. COMPONENTE DASHBOARD PRINCIPAL Y GRÁFICOS
+    // =========================================================================
+    const DashboardView = ({ data, onNavigate, onOpenQuickAdd }) => {
+      const expensesChartRef = useRef(null);
+      const cashflowChartRef = useRef(null);
+      const chartInstance1 = useRef(null);
+      const chartInstance2 = useRef(null);
+
+      const health = useMemo(() => calculateFinancialHealth(data), [data]);
+
+      // Métricas clave calculadas en tiempo real
+      const metrics = useMemo(() => {
+        const income = data.transactions
+          .filter(t => t.type === 'income')
+          .reduce((sum, t) => sum + t.amount, 0);
+
+        const expense = data.transactions
+          .filter(t => t.type === 'expense')
+          .reduce((sum, t) => sum + t.amount, 0);
+
+        const netSavings = income - expense;
+        const totalInvested = data.investments.reduce((sum, i) => sum + i.current, 0);
+        const totalDebts = data.debts.reduce((sum, d) => sum + d.remaining, 0);
+        const liquidSavings = data.goals.reduce((sum, g) => sum + g.current, 0);
+
+        // Patrimonio neto = Liquidez objetivos + Inversiones - Deudas
+        const netWorth = (liquidSavings + totalInvested) - totalDebts;
+
+        return {
+          income,
+          expense,
+          netSavings,
+          netWorth,
+          savingsRate: income > 0 ? ((netSavings / income) * 100).toFixed(1) : 0
+        };
+      }, [data]);
+
+      // Gráficos Chart.js
+      useEffect(() => {
+        // 1. Gráfico circular de categorías de gasto
+        if (expensesChartRef.current) {
+          const categoryTotals = {};
+          data.transactions
+            .filter(t => t.type === 'expense')
+            .forEach(t => {
+              const catName = CATEGORIES[t.category]?.name || 'Otros';
+              categoryTotals[catName] = (categoryTotals[catName] || 0) + t.amount;
+            });
+
+          const labels = Object.keys(categoryTotals);
+          const values = Object.values(categoryTotals);
+
+          if (chartInstance1.current) chartInstance1.current.destroy();
+
+          chartInstance1.current = new Chart(expensesChartRef.current, {
+            type: 'doughnut',
+            data: {
+              labels: labels.length ? labels : ['Sin datos'],
+              datasets: [{
+                data: values.length ? values : [1],
+                backgroundColor: [
+                  '#10B981', '#3B82F6', '#F59E0B', '#EC4899', '#8B5CF6', '#EF4444', '#06B6D4'
+                ],
+                borderWidth: 0
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } }
+              },
+              cutout: '70%'
+            }
+          });
+        }
+
+        // 2. Gráfico de flujo de dinero (Semestral simulado con el mes actual sincronizado)
+        if (cashflowChartRef.current) {
+          if (chartInstance2.current) chartInstance2.current.destroy();
+
+          const months = ['Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre'];
+          const incomeData = [2700, 2750, 3100, 2800, 2850, metrics.income];
+          const expenseData = [1850, 1920, 2200, 2050, 1980, metrics.expense];
+
+          chartInstance2.current = new Chart(cashflowChartRef.current, {
+            type: 'bar',
+            data: {
+              labels: months,
+              datasets: [
+                {
+                  label: 'Ingresos (€)',
+                  data: incomeData,
+                  backgroundColor: '#10B981',
+                  borderRadius: 6
+                },
+                {
+                  label: 'Gastos (€)',
+                  data: expenseData,
+                  backgroundColor: '#94A3B8',
+                  borderRadius: 6
+                }
+              ]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { position: 'top', align: 'end', labels: { boxWidth: 12, font: { size: 11 } } }
+              },
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  grid: { color: 'rgba(226, 232, 240, 0.4)' },
+                  ticks: { font: { size: 10 } }
+                },
+                x: {
+                  grid: { display: false },
+                  ticks: { font: { size: 10 } }
+                }
+              }
+            }
+          });
+        }
+
+        return () => {
+          if (chartInstance1.current) chartInstance1.current.destroy();
+          if (chartInstance2.current) chartInstance2.current.destroy();
+        };
+      }, [data, metrics]);
+
+      return (
+        <div className="space-y-6">
+          {/* Header del Dashboard */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-slate-800">
+            <div>
+              <h1 className="text-2xl lg:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+                Buenos días, {data.user.name} 👋
+              </h1>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                Esto es lo que está pasando con tu dinero en este momento.
+              </p>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <Button variant="outline" size="sm" onClick={() => onNavigate('movimientos')} icon="list">
+                Ver movimientos
+              </Button>
+              <Button variant="primary" size="sm" onClick={onOpenQuickAdd} icon="plus">
+                Añadir movimiento
+              </Button>
+            </div>
+          </div>
+
+          {/* Tarjetas métricas superiores */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <StatCard
+              title="Patrimonio Neto"
+              value={formatEUR(metrics.netWorth)}
+              detail="Activos menos pasivos"
+              icon="wallet"
+              trend="up"
+              trendValue="+4,2 % este mes"
+            />
+            <StatCard
+              title="Ingresos del Mes"
+              value={formatEUR(metrics.income)}
+              detail="Nómina y rentas auxiliares"
+              icon="arrow-down-left"
+              trend="up"
+              trendValue="En línea"
+            />
+            <StatCard
+              title="Gastos del Mes"
+              value={formatEUR(metrics.expense)}
+              detail="Consumo fijo y variable"
+              icon="arrow-up-right"
+              trend="down"
+              trendValue="-3,1 % vs anterior"
+            />
+            <StatCard
+              title="Ahorro Generado"
+              value={formatEUR(metrics.netSavings)}
+              detail={`Tasa de ahorro: ${metrics.savingsRate} %`}
+              icon="piggy-bank"
+              trend="up"
+              trendValue="Objetivo >20%"
+            />
+          </div>
+
+          {/* Fila: Health Score Financiero + Gráfico de Gastos */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Widget Health Score */}
+            <Card
+              title="Salud Financiera 360°"
+              subtitle="Puntuación dinámica calculada por tus datos"
+              action={
+                <span className="px-2.5 py-1 text-xs font-bold rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300">
+                  {health.badge}
+                </span>
+              }
+              className="lg:col-span-1 flex flex-col justify-between"
+            >
+              <div className="flex items-center justify-center my-4">
+                <div className="relative flex items-center justify-center">
+                  <svg className="w-36 h-36 transform -rotate-90">
+                    <circle cx="72" cy="72" r="58" stroke="currentColor" strokeWidth="10" className="text-slate-100 dark:text-slate-800" fill="transparent" />
+                    <circle
+                      cx="72"
+                      cy="72"
+                      r="58"
+                      stroke="currentColor"
+                      strokeWidth="10"
+                      className="text-emerald-500 transition-all duration-1000 ease-out"
+                      fill="transparent"
+                      strokeDasharray="364.4"
+                      strokeDashoffset={364.4 - (364.4 * health.score) / 100}
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <div className="absolute flex flex-col items-center">
+                    <span className="text-3xl font-extrabold text-slate-900 dark:text-white">{health.score}</span>
+                    <span className="text-xs text-slate-400 font-medium">de 100</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl text-xs text-slate-600 dark:text-slate-300 mb-4">
+                <p className="font-semibold text-slate-800 dark:text-slate-100 mb-1">Diagnóstico:</p>
+                <p>{health.message}</p>
+              </div>
+
+              <div className="space-y-2 text-xs">
+                <div className="flex justify-between text-slate-500">
+                  <span>Tasa de ahorro ({health.savingsRate}%)</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">{health.savingsScore}/30 pts</span>
+                </div>
+                <div className="flex justify-between text-slate-500">
+                  <span>Fondo de emergencia</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">{health.emergencyScore}/25 pts</span>
+                </div>
+                <div className="flex justify-between text-slate-500">
+                  <span>Carga de deudas</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">{health.debtScore}/25 pts</span>
+                </div>
+                <div className="flex justify-between text-slate-500">
+                  <span>Inversión y diversificación</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">{health.investScore}/20 pts</span>
+                </div>
+              </div>
+            </Card>
+
+            {/* Gráfico circular de distribución de gastos */}
+            <Card
+              title="Gastos de este mes por categoría"
+              subtitle="Reparto del consumo devengado"
+              className="lg:col-span-2"
+              action={
+                <Button variant="ghost" size="sm" onClick={() => onNavigate('presupuesto')}>
+                  Ver presupuestos
+                </Button>
+              }
+            >
+              <div className="h-64 relative">
+                <canvas ref={expensesChartRef}></canvas>
+              </div>
+            </Card>
+          </div>
+
+          {/* Gráfico Flujo semestral */}
+          <Card
+            title="Flujo de dinero (Últimos 6 meses)"
+            subtitle="Ingresos vs Gastos devengados mensuales"
+          >
+            <div className="h-72">
+              <canvas ref={cashflowChartRef}></canvas>
+            </div>
+          </Card>
+
+          {/* Objetivos prioritarios + Últimos movimientos */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Resumen de objetivos */}
+            <Card
+              title="Objetivos prioritarios"
+              subtitle="Tu progreso hacia tus grandes metas"
+              action={<Button variant="ghost" size="sm" onClick={() => onNavigate('objetivos')}>Ver todos</Button>}
+            >
+              <div className="space-y-4">
+                {data.goals.slice(0, 3).map(goal => (
+                  <div key={goal.id} className="p-3.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/30">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">{goal.icon || '🎯'}</span>
+                        <div>
+                          <p className="text-sm font-semibold text-slate-900 dark:text-white">{goal.name}</p>
+                          <p className="text-xs text-slate-400">Meta: {formatDateES(goal.deadline)}</p>
+                        </div>
+                      </div>
+                      <span className="text-xs font-bold text-slate-700 dark:text-slate-200">
+                        {formatEUR(goal.current)} / {formatEUR(goal.target)}
+                      </span>
+                    </div>
+                    <ProgressBar value={goal.current} max={goal.target} />
+                  </div>
+                ))}
+              </div>
+            </Card>
+
+            {/* Últimos movimientos */}
+            <Card
+              title="Últimos movimientos registrados"
+              subtitle="Transacciones recientes en tus cuentas"
+              action={<Button variant="ghost" size="sm" onClick={() => onNavigate('movimientos')}>Ver extracto</Button>}
+            >
+              <div className="divide-y divide-slate-100 dark:divide-slate-800">
+                {data.transactions.slice(0, 5).map(tx => {
+                  const cat = CATEGORIES[tx.category] || { name: tx.category, icon: '🏷️' };
+                  return (
+                    <div key={tx.id} className="py-3 flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl p-2 rounded-xl bg-slate-50 dark:bg-slate-800">{cat.icon}</span>
+                        <div>
+                          <p className="text-sm font-medium text-slate-900 dark:text-white">{tx.concept}</p>
+                          <p className="text-xs text-slate-400">{cat.name} • {formatDateES(tx.date)}</p>
+                        </div>
+                      </div>
+                      <span className={`text-sm font-bold ${tx.type === 'income' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-900 dark:text-white'}`}>
+                        {tx.type === 'income' ? '+' : '-'}{formatEUR(tx.amount)}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </Card>
+          </div>
+        </div>
+      );
+    };
+
+    // =========================================================================
+    // 10. MOVIMIENTOS (TRANSACCIONES CRUD)
+    // =========================================================================
+    const TransactionsView = ({ data, onAddTx, onDeleteTx }) => {
+      const [filterType, setFilterType] = useState('all');
+      const [searchTerm, setSearchTerm] = useState('');
+      const [selectedCategory, setSelectedCategory] = useState('all');
+
+      const filtered = useMemo(() => {
+        return data.transactions.filter(tx => {
+          const matchesType = filterType === 'all' || tx.type === filterType;
+          const matchesSearch = tx.concept.toLowerCase().includes(searchTerm.toLowerCase()) || (tx.notes && tx.notes.toLowerCase().includes(searchTerm.toLowerCase()));
+          const matchesCat = selectedCategory === 'all' || tx.category === selectedCategory;
+          return matchesType && matchesSearch && matchesCat;
+        });
+      }, [data.transactions, filterType, searchTerm, selectedCategory]);
+
+      const exportCSV = () => {
+        const headers = ['Fecha', 'Concepto', 'Tipo', 'Categoría', 'Cuenta', 'Importe EUR', 'Notas'];
+        const rows = filtered.map(t => [
+          t.date,
+          `"${t.concept.replace(/"/g, '""')}"`,
+          t.type === 'income' ? 'Ingreso' : 'Gasto',
+          CATEGORIES[t.category]?.name || t.category,
+          `"${t.account || ''}"`,
+          t.amount,
+          `"${(t.notes || '').replace(/"/g, '""')}"`
+        ]);
+        const csvContent = "data:text/csv;charset=utf-8," + [headers.join(';'), ...rows.map(e => e.join(';'))].join("\n");
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", `movimientos_aura_${new Date().toISOString().slice(0,10)}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
+
+      return (
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+            <div>
+              <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Movimientos</h1>
+              <p className="text-sm text-slate-500">Historial completo y categorizado de tus ingresos y gastos.</p>
+            </div>
+            <div className="flex gap-2">
+              <Button variant="outline" size="sm" onClick={exportCSV} icon="download">Exportar CSV</Button>
+              <Button variant="primary" size="sm" onClick={onAddTx} icon="plus">Nuevo movimiento</Button>
+            </div>
+          </div>
+
+          {/* Filtros de búsqueda */}
+          <div className="flex flex-col md:flex-row gap-3">
+            <div className="relative flex-1">
+              <input
+                type="text"
+                placeholder="Buscar por concepto o notas..."
+                className="w-full pl-9 pr-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <span className="absolute left-3 top-2.5 text-slate-400">
+                <Icon name="search" size={16} />
+              </span>
+            </div>
+
+            <div className="flex gap-2">
+              <select
+                className="px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm"
+                value={filterType}
+                onChange={(e) => setFilterType(e.target.value)}
+              >
+                <option value="all">Todos los flujos</option>
+                <option value="income">Solo Ingresos</option>
+                <option value="expense">Solo Gastos</option>
+              </select>
+
+              <select
+                className="px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+              >
+                <option value="all">Todas las categorías</option>
+                {Object.entries(CATEGORIES).map(([k, v]) => (
+                  <option key={k} value={k}>{v.icon} {v.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Tabla de movimientos */}
+          <Card className="overflow-hidden p-0!">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-slate-50 dark:bg-slate-800/70 border-b border-slate-200 dark:border-slate-800 text-xs text-slate-400 uppercase font-semibold">
+                  <tr>
+                    <th className="py-3.5 px-4">Fecha</th>
+                    <th className="py-3.5 px-4">Concepto</th>
+                    <th className="py-3.5 px-4">Categoría</th>
+                    <th className="py-3.5 px-4">Cuenta / Método</th>
+                    <th className="py-3.5 px-4 text-right">Importe</th>
+                    <th className="py-3.5 px-4 text-center">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  {filtered.length === 0 ? (
+                    <tr>
+                      <td colSpan="6" className="py-12 text-center text-slate-400">
+                        No se encontraron movimientos con los filtros seleccionados.
+                      </td>
+                    </tr>
+                  ) : (
+                    filtered.map(tx => {
+                      const cat = CATEGORIES[tx.category] || { name: tx.category, icon: '🏷️' };
+                      return (
+                        <tr key={tx.id} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
+                          <td className="py-3 px-4 text-xs text-slate-500 whitespace-nowrap">
+                            {formatDateES(tx.date)}
+                          </td>
+                          <td className="py-3 px-4 font-medium text-slate-900 dark:text-white">
+                            <div>{tx.concept}</div>
+                            {tx.notes && <div className="text-xs text-slate-400">{tx.notes}</div>}
+                          </td>
+                          <td className="py-3 px-4 whitespace-nowrap">
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs text-slate-700 dark:text-slate-300">
+                              <span>{cat.icon}</span> {cat.name}
+                            </span>
+                          </td>
+                          <td className="py-3 px-4 text-xs text-slate-500 whitespace-nowrap">
+                            {tx.account || 'Principal'}
+                          </td>
+                          <td className={`py-3 px-4 text-right font-bold whitespace-nowrap ${tx.type === 'income' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-900 dark:text-white'}`}>
+                            {tx.type === 'income' ? '+' : '-'}{formatEUR(tx.amount)}
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <button
+                              onClick={() => {
+                                if (confirm(`¿Eliminar definitivamente "${tx.concept}"?`)) {
+                                  onDeleteTx(tx.id);
+                                }
+                              }}
+                              className="p-1 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+                              title="Eliminar"
+                            >
+                              <Icon name="trash-2" size={16} />
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </Card>
+        </div>
+      );
+    };
+
+    // =========================================================================
+    // 11. PRESUPUESTOS MENSUALES
+    // =========================================================================
+    const BudgetsView = ({ data, onUpdateBudget }) => {
+      // Calcular gastos reales acumulados este mes por categoría
+      const spentByCategory = useMemo(() => {
+        const res = {};
+        data.transactions
+          .filter(t => t.type === 'expense')
+          .forEach(t => {
+            res[t.category] = (res[t.category] || 0) + t.amount;
+          });
+        return res;
+      }, [data.transactions]);
+
+      return (
+        <div className="space-y-6">
+          <div className="pb-2 border-b border-slate-200 dark:border-slate-800">
+            <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Presupuesto Mensual</h1>
+            <p className="text-sm text-slate-500">Límites de gasto para mantener tu ahorro bajo control.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {data.budgets.map(b => {
+              const spent = spentByCategory[b.category] || 0;
+              const cat = CATEGORIES[b.category] || { name: b.category, icon: '🏷️' };
+              const percent = Math.round((spent / b.limit) * 100);
+              const isOver = spent > b.limit;
+              const isClose = !isOver && percent >= 80;
+
+              return (
+                <Card key={b.category} className={isOver ? 'border-rose-300 dark:border-rose-900' : ''}>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-2xl">{cat.icon}</span>
+                      <div>
+                        <h4 className="font-semibold text-slate-900 dark:text-white text-base">{cat.name}</h4>
+                        <p className="text-xs text-slate-400">Límite mensual fijado: {formatEUR(b.limit)}</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <span className={`text-base font-bold ${isOver ? 'text-rose-600' : 'text-slate-900 dark:text-white'}`}>
+                        {formatEUR(spent)}
+                      </span>
+                      <span className="text-xs text-slate-400 block">de {formatEUR(b.limit)}</span>
+                    </div>
+                  </div>
+
+                  <div className="my-3">
+                    <ProgressBar
+                      value={spent}
+                      max={b.limit}
+                      color={isOver ? 'bg-rose-500' : isClose ? 'bg-amber-500' : 'bg-emerald-500'}
+                    />
+                  </div>
+
+                  <div className="text-xs mt-2">
+                    {isOver ? (
+                      <p className="text-rose-600 dark:text-rose-400 font-semibold flex items-center gap-1">
+                        <Icon name="alert-triangle" size={14} /> Has superado tu presupuesto de {cat.name.toLowerCase()} en {formatEUR(spent - b.limit)}.
+                      </p>
+                    ) : isClose ? (
+                      <p className="text-amber-600 dark:text-amber-400 font-medium flex items-center gap-1">
+                        <Icon name="alert-circle" size={14} /> Has utilizado el {percent} % de tu presupuesto de {cat.name.toLowerCase()}.
+                      </p>
+                    ) : (
+                      <p className="text-slate-500 flex items-center gap-1">
+                        <Icon name="check" size={14} className="text-emerald-500" /> Te quedan {formatEUR(b.limit - spent)} disponibles este mes.
+                      </p>
+                    )}
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      );
+    };
+
+    // =========================================================================
+    // 12. OBJETIVOS FINANCIEROS Y SUEÑOS
+    // =========================================================================
+    const GoalsView = ({ data, onAddGoal, onUpdateGoalDeposit }) => {
+      const [showModal, setShowModal] = useState(false);
+      const [newGoal, setNewGoal] = useState({
+        name: '',
+        target: 3000,
+        current: 0,
+        deadline: '2027-12-31',
+        category: 'travel',
+        icon: '✈️'
+      });
+
+      const handleCreate = (e) => {
+        e.preventDefault();
+        if (!newGoal.name) return;
+        onAddGoal({
+          ...newGoal,
+          id: 'goal_' + Date.now(),
+          target: Number(newGoal.target),
+          current: Number(newGoal.current)
+        });
+        setShowModal(false);
+        if (window.confetti) window.confetti({ particleCount: 70, spread: 60 });
+      };
+
+      return (
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+            <div>
+              <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Mis Objetivos</h1>
+              <p className="text-sm text-slate-500">Convierte tus proyectos en planes con ahorro mensual asignado.</p>
+            </div>
+            <Button variant="primary" size="sm" onClick={() => setShowModal(true)} icon="plus">
+              + Crear objetivo
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {data.goals.map(goal => {
+              const remaining = Math.max(0, goal.target - goal.current);
+              const deadlineDate = new Date(goal.deadline);
+              const now = new Date();
+              const diffMonths = Math.max(1, Math.round((deadlineDate - now) / (1000 * 60 * 60 * 24 * 30.4)));
+              const monthlyRequired = Math.round(remaining / diffMonths);
+              const isCompleted = goal.current >= goal.target;
+
+              return (
+                <Card key={goal.id} className="relative overflow-hidden flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-start justify-between">
+                      <div className="flex items-center gap-3">
+                        <span className="text-3xl p-2 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+                          {goal.icon || '🎯'}
+                        </span>
+                        <div>
+                          <h4 className="font-bold text-slate-900 dark:text-white text-lg">{goal.name}</h4>
+                          <p className="text-xs text-slate-400">Fecha objetivo: {formatDateES(goal.deadline)}</p>
+                        </div>
+                      </div>
+                      {isCompleted && (
+                        <span className="px-2.5 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-700">
+                          ¡Completado!
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="my-5">
+                      <div className="flex justify-between items-baseline mb-1.5">
+                        <span className="text-2xl font-extrabold text-slate-900 dark:text-white">{formatEUR(goal.current)}</span>
+                        <span className="text-xs text-slate-400 font-medium">Meta: {formatEUR(goal.target)}</span>
+                      </div>
+                      <ProgressBar value={goal.current} max={goal.target} />
+                    </div>
+
+                    {!isCompleted ? (
+                      <div className="grid grid-cols-2 gap-2 p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl text-xs text-slate-600 dark:text-slate-300">
+                        <div>
+                          <span className="text-slate-400 block">Cantidad restante</span>
+                          <span className="font-bold text-slate-800 dark:text-slate-100">{formatEUR(remaining)}</span>
+                        </div>
+                        <div>
+                          <span className="text-slate-400 block">Ahorro mensual necesario</span>
+                          <span className="font-bold text-emerald-600 dark:text-emerald-400">{formatEUR(monthlyRequired)}/mes</span>
+                        </div>
+                      </div>
+                    ) : (
+                      <p className="text-xs text-emerald-600 font-semibold p-2 bg-emerald-50 rounded-lg text-center">
+                        🎉 Has alcanzado el 100% de este objetivo financiero.
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center text-xs">
+                    <span className="text-slate-400">
+                      {isCompleted ? 'Finalizado con éxito' : `Te faltan aprox. ${diffMonths} meses.`}
+                    </span>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => {
+                        const deposit = prompt(`¿Cuánto dinero quieres aportar hoy a "${goal.name}"? (€):`, "100");
+                        if (deposit && !isNaN(deposit) && Number(deposit) > 0) {
+                          onUpdateGoalDeposit(goal.id, Number(deposit));
+                          if (window.confetti) window.confetti({ particleCount: 50 });
+                        }
+                      }}
+                      icon="plus-circle"
+                    >
+                      Aportar ahorro
+                    </Button>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+
+          {/* Modal Crear Objetivo */}
+          <Modal isOpen={showModal} onClose={() => setShowModal(false)} title="Crear nuevo objetivo financiero">
+            <form onSubmit={handleCreate} className="space-y-4">
+              <div>
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Nombre del objetivo</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Ej: Viaje a Japón, Entrada Vivienda..."
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                  value={newGoal.name}
+                  onChange={(e) => setNewGoal({ ...newGoal, name: e.target.value })}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Cantidad objetivo (€)</label>
+                  <input
+                    type="number"
+                    required
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                    value={newGoal.target}
+                    onChange={(e) => setNewGoal({ ...newGoal, target: Number(e.target.value) })}
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Ya ahorrado (€)</label>
+                  <input
+                    type="number"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                    value={newGoal.current}
+                    onChange={(e) => setNewGoal({ ...newGoal, current: Number(e.target.value) })}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Fecha objetivo</label>
+                <input
+                  type="date"
+                  required
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                  value={newGoal.deadline}
+                  onChange={(e) => setNewGoal({ ...newGoal, deadline: e.target.value })}
+                />
+              </div>
+
+              <div className="pt-2 flex justify-end gap-2">
+                <Button variant="outline" size="sm" onClick={() => setShowModal(false)}>Cancelar</Button>
+                <Button variant="primary" size="sm" type="submit">Guardar objetivo</Button>
+              </div>
+            </form>
+          </Modal>
+        </div>
+      );
+    };
+
+    // =========================================================================
+    // 13. CALCULADORAS Y SIMULADORES (INTERÉS COMPUESTO Y AMORTIZACIÓN)
+    // =========================================================================
+    const CalculatorsView = () => {
+      // Estado Interés Compuesto
+      const [principal, setPrincipal] = useState(5000);
+      const [monthly, setMonthly] = useState(300);
+      const [rate, setRate] = useState(7);
+      const [years, setYears] = useState(15);
+
+      const compoundCalc = useMemo(() => {
+        const r = rate / 100 / 12;
+        const n = years * 12;
+        let total = principal;
+        let totalInvested = principal;
+
+        for (let i = 0; i < n; i++) {
+          total = (total + monthly) * (1 + r);
+          totalInvested += monthly;
+        }
+
+        const totalInterest = Math.max(0, total - totalInvested);
+
+        return {
+          finalCapital: total,
+          totalInvested,
+          totalInterest
+        };
+      }, [principal, monthly, rate, years]);
+
+      // Estado Amortización de Deuda (Avalancha vs Bola de nieve)
+      const [debtBalance, setDebtBalance] = useState(8000);
+      const [debtRate, setDebtRate] = useState(7.5);
+      const [debtPayment, setDebtPayment] = useState(250);
+
+      const amortizationCalc = useMemo(() => {
+        const monthlyRate = debtRate / 100 / 12;
+        if (debtPayment <= debtBalance * monthlyRate) {
+          return { months: Infinity, totalInterest: Infinity, feasible: false };
+        }
+        let balance = debtBalance;
+        let months = 0;
+        let totalInterestPaid = 0;
+
+        while (balance > 0 && months < 360) {
+          const interestMonth = balance * monthlyRate;
+          totalInterestPaid += interestMonth;
+          const principalMonth = Math.min(balance, debtPayment - interestMonth);
+          balance -= principalMonth;
+          months++;
+        }
+
+        return {
+          months,
+          totalInterest: totalInterestPaid,
+          feasible: true
+        };
+      }, [debtBalance, debtRate, debtPayment]);
+
+      return (
+        <div className="space-y-8">
+          <div className="pb-2 border-b border-slate-200 dark:border-slate-800">
+            <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Simuladores y Calculadoras</h1>
+            <p className="text-sm text-slate-500">Cálculos matemáticos puros en tiempo real para proyectar tu futuro.</p>
+          </div>
+
+          {/* Calculadora de Interés Compuesto */}
+          <Card title="Calculadora de Crecimiento e Interés Compuesto" subtitle="Visualiza el efecto multiplicador de la constancia y el tiempo">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-4">
+              <div className="space-y-5">
+                <div>
+                  <div className="flex justify-between text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                    <span>Capital inicial aportado</span>
+                    <span className="text-emerald-600 font-bold">{formatEUR(principal)}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="50000"
+                    step="500"
+                    value={principal}
+                    onChange={(e) => setPrincipal(Number(e.target.value))}
+                    className="w-full accent-emerald-600"
+                  />
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                    <span>Aportación mensual periódica</span>
+                    <span className="text-emerald-600 font-bold">{formatEUR(monthly)} / mes</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="2000"
+                    step="25"
+                    value={monthly}
+                    onChange={(e) => setMonthly(Number(e.target.value))}
+                    className="w-full accent-emerald-600"
+                  />
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                    <span>Rentabilidad anual estimada (%)</span>
+                    <span className="text-emerald-600 font-bold">{rate} % anual</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="1"
+                    max="15"
+                    step="0.5"
+                    value={rate}
+                    onChange={(e) => setRate(Number(e.target.value))}
+                    className="w-full accent-emerald-600"
+                  />
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                    <span>Plazo de tiempo (años)</span>
+                    <span className="text-emerald-600 font-bold">{years} años</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="1"
+                    max="40"
+                    step="1"
+                    value={years}
+                    onChange={(e) => setYears(Number(e.target.value))}
+                    className="w-full accent-emerald-600"
+                  />
+                </div>
+              </div>
+
+              {/* Resultados del interés compuesto */}
+              <div className="p-6 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Capital final estimado</p>
+                  <p className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">
+                    {formatEUR(compoundCalc.finalCapital)}
+                  </p>
+
+                  <div className="mt-6 space-y-3">
+                    <div className="flex justify-between text-xs">
+                      <span className="text-slate-500">Dinero aportado de tu bolsillo:</span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-200">{formatEUR(compoundCalc.totalInvested)}</span>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-slate-500">Rendimiento generado (Intereses):</span>
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400">+{formatEUR(compoundCalc.totalInterest)}</span>
+                    </div>
+                  </div>
+
+                  <div className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden flex mt-4">
+                    <div
+                      className="bg-slate-400 h-full"
+                      style={{ width: `${(compoundCalc.totalInvested / compoundCalc.finalCapital) * 100}%` }}
+                      title="Tu capital"
+                    />
+                    <div
+                      className="bg-emerald-500 h-full"
+                      style={{ width: `${(compoundCalc.totalInterest / compoundCalc.finalCapital) * 100}%` }}
+                      title="Intereses"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-6 p-3 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-xl text-xs text-amber-800 dark:text-amber-300">
+                  ⚠️️ <strong>Aviso legal:</strong> Los cálculos mostrados son estimaciones matemáticas basadas en una tasa constante hipotética y no garantizan rentabilidades futuras de mercado.
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          {/* Simulador de Amortización de Deudas */}
+          <Card title="Simulador de Amortización de Deudas" subtitle="Calcula cuánto tiempo e intereses te ahorras incrementando tu cuota">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+              <div>
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Deuda pendiente total (€)</label>
+                <input
+                  type="number"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                  value={debtBalance}
+                  onChange={(e) => setDebtBalance(Number(e.target.value))}
+                />
+              </div>
+              <div>
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Tipo de interés anual (TIN %)</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                  value={debtRate}
+                  onChange={(e) => setDebtRate(Number(e.target.value))}
+                />
+              </div>
+              <div>
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Pago mensual previsto (€)</label>
+                <input
+                  type="number"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                  value={debtPayment}
+                  onChange={(e) => setDebtPayment(Number(e.target.value))}
+                />
+              </div>
+            </div>
+
+            <div className="mt-6 p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+              {amortizationCalc.feasible ? (
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+                  <div>
+                    <p className="text-xs text-slate-400">Tiempo estimado para liquidación</p>
+                    <p className="text-2xl font-bold text-slate-900 dark:text-white">
+                      {Math.floor(amortizationCalc.months / 12)} años y {amortizationCalc.months % 12} meses
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-slate-400">Total pagado en concepto de intereses</p>
+                    <p className="text-2xl font-bold text-rose-600">
+                      {formatEUR(amortizationCalc.totalInterest)}
+                    </p>
+                  </div>
+                  <div className="text-xs text-slate-500 max-w-xs">
+                    💡 Si aumentas tu cuota mensual en solo 50 €, recortarás meses de pago e intereses acumulados.
+                  </div>
+                </div>
+              ) : (
+                <p className="text-xs text-rose-600 font-semibold">
+                  La cuota mensual introducida no cubre ni los intereses mínimos generados por la deuda. Aumenta la cuota.
+                </p>
+              )}
+            </div>
+          </Card>
+        </div>
+      );
+    };
+
+    // =========================================================================
+    // 14. SECCIÓN DE INVERSIONES & CARTERA
+    // =========================================================================
+    const InvestmentsView = ({ data }) => {
+      const totalInvested = data.investments.reduce((sum, i) => sum + i.invested, 0);
+      const totalCurrent = data.investments.reduce((sum, i) => sum + i.current, 0);
+      const totalGain = totalCurrent - totalInvested;
+      const totalReturn = totalInvested > 0 ? ((totalGain / totalInvested) * 100).toFixed(2) : 0;
+
+      return (
+        <div className="space-y-6">
+          <div className="pb-2 border-b border-slate-200 dark:border-slate-800">
+            <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Inversiones y Patrimonio</h1>
+            <p className="text-sm text-slate-500">
+              Seguimiento unificado de tus fondos indexados, cuentas remuneradas y depósitos.
+            </p>
+          </div>
+
+          {/* Tarjetas resumen */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <StatCard
+              title="Capital Aportado"
+              value={formatEUR(totalInvested)}
+              detail="Dinero invertido acumulado"
+              icon="layers"
+            />
+            <StatCard
+              title="Valor Liquidativo Actual"
+              value={formatEUR(totalCurrent)}
+              detail="Valor de mercado hoy"
+              icon="trending-up"
+            />
+            <StatCard
+              title="Plusvalía Latente"
+              value={`+${formatEUR(totalGain)}`}
+              detail={`Rentabilidad ponderada: +${totalReturn} %`}
+              icon="pie-chart"
+              trend="up"
+              trendValue={`+${totalReturn}%`}
+            />
+          </div>
+
+          {/* Lista de posiciones */}
+          <Card title="Posiciones de Inversión Registradas" subtitle="Cartera de activos mantenidos">
+            <div className="divide-y divide-slate-100 dark:divide-slate-800">
+              {data.investments.map(inv => (
+                <div key={inv.id} className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <p className="font-semibold text-slate-900 dark:text-white text-base">{inv.name}</p>
+                    <span className="inline-block mt-1 px-2 py-0.5 rounded text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                      {inv.type}
+                    </span>
+                  </div>
+                  <div className="text-right flex items-center gap-6">
+                    <div>
+                      <p className="text-xs text-slate-400">Capital aportado</p>
+                      <p className="font-medium text-slate-700 dark:text-slate-300">{formatEUR(inv.invested)}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-400">Valor actual</p>
+                      <p className="font-bold text-slate-900 dark:text-white">{formatEUR(inv.current)}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-400">Rentabilidad</p>
+                      <span className="font-bold text-emerald-600">+{inv.returnRate}%</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* Tarjetas educativas */}
+          <div>
+            <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-3">Conceptos clave para invertir con cabeza</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card title="Diversificación Global">
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  No poner todos los huevos en la misma cesta. Un fondo indexado al mundo invierte en más de 1.500 empresas de múltiples países a costes mínimos.
+                </p>
+              </Card>
+              <Card title="Horizonte Temporal">
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  El dinero que vayas a necesitar en menos de 3 años debe estar en cuentas remuneradas o depósitos seguros. La renta variable requiere más de 5 a 10 años.
+                </p>
+              </Card>
+              <Card title="Interés Compuesto">
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Reinvertir los dividendos y ganancias genera un crecimiento exponencial con el paso de las décadas, acelerando tu patrimonio sin esfuerzo extra.
+                </p>
+              </Card>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    // =========================================================================
+    // 15. HÁBITOS, PLAN FINANCIERO Y CALENDARIO
+    // =========================================================================
+    const HabitsAndPlanView = ({ data, onToggleHabit }) => (
+      <div className="space-y-6">
+        <div className="pb-2 border-b border-slate-200 dark:border-slate-800">
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Hábitos y Hoja de Ruta</h1>
+          <p className="text-sm text-slate-500">La consistencia diaria crea la libertad financiera de mañana.</p>
+        </div>
+
+        {/* Hábitos diarios */}
+        <Card title="Tus Hábitos Financieros Activos" subtitle="Registra tus rutinas para mantener tus rachas">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {data.habits.map(h => (
+              <div
+                key={h.id}
+                onClick={() => onToggleHabit(h.id)}
+                className={`p-4 rounded-xl border cursor-pointer transition-all flex items-center justify-between ${h.completedToday ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/20' : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/40'}`}
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`w-6 h-6 rounded-md flex items-center justify-center border ${h.completedToday ? 'bg-emerald-600 border-emerald-600 text-white' : 'border-slate-300 dark:border-slate-600'}`}>
+                    {h.completedToday && <Icon name="check" size={14} />}
+                  </div>
+                  <div>
+                    <p className={`text-sm font-semibold ${h.completedToday ? 'line-through text-slate-400' : 'text-slate-900 dark:text-white'}`}>{h.title}</p>
+                    <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">🔥 {h.streak} días consecutivos</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        {/* Hoja de ruta cronológica */}
+        <Card title="Tu Plan Financiero Secuencial" subtitle="Fases estructuradas para el crecimiento de tu capital">
+          <div className="space-y-6 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-slate-200 dark:before:bg-slate-800 pl-8">
+            <div className="relative">
+              <div className="absolute -left-8 top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-white dark:ring-slate-900"></div>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white">Fase 1: Fondo de Emergencia Básico</h4>
+              <p className="text-xs text-slate-500 mt-1">Conseguir 3 meses de gastos esenciales (4.200 €) en una cuenta remunerada líquida.</p>
+              <span className="inline-block mt-2 text-xs font-semibold text-emerald-600">Estado: En progreso (68%)</span>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -left-8 top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-700 ring-4 ring-white dark:ring-slate-900"></div>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white">Fase 2: Liquidación de Deuda Cara</h4>
+              <p className="text-xs text-slate-500 mt-1">Amortizar por completo la tarjeta revolving antes de destinar capital a riesgo.</p>
+              <span className="inline-block mt-2 text-xs text-slate-400">Previsto para: 2027</span>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -left-8 top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-700 ring-4 ring-white dark:ring-slate-900"></div>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white">Fase 3: Aportaciones Indexadas Automáticas</h4>
+              <p className="text-xs text-slate-500 mt-1">Programar transferencia periódica mensual de 300 € a un fondo indexado global.</p>
+              <span className="inline-block mt-2 text-xs text-slate-400">A largo plazo</span>
+            </div>
+          </div>
+        </Card>
+      </div>
+    );
+
+    // =========================================================================
+    // 16. AJUSTES Y PERFIL DE USUARIO
+    // =========================================================================
+    const ProfileView = ({ data, onResetDemo, onExportData, onToggleTheme, isDark }) => (
+      <div className="space-y-6 max-w-4xl">
+        <div className="pb-2 border-b border-slate-200 dark:border-slate-800">
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Perfil y Configuración</h1>
+          <p className="text-sm text-slate-500">Gestión de tu cuenta, seguridad y preferencias de visualización.</p>
+        </div>
+
+        <Card title="Datos Personales" subtitle="Información visible de tu cuenta">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+            <div>
+              <span className="text-xs text-slate-400 block mb-1">Nombre completo</span>
+              <p className="font-semibold text-slate-900 dark:text-white">{data.user.name} {data.user.surname}</p>
+            </div>
+            <div>
+              <span className="text-xs text-slate-400 block mb-1">Correo electrónico</span>
+              <p className="font-semibold text-slate-900 dark:text-white">{data.user.email}</p>
+            </div>
+            <div>
+              <span className="text-xs text-slate-400 block mb-1">Moneda oficial</span>
+              <p className="font-semibold text-slate-900 dark:text-white">Euro (€) - EUR</p>
+            </div>
+            <div>
+              <span className="text-xs text-slate-400 block mb-1">País y zona fiscal</span>
+              <p className="font-semibold text-slate-900 dark:text-white">España (Península e Islas)</p>
+            </div>
+          </div>
+        </Card>
+
+        <Card title="Preferencias y Apariencia">
+          <div className="flex items-center justify-between py-2">
+            <div>
+              <p className="font-semibold text-sm text-slate-900 dark:text-white">Modo oscuro</p>
+              <p className="text-xs text-slate-400">Alternar entre tema visual claro y nocturno</p>
+            </div>
+            <Button variant="outline" size="sm" onClick={onToggleTheme} icon={isDark ? "sun" : "moon"}>
+              {isDark ? "Modo Claro" : "Modo Oscuro"}
+            </Button>
+          </div>
+        </Card>
+
+        <Card title="Zona de Datos y Privacidad">
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100 dark:border-slate-800">
+              <div>
+                <p className="font-semibold text-sm text-slate-900 dark:text-white">Copia de seguridad completa (JSON)</p>
+                <p className="text-xs text-slate-400">Descarga un archivo con todos tus movimientos, objetivos y deudas.</p>
+              </div>
+              <Button variant="outline" size="sm" onClick={onExportData} icon="download">
+                Descargar JSON
+              </Button>
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <p className="font-semibold text-sm text-rose-600">Restablecer datos de demostración</p>
+                <p className="text-xs text-slate-400">Borra los cambios locales y devuelve la app a los datos iniciales de prueba.</p>
+              </div>
+              <Button
+                variant="danger"
+                size="sm"
+                onClick={() => {
+                  if (confirm("¿Estás seguro de que quieres restablecer todos los datos a la demostración inicial?")) {
+                    onResetDemo();
+                  }
+                }}
+                icon="refresh-cw"
+              >
+                Restablecer Demo
+              </Button>
+            </div>
+          </div>
+        </Card>
+      </div>
+    );
+
+    // =========================================================================
+    // 17. APLICACIÓN PRINCIPAL (ORQUESTADOR GLOBAL)
+    // =========================================================================
+    const App = () => {
+      const [appData, setAppData] = useState(() => db.get());
+      const [currentView, setCurrentView] = useState('landing'); // 'landing' | 'auth' | 'onboarding' | 'dashboard' | 'movimientos' | 'presupuesto' | 'objetivos' | 'calculadoras' | 'inversiones' | 'habitos' | 'perfil'
+      const [isDarkMode, setIsDarkMode] = useState(false);
+      const [isQuickAddOpen, setIsQuickAddOpen] = useState(false);
+
+      // Estado del formulario de Acción Rápida (+ Añadir)
+      const [newTx, setNewTx] = useState({
+        concept: '',
+        amount: '',
+        type: 'expense',
+        category: 'food',
+        account: 'Tarjeta Visa Débito',
+        notes: ''
+      });
+
+      // Persistir siempre que haya cambios en el estado
+      useEffect(() => {
+        db.set(appData);
+      }, [appData]);
+
+      // Alternar modo oscuro en el nodo raíz
+      useEffect(() => {
+        if (isDarkMode) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }, [isDarkMode]);
+
+      // Manejadores de acciones
+      const handleLoginSuccess = (userData, isNewUser) => {
+        setAppData(prev => ({
+          ...prev,
+          user: { ...prev.user, ...userData }
+        }));
+        if (isNewUser) {
+          setCurrentView('onboarding');
+        } else {
+          setCurrentView('dashboard');
+        }
+      };
+
+      const handleOnboardingComplete = (form) => {
+        setAppData(prev => {
+          const updated = { ...prev };
+          // Añadir nómina calculada
+          if (form.salary > 0) {
+            updated.transactions.push({
+              id: 'tx_onb_1',
+              concept: 'Salario mensual inicial',
+              amount: Number(form.salary),
+              type: 'income',
+              category: 'salary',
+              date: new Date().toISOString().slice(0, 10),
+              account: 'Cuenta Corriente',
+              notes: 'Fijado en onboarding'
+            });
+          }
+          // Añadir objetivo inicial
+          if (form.primaryGoalName) {
+            updated.goals.unshift({
+              id: 'goal_onb_1',
+              name: form.primaryGoalName,
+              target: Number(form.primaryGoalAmount),
+              current: 0,
+              deadline: new Date(Date.now() + form.primaryGoalMonths * 30 * 24 * 3600 * 1000).toISOString().slice(0, 10),
+              category: 'emergency',
+              icon: '🛡️',
+              priority: 'high'
+            });
+          }
+          return updated;
+        });
+        setCurrentView('dashboard');
+      };
+
+      const handleAddTransaction = (e) => {
+        e.preventDefault();
+        if (!newTx.concept || !newTx.amount) return;
+
+        const created = {
+          id: 'tx_' + Date.now(),
+          concept: newTx.concept,
+          amount: parseFloat(newTx.amount),
+          type: newTx.type,
+          category: newTx.category,
+          account: newTx.account,
+          date: new Date().toISOString().slice(0, 10),
+          notes: newTx.notes
+        };
+
+        setAppData(prev => ({
+          ...prev,
+          transactions: [created, ...prev.transactions]
+        }));
+
+        setNewTx({ concept: '', amount: '', type: 'expense', category: 'food', account: 'Tarjeta Visa Débito', notes: '' });
+        setIsQuickAddOpen(false);
+      };
+
+      const handleDeleteTransaction = (id) => {
+        setAppData(prev => ({
+          ...prev,
+          transactions: prev.transactions.filter(t => t.id !== id)
+        }));
+      };
+
+      const handleAddGoal = (goal) => {
+        setAppData(prev => ({
+          ...prev,
+          goals: [goal, ...prev.goals]
+        }));
+      };
+
+      const handleUpdateGoalDeposit = (goalId, amount) => {
+        setAppData(prev => ({
+          ...prev,
+          goals: prev.goals.map(g => g.id === goalId ? { ...g, current: g.current + amount } : g)
+        }));
+      };
+
+      const handleToggleHabit = (id) => {
+        setAppData(prev => ({
+          ...prev,
+          habits: prev.habits.map(h => {
+            if (h.id === id) {
+              const completed = !h.completedToday;
+              return { ...h, completedToday: completed, streak: completed ? h.streak + 1 : Math.max(0, h.streak - 1) };
+            }
+            return h;
+          })
+        }));
+      };
+
+      const handleResetDemo = () => {
+        const fresh = db.reset();
+        setAppData(fresh);
+        alert("La aplicación ha sido restablecida a sus datos de prueba originales.");
+      };
+
+      const handleExportData = () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appData, null, 2));
+        const dlAnchorElem = document.createElement('a');
+        dlAnchorElem.setAttribute("href", dataStr);
+        dlAnchorElem.setAttribute("download", `aura_finance_backup_${new Date().toISOString().slice(0,10)}.json`);
+        dlAnchorElem.click();
+      };
+
+      // Si está en Landing o Auth, renderizar vistas aisladas
+      if (currentView === 'landing') {
+        return <LandingPage onStartApp={() => setCurrentView('dashboard')} onLoginClick={() => setCurrentView('auth')} />;
+      }
+
+      if (currentView === 'auth') {
+        return <AuthScreen onLoginSuccess={handleLoginSuccess} onCancel={() => setCurrentView('landing')} />;
+      }
+
+      if (currentView === 'onboarding') {
+        return <OnboardingWizard onComplete={handleOnboardingComplete} />;
+      }
+
+      // Menú de navegación lateral Desktop
+      const NAV_ITEMS = [
+        { id: 'dashboard', label: 'Inicio', icon: 'layout-dashboard' },
+        { id: 'movimientos', label: 'Movimientos', icon: 'arrow-left-right' },
+        { id: 'presupuesto', label: 'Presupuestos', icon: 'pie-chart' },
+        { id: 'objetivos', label: 'Mis Objetivos', icon: 'target' },
+        { id: 'calculadoras', label: 'Calculadoras', icon: 'calculator' },
+        { id: 'inversiones', label: 'Inversiones', icon: 'trending-up' },
+        { id: 'habitos', label: 'Plan & Hábitos', icon: 'check-square' },
+        { id: 'perfil', label: 'Perfil & Ajustes', icon: 'settings' }
+      ];
+
+      return (
+        <div className="min-h-screen flex flex-col md:flex-row">
+          {/* SIDEBAR DESKTOP */}
+          <aside className="hidden md:flex flex-col w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 p-5 shrink-0 select-none">
+            {/* Logo */}
+            <div className="flex items-center gap-2.5 pb-6 border-b border-slate-100 dark:border-slate-800">
+              <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold">
+                <Icon name="shield-check" size={18} />
+              </div>
+              <div>
+                <span className="font-bold text-slate-900 dark:text-white text-base tracking-tight">Aura Finance</span>
+                <span className="block text-[10px] text-emerald-600 font-bold uppercase tracking-wider">Plan Comercial</span>
+              </div>
+            </div>
+
+            {/* Botón Acción Rápida */}
+            <div className="my-5">
+              <Button
+                variant="primary"
+                className="w-full py-2.5 shadow-md shadow-emerald-600/20"
+                onClick={() => setIsQuickAddOpen(true)}
+                icon="plus"
+              >
+                + Añadir
+              </Button>
+            </div>
+
+            {/* Enlaces de Navegación */}
+            <nav className="space-y-1 flex-1">
+              {NAV_ITEMS.map(item => (
+                <button
+                  key={item.id}
+                  onClick={() => setCurrentView(item.id)}
+                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-colors ${currentView === item.id ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 font-semibold' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+                >
+                  <Icon name={item.icon} size={18} />
+                  <span>{item.label}</span>
+                </button>
+              ))}
+            </nav>
+
+            {/* Widget Inferior de usuario */}
+            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center font-bold text-xs text-slate-700 dark:text-slate-200">
+                  {appData.user.name[0]}
+                </div>
+                <div className="text-left">
+                  <p className="text-xs font-semibold text-slate-900 dark:text-white leading-tight">{appData.user.name}</p>
+                  <p className="text-[10px] text-slate-400">Edición España</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setCurrentView('landing')}
+                className="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+                title="Cerrar sesión"
+              >
+                <Icon name="log-out" size={16} />
+              </button>
+            </div>
+          </aside>
+
+          {/* CONTENIDO PRINCIPAL */}
+          <main className="flex-1 flex flex-col min-w-0 pb-20 md:pb-8">
+            {/* Header móvil */}
+            <div className="md:hidden flex items-center justify-between p-4 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold">
+                  <Icon name="shield-check" size={16} />
+                </div>
+                <span className="font-bold text-slate-900 dark:text-white">Aura</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Button variant="primary" size="sm" onClick={() => setIsQuickAddOpen(true)} icon="plus">
+                  Añadir
+                </Button>
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto w-full">
+              {currentView === 'dashboard' && <DashboardView data={appData} onNavigate={setCurrentView} onOpenQuickAdd={() => setIsQuickAddOpen(true)} />}
+              {currentView === 'movimientos' && <TransactionsView data={appData} onAddTx={() => setIsQuickAddOpen(true)} onDeleteTx={handleDeleteTransaction} />}
+              {currentView === 'presupuesto' && <BudgetsView data={appData} />}
+              {currentView === 'objetivos' && <GoalsView data={appData} onAddGoal={handleAddGoal} onUpdateGoalDeposit={handleUpdateGoalDeposit} />}
+              {currentView === 'calculadoras' && <CalculatorsView />}
+              {currentView === 'inversiones' && <InvestmentsView data={appData} />}
+              {currentView === 'habitos' && <HabitsAndPlanView data={appData} onToggleHabit={handleToggleHabit} />}
+              {currentView === 'perfil' && (
+                <ProfileView
+                  data={appData}
+                  onResetDemo={handleResetDemo}
+                  onExportData={handleExportData}
+                  onToggleTheme={() => setIsDarkMode(!isDarkMode)}
+                  isDark={isDarkMode}
+                />
+              )}
+            </div>
+          </main>
+
+          {/* BARRA DE NAVEGACIÓN INFERIOR PARA MÓVILES */}
+          <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-4 py-2 flex items-center justify-around z-40">
+            <button
+              onClick={() => setCurrentView('dashboard')}
+              className={`flex flex-col items-center gap-1 text-[11px] font-medium ${currentView === 'dashboard' ? 'text-emerald-600 font-bold' : 'text-slate-400'}`}
+            >
+              <Icon name="layout-dashboard" size={18} />
+              <span>Inicio</span>
+            </button>
+            <button
+              onClick={() => setCurrentView('movimientos')}
+              className={`flex flex-col items-center gap-1 text-[11px] font-medium ${currentView === 'movimientos' ? 'text-emerald-600 font-bold' : 'text-slate-400'}`}
+            >
+              <Icon name="arrow-left-right" size={18} />
+              <span>Movimientos</span>
+            </button>
+
+            {/* Botón flotante central "+" */}
+            <button
+              onClick={() => setIsQuickAddOpen(true)}
+              className="w-12 h-12 -mt-5 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-lg shadow-emerald-600/30 active:scale-95"
+            >
+              <Icon name="plus" size={24} />
+            </button>
+
+            <button
+              onClick={() => setCurrentView('objetivos')}
+              className={`flex flex-col items-center gap-1 text-[11px] font-medium ${currentView === 'objetivos' ? 'text-emerald-600 font-bold' : 'text-slate-400'}`}
+            >
+              <Icon name="target" size={18} />
+              <span>Objetivos</span>
+            </button>
+            <button
+              onClick={() => setCurrentView('perfil')}
+              className={`flex flex-col items-center gap-1 text-[11px] font-medium ${currentView === 'perfil' ? 'text-emerald-600 font-bold' : 'text-slate-400'}`}
+            >
+              <Icon name="settings" size={18} />
+              <span>Ajustes</span>
+            </button>
+          </div>
+
+          {/* MODAL GLOBAL DE ACCIÓN RÁPIDA (+ AÑADIR) */}
+          <Modal isOpen={isQuickAddOpen} onClose={() => setIsQuickAddOpen(false)} title="Registrar nuevo movimiento">
+            <form onSubmit={handleAddTransaction} className="space-y-4">
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => setNewTx({ ...newTx, type: 'expense' })}
+                  className={`flex-1 py-2 text-sm font-semibold rounded-xl border ${newTx.type === 'expense' ? 'bg-rose-50 border-rose-500 text-rose-700 dark:bg-rose-950/30' : 'border-slate-200 dark:border-slate-800'}`}
+                >
+                  Gasto
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setNewTx({ ...newTx, type: 'income' })}
+                  className={`flex-1 py-2 text-sm font-semibold rounded-xl border ${newTx.type === 'income' ? 'bg-emerald-50 border-emerald-500 text-emerald-700 dark:bg-emerald-950/30' : 'border-slate-200 dark:border-slate-800'}`}
+                >
+                  Ingreso
+                </button>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Concepto</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Ej: Compra supermercado, Cena, Nómina..."
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                  value={newTx.concept}
+                  onChange={(e) => setNewTx({ ...newTx, concept: e.target.value })}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Importe (€)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    required
+                    placeholder="0,00"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                    value={newTx.amount}
+                    onChange={(e) => setNewTx({ ...newTx, amount: e.target.value })}
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Categoría</label>
+                  <select
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                    value={newTx.category}
+                    onChange={(e) => setNewTx({ ...newTx, category: e.target.value })}
+                  >
+                    {Object.entries(CATEGORIES).map(([k, v]) => (
+                      <option key={k} value={k}>{v.icon} {v.name}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Cuenta o Método de pago</label>
+                <input
+                  type="text"
+                  placeholder="Ej: Cuenta Nómina BBVA, Tarjeta Visa Débito..."
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                  value={newTx.account}
+                  onChange={(e) => setNewTx({ ...newTx, account: e.target.value })}
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Notas adicionales (opcional)</label>
+                <input
+                  type="text"
+                  placeholder="Detalles sobre el movimiento..."
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm"
+                  value={newTx.notes}
+                  onChange={(e) => setNewTx({ ...newTx, notes: e.target.value })}
+                />
+              </div>
+
+              <div className="pt-3 flex justify-end gap-2">
+                <Button variant="outline" size="sm" onClick={() => setIsQuickAddOpen(false)}>Cancelar</Button>
+                <Button variant="primary" size="sm" type="submit">Guardar movimiento</Button>
+              </div>
+            </form>
+          </Modal>
+        </div>
+      );
+    };
+
+    // Renderizar aplicación en el DOM
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 </html>
