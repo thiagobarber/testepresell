@@ -16,169 +16,159 @@
     html, body {
       width: 100%;
       height: 100%;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       overflow: hidden;
-      background-color: #0b0f19;
-      color: #333;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #000;
     }
 
-    /* Iframe de fundo da página de vendas */
+    /* Iframe do site: nítido e em tela cheia */
     .bg-frame {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      border: none;
+      width: 100%;
+      height: 100%;
+      border: 0;
       z-index: 1;
-      filter: blur(4px) brightness(0.7);
-      transform: scale(1.02);
     }
 
-    /* Overlay escurecido para foco total no modal */
-    .modal-backdrop {
+    /* Overlay escuro que segura o modal */
+    .modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(10, 15, 29, 0.75);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 10;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 9999;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 16px;
-      transition: opacity 0.25s ease, visibility 0.25s ease;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
     }
 
-    .modal-backdrop.hidden {
+    /* Esconde totalmente o modal e o fundo escuro quando fechado */
+    .modal-overlay.closed {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
     }
 
     /* Caixa do Modal */
-    .modal-card {
+    .modal-box {
       background: #ffffff;
       width: 100%;
-      max-width: 520px;
-      border-radius: 14px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      max-width: 480px;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: popIn 0.2s ease-out;
     }
 
-    @keyframes modalFadeIn {
-      from { transform: translateY(12px) scale(0.97); opacity: 0; }
-      to { transform: translateY(0) scale(1); opacity: 1; }
+    @keyframes popIn {
+      from { transform: scale(0.96); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
-    /* Botão fechar (X) */
-    .close-btn {
+    /* Botão X para fechar */
+    .close-x {
       position: absolute;
-      top: 14px;
-      right: 14px;
+      top: 12px;
+      right: 12px;
       width: 32px;
       height: 32px;
       background: #f1f5f9;
       border: none;
       border-radius: 50%;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: bold;
+      color: #475569;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      color: #64748b;
-      font-size: 16px;
-      font-weight: bold;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.15s;
     }
 
-    .close-btn:hover {
+    .close-x:hover {
       background: #e2e8f0;
       color: #0f172a;
     }
 
-    /* Conteúdo do Modal */
-    .modal-header {
-      padding: 24px 24px 12px;
+    .modal-content {
+      padding: 24px 20px 16px;
     }
 
     .modal-title {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 700;
       color: #0f172a;
-      line-height: 1.3;
+      margin-bottom: 10px;
+      padding-right: 25px;
     }
 
-    .modal-body {
-      padding: 0 24px 20px;
+    .modal-text {
       font-size: 13px;
-      line-height: 1.6;
-      color: #475569;
-    }
-
-    .modal-body p {
+      line-height: 1.5;
+      color: #334155;
       margin-bottom: 12px;
     }
 
-    .privacy-box {
+    /* Caixa interna de Política de Privacidade */
+    .privacy-text {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 12px;
-      max-height: 120px;
-      overflow-y: auto;
+      border-radius: 6px;
+      padding: 10px 12px;
       font-size: 12px;
+      line-height: 1.45;
       color: #64748b;
-      margin-top: 10px;
+      max-height: 110px;
+      overflow-y: auto;
     }
 
-    .privacy-box strong {
-      color: #334155;
+    .privacy-text strong {
+      color: #1e293b;
     }
 
-    /* Ações e Botão CTA */
+    /* Rodapé e Botão CTA */
     .modal-footer {
-      padding: 16px 24px 24px;
-      background: #ffffff;
-      border-top: 1px solid #f1f5f9;
+      padding: 12px 20px 20px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .btn-cta {
+    .cta-btn {
       display: block;
       width: 100%;
-      text-align: center;
       background: #2563eb;
       color: #ffffff;
+      text-align: center;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
-      padding: 14px 20px;
+      padding: 13px;
       border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
-      transition: background 0.2s, transform 0.1s;
       border: none;
+      cursor: pointer;
+      transition: background 0.15s;
     }
 
-    .btn-cta:hover {
+    .cta-btn:hover {
       background: #1d4ed8;
-      transform: translateY(-1px);
     }
 
-    .btn-cta:active {
-      transform: translateY(0);
+    .cta-btn:active {
+      transform: scale(0.99);
     }
 
-    .disclaimer-text {
+    .secure-note {
       text-align: center;
       font-size: 11px;
       color: #94a3b8;
@@ -187,55 +177,57 @@
 </head>
 <body>
 
-  <!-- Fundo da Presell com a página oficial de destino -->
+  <!-- Site de destino limpo e nítido -->
   <iframe 
+    id="siteFrame"
     class="bg-frame" 
     src="https://bloodsugarblaster.com/index-vsl-ds24-1"
-    loading="eager"
-    title="Background Presentation">
+    title="Official Presentation"
+    allow="autoplay; fullscreen">
   </iframe>
 
-  <!-- Modal de Cookies & Política de Privacidade -->
-  <div class="modal-backdrop" id="cookieModal">
-    <div class="modal-card">
-      <button class="close-btn" id="closeBtn" aria-label="Close modal">&times;</button>
+  <!-- Modal frontal de Cookies e Privacidade -->
+  <div class="modal-overlay" id="cookieOverlay">
+    <div class="modal-box">
+      <button class="close-x" id="closeBtn" aria-label="Close">&times;</button>
       
-      <div class="modal-header">
+      <div class="modal-content">
         <h2 class="modal-title">Cookie Consent & Privacy Policy</h2>
-      </div>
-
-      <div class="modal-body">
-        <p>
-          We use cookies and similar technologies to enhance your browsing experience, measure site traffic, and personalize content. By clicking <strong>"Accept & Continue"</strong>, you consent to our use of cookies in accordance with our policy.
+        <p class="modal-text">
+          We use cookies to improve your user experience and verify safe access. By continuing to view this page, you agree to our standard terms and privacy policies.
         </p>
 
-        <div class="privacy-box">
-          <strong>Privacy Summary:</strong> We respect your privacy rights. Any data collected is strictly utilized to optimize site performance and verify user interactions. We do not sell or transfer your personal data to unauthorized third parties. You may manage or opt out of non-essential tracking cookies at any time via your browser settings.
+        <div class="privacy-text">
+          <strong>Privacy Summary:</strong> Your information is handled securely and will never be sold or shared with unauthorized third parties. We use basic tracking cookies strictly for session performance, traffic diagnostics, and content delivery optimization. You can update your cookie preferences in your browser at any time.
         </div>
       </div>
 
       <div class="modal-footer">
-        <a href="https://bloodsugarblaster.com/index-vsl-ds24-1" class="btn-cta" id="ctaBtn">
-          Accept & Continue to Presentation &rarr;
+        <a href="https://bloodsugarblaster.com/index-vsl-ds24-1" class="cta-btn" id="ctaBtn">
+          Accept & Continue &rarr;
         </a>
-        <span class="disclaimer-text">Secure connection &bull; Instant access</span>
+        <div class="secure-note">SSL Secured Connection &bull; 256-Bit Encryption</div>
       </div>
     </div>
   </div>
 
   <script>
-    const modal = document.getElementById('cookieModal');
+    const overlay = document.getElementById('cookieOverlay');
     const closeBtn = document.getElementById('closeBtn');
 
-    // Fechar modal ao clicar no 'X'
-    closeBtn.addEventListener('click', () => {
-      modal.classList.add('hidden');
-    });
+    // Fecha o modal e deixa o site 100% nítido e navegável
+    function dismissModal() {
+      overlay.classList.add('closed');
+      // Destrava o scroll do site se necessário
+      document.body.style.overflow = 'auto';
+    }
 
-    // Se o usuário clicar fora da caixa do modal, fecha o modal
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.add('hidden');
+    closeBtn.addEventListener('click', dismissModal);
+
+    // Fecha também ao clicar fora da caixinha branca
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        dismissModal();
       }
     });
   </script>
