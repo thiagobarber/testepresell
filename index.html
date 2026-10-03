@@ -1,234 +1,2208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-slate-50 text-slate-900">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Verification & Consent</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>39DAY — 39 Days. One New Routine.</title>
+  <meta name="description" content="Your personalized 39-day journey to build healthier habits and work toward your weight-loss goal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            },
+            surface: {
+              50: '#F8FAFC',
+              100: '#F1F5F9',
+              200: '#E2E8F0',
+              800: '#1E293B',
+              900: '#0F172A',
+              950: '#020617'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'soft': '0 4px 20px -2px rgba(15, 23, 42, 0.05)',
+            'float': '0 12px 32px -4px rgba(15, 23, 42, 0.10)',
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
+    /* Prevent rubber-banding on iOS touch screens */
     html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #000;
+      overscroll-behavior-y: none;
+      -webkit-tap-highlight-color: transparent;
+      font-family: 'Inter', sans-serif;
     }
-
-    /* Iframe do site: nítido e em tela cheia */
-    .bg-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      z-index: 1;
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
     }
-
-    /* Overlay escuro que segura o modal */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.65);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      transition: opacity 0.2s ease, visibility 0.2s ease;
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
     }
-
-    /* Esconde totalmente o modal e o fundo escuro quando fechado */
-    .modal-overlay.closed {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+    .water-wave {
+      transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
-    /* Caixa do Modal */
-    .modal-box {
-      background: #ffffff;
-      width: 100%;
-      max-width: 480px;
-      border-radius: 12px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      animation: popIn 0.2s ease-out;
-    }
-
-    @keyframes popIn {
-      from { transform: scale(0.96); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    /* Botão X para fechar */
-    .close-x {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 32px;
-      height: 32px;
-      background: #f1f5f9;
-      border: none;
-      border-radius: 50%;
-      font-size: 18px;
-      line-height: 1;
-      font-weight: bold;
-      color: #475569;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.15s;
-    }
-
-    .close-x:hover {
-      background: #e2e8f0;
-      color: #0f172a;
-    }
-
-    .modal-content {
-      padding: 24px 20px 16px;
-    }
-
-    .modal-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 10px;
-      padding-right: 25px;
-    }
-
-    .modal-text {
-      font-size: 13px;
-      line-height: 1.5;
-      color: #334155;
-      margin-bottom: 12px;
-    }
-
-    /* Caixa interna de Política de Privacidade */
-    .privacy-text {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 10px 12px;
-      font-size: 12px;
-      line-height: 1.45;
-      color: #64748b;
-      max-height: 110px;
-      overflow-y: auto;
-    }
-
-    .privacy-text strong {
-      color: #1e293b;
-    }
-
-    /* Rodapé e Botão CTA */
-    .modal-footer {
-      padding: 12px 20px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .cta-btn {
-      display: block;
-      width: 100%;
-      background: #2563eb;
-      color: #ffffff;
-      text-align: center;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 13px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-
-    .cta-btn:hover {
-      background: #1d4ed8;
-    }
-
-    .cta-btn:active {
-      transform: scale(0.99);
-    }
-
-    .secure-note {
-      text-align: center;
-      font-size: 11px;
-      color: #94a3b8;
+    .circle-progress {
+      transition: stroke-dashoffset 0.8s ease-in-out;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
     }
   </style>
 </head>
-<body>
+<body class="h-full bg-slate-50 text-slate-800 antialiased flex flex-col justify-between selection:bg-brand-500 selection:text-white">
 
-  <!-- Site de destino limpo e nítido -->
-  <iframe 
-    id="siteFrame"
-    class="bg-frame" 
-    src="https://bloodsugarblaster.com/index-vsl-ds24-1"
-    title="Official Presentation"
-    allow="autoplay; fullscreen">
-  </iframe>
+  <div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-11/12 max-w-sm pointer-events-none flex flex-col gap-2"></div>
 
-  <!-- Modal frontal de Cookies e Privacidade -->
-  <div class="modal-overlay" id="cookieOverlay">
-    <div class="modal-box">
-      <button class="close-x" id="closeBtn" aria-label="Close">&times;</button>
-      
-      <div class="modal-content">
-        <h2 class="modal-title">Cookie Consent & Privacy Policy</h2>
-        <p class="modal-text">
-          We use cookies to improve your user experience and verify safe access. By continuing to view this page, you agree to our standard terms and privacy policies.
-        </p>
+  <!-- Modal Backdrop Host -->
+  <div id="modal-container" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm hidden items-center justify-center p-4"></div>
 
-        <div class="privacy-text">
-          <strong>Privacy Summary:</strong> Your information is handled securely and will never be sold or shared with unauthorized third parties. We use basic tracking cookies strictly for session performance, traffic diagnostics, and content delivery optimization. You can update your cookie preferences in your browser at any time.
+  <!-- Max-width Mobile Wrapper -->
+  <div class="relative w-full max-w-md mx-auto min-h-full bg-white flex flex-col shadow-2xl border-x border-slate-100 overflow-x-hidden">
+
+    <!-- Top Status / Header Bar -->
+    <header id="app-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 py-3 flex items-center justify-between transition-all">
+      <div class="flex items-center gap-2 cursor-pointer" onclick="App.navigateTo('landing')">
+        <div class="w-8 h-8 rounded-xl bg-slate-900 text-brand-500 flex items-center justify-center font-black text-sm tracking-tighter">
+          39
         </div>
+        <span class="font-extrabold text-lg tracking-tight text-slate-900">39DAY</span>
       </div>
+      <div id="header-actions" class="flex items-center gap-2">
+        <button onclick="App.loadDemoData()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-2.5 py-1.5 rounded-full transition flex items-center gap-1">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Try Demo</span>
+        </button>
+        <button id="auth-header-btn" onclick="App.navigateTo('login')" class="text-xs bg-slate-900 hover:bg-slate-800 text-white font-medium px-3 py-1.5 rounded-full transition">
+          Log In
+        </button>
+      </div>
+    </header>
 
-      <div class="modal-footer">
-        <a href="https://bloodsugarblaster.com/index-vsl-ds24-1" class="cta-btn" id="ctaBtn">
-          Accept & Continue &rarr;
-        </a>
-        <div class="secure-note">SSL Secured Connection &bull; 256-Bit Encryption</div>
-      </div>
-    </div>
+    <!-- Main Dynamic Content Region -->
+    <main id="main-content" class="flex-1 flex flex-col w-full pb-20 overflow-y-auto custom-scrollbar">
+
+      <!-- ==============================================
+           SCREEN 1: LANDING PAGE
+           ============================================== -->
+      <section id="view-landing" class="view flex flex-col">
+        <!-- Hero Section -->
+        <div class="px-5 pt-8 pb-10 text-center bg-gradient-to-b from-slate-50 via-white to-brand-50/30">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold mb-4">
+            <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+            39 Days. One New Routine.
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Your personalized 39-day journey to build healthier habits.
+          </h1>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed max-w-sm mx-auto">
+            A science-informed habit protocol designed around your body, lifestyle, and goals. Simple, consistent, and sustainable.
+          </p>
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button onclick="App.startOnboarding()" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3.5 px-6 rounded-2xl shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2 transition active:scale-[0.98]">
+              <span>Start My 39-Day Journey</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+            <button onclick="App.loadDemoData()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold py-3 px-6 rounded-2xl transition flex items-center justify-center gap-2">
+              <i data-lucide="play" class="w-4 h-4 text-slate-500"></i>
+              <span>Explore Interactive Demo</span>
+            </button>
+          </div>
+
+          <div class="mt-4 flex items-center justify-center gap-4 text-xs text-slate-500">
+            <span class="flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> No subscriptions required</span>
+            <span class="flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> Privacy first</span>
+          </div>
+        </div>
+
+        <!-- Highlights / What You Track -->
+        <div class="px-5 py-8 border-t border-slate-100">
+          <div class="text-center mb-6">
+            <h2 class="text-xl font-bold text-slate-900">What You Build & Track</h2>
+            <p class="text-xs text-slate-500 mt-1">Balanced holistic wellness without extreme restrictions</p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col gap-2">
+              <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                <i data-lucide="utensils" class="w-4 h-4"></i>
+              </div>
+              <h3 class="font-bold text-sm text-slate-900">Nutrition Aware</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Estimated calories & protein targets without obsessing.</p>
+            </div>
+
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col gap-2">
+              <div class="w-8 h-8 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">
+                <i data-lucide="droplets" class="w-4 h-4"></i>
+              </div>
+              <h3 class="font-bold text-sm text-slate-900">Smart Hydration</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Daily target reminders and simple one-tap logging.</p>
+            </div>
+
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col gap-2">
+              <div class="w-8 h-8 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center">
+                <i data-lucide="activity" class="w-4 h-4"></i>
+              </div>
+              <h3 class="font-bold text-sm text-slate-900">Daily Steps</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Progressive step goals that build lasting movement.</p>
+            </div>
+
+            <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col gap-2">
+              <div class="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center">
+                <i data-lucide="dumbbell" class="w-4 h-4"></i>
+              </div>
+              <h3 class="font-bold text-sm text-slate-900">Guided Workouts</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Adapted for bodyweight, dumbells, or gym.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- How it works 4-step -->
+        <div class="px-5 py-8 bg-slate-900 text-white">
+          <h2 class="text-xl font-bold text-center mb-1">How 39DAY Works</h2>
+          <p class="text-xs text-slate-400 text-center mb-6">4 straightforward phases to make habits stick</p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3 bg-slate-800/60 p-3.5 rounded-2xl border border-slate-700/50">
+              <div class="w-7 h-7 rounded-full bg-brand-500 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0">1</div>
+              <div>
+                <h4 class="text-sm font-semibold">Personal Assessment</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Tell us your current measurements, lifestyle, and physical constraints.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-slate-800/60 p-3.5 rounded-2xl border border-slate-700/50">
+              <div class="w-7 h-7 rounded-full bg-brand-500 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0">2</div>
+              <div>
+                <h4 class="text-sm font-semibold">Personalized 39-Day Roadmap</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Get a gradual calendar progressing from foundation to momentum.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-slate-800/60 p-3.5 rounded-2xl border border-slate-700/50">
+              <div class="w-7 h-7 rounded-full bg-brand-500 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0">3</div>
+              <div>
+                <h4 class="text-sm font-semibold">Daily Micro-Tasks</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Check off habits in 2 minutes per day with our friction-free interface.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-slate-800/60 p-3.5 rounded-2xl border border-slate-700/50">
+              <div class="w-7 h-7 rounded-full bg-brand-500 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0">4</div>
+              <div>
+                <h4 class="text-sm font-semibold">Celebrate Real Transformation</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Visualize your progress, weight delta, and sustainable routine.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 text-center">
+            <button onclick="App.startOnboarding()" class="w-full bg-brand-500 hover:bg-brand-400 text-slate-950 font-bold py-3.5 rounded-xl transition">
+              Get Started Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Educational Disclaimer -->
+        <div class="p-5 text-center text-[11px] text-slate-400 leading-normal border-t border-slate-100">
+          <p>39DAY provides wellness, exercise, and nutritional guidelines for educational and habit-building purposes. It is not medical advice. Consult a healthcare provider before beginning any drastic weight loss or exercise program.</p>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 2: LOGIN
+           ============================================== -->
+      <section id="view-login" class="view hidden flex flex-col p-6 max-w-sm mx-auto w-full">
+        <div class="text-center mb-6">
+          <h2 class="text-2xl font-black text-slate-900">Welcome Back</h2>
+          <p class="text-xs text-slate-500 mt-1">Continue your 39-day personal journey</p>
+        </div>
+
+        <form id="login-form" onsubmit="App.handleLogin(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
+            <div class="relative">
+              <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3 top-3.5"></i>
+              <input type="email" id="login-email" required placeholder="alex@example.com" class="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 transition">
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label class="text-xs font-semibold text-slate-700">Password</label>
+              <button type="button" onclick="App.navigateTo('forgot')" class="text-xs text-brand-600 hover:underline">Forgot?</button>
+            </div>
+            <div class="relative">
+              <i data-lucide="lock" class="w-4 h-4 text-slate-400 absolute left-3 top-3.5"></i>
+              <input type="password" id="login-password" required placeholder="••••••••" class="w-full pl-9 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 transition">
+              <button type="button" onclick="App.togglePasswordVisibility('login-password')" class="absolute right-3 top-3 text-slate-400 hover:text-slate-600">
+                <i data-lucide="eye" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" id="btn-login-submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition flex items-center justify-center gap-2">
+            <span>Log In</span>
+          </button>
+        </form>
+
+        <div class="relative my-6 text-center">
+          <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+          <span class="relative bg-white px-2 text-xs text-slate-400 uppercase font-medium">Or continue with</span>
+        </div>
+
+        <button onclick="App.simulateSocialAuth('Google')" class="w-full border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium py-2.5 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+          <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+          <span>Continue with Google</span>
+        </button>
+
+        <p class="mt-8 text-center text-xs text-slate-500">
+          Don't have an account? 
+          <button onclick="App.navigateTo('signup')" class="text-brand-600 font-semibold hover:underline">Create one</button>
+        </p>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 3: SIGN UP / CREATE ACCOUNT
+           ============================================== -->
+      <section id="view-signup" class="view hidden flex flex-col p-6 max-w-sm mx-auto w-full">
+        <div class="text-center mb-6">
+          <h2 class="text-2xl font-black text-slate-900">Create Your Account</h2>
+          <p class="text-xs text-slate-500 mt-1">Begin your personalized 39-day transformation</p>
+        </div>
+
+        <form id="signup-form" onsubmit="App.handleSignup(event)" class="space-y-3.5">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">First Name</label>
+            <input type="text" id="signup-name" required placeholder="Alex" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 transition">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
+            <input type="email" id="signup-email" required placeholder="alex@example.com" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 transition">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Password</label>
+            <div class="relative">
+              <input type="password" id="signup-password" required minlength="6" placeholder="At least 6 characters" class="w-full px-3 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 transition">
+              <button type="button" onclick="App.togglePasswordVisibility('signup-password')" class="absolute right-3 top-3 text-slate-400 hover:text-slate-600">
+                <i data-lucide="eye" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Confirm Password</label>
+            <input type="password" id="signup-confirm-password" required placeholder="Confirm your password" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 transition">
+          </div>
+
+          <label class="flex items-start gap-2 pt-1 text-xs text-slate-600 cursor-pointer">
+            <input type="checkbox" required class="mt-0.5 rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+            <span>I agree to the <a href="javascript:void(0)" onclick="App.showModal('Terms & Conditions', 'The 39DAY protocol provides lifestyle habit suggestions. Users are advised to heed individual medical restrictions.')" class="text-brand-600 underline">Terms of Service</a> & <a href="javascript:void(0)" onclick="App.showModal('Privacy Policy', 'Your metrics remain local in your browser session.')" class="text-brand-600 underline">Privacy Policy</a></span>
+          </label>
+
+          <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3 rounded-xl transition shadow-md shadow-brand-500/20">
+            Create Account & Continue
+          </button>
+        </form>
+
+        <p class="mt-6 text-center text-xs text-slate-500">
+          Already have an account? 
+          <button onclick="App.navigateTo('login')" class="text-brand-600 font-semibold hover:underline">Log in</button>
+        </p>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 4: FORGOT PASSWORD
+           ============================================== -->
+      <section id="view-forgot" class="view hidden flex flex-col p-6 max-w-sm mx-auto w-full">
+        <button onclick="App.navigateTo('login')" class="inline-flex items-center gap-1 text-xs text-slate-500 mb-4 hover:text-slate-800">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to login
+        </button>
+
+        <div class="text-center mb-6">
+          <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-2xl flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="key" class="w-6 h-6"></i>
+          </div>
+          <h2 class="text-2xl font-black text-slate-900">Reset Password</h2>
+          <p class="text-xs text-slate-500 mt-1">We'll send you an email with reset instructions</p>
+        </div>
+
+        <form id="forgot-form" onsubmit="App.handleForgotPassword(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Your Email</label>
+            <input type="email" id="forgot-email" required placeholder="alex@example.com" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 transition">
+          </div>
+          <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">
+            Send Reset Link
+          </button>
+        </form>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 5: MULTI-STEP ONBOARDING (STEPS 1-8)
+           ============================================== -->
+      <section id="view-onboarding" class="view hidden flex flex-col p-5 max-w-md mx-auto w-full">
+        <!-- Progress Bar Indicator -->
+        <div class="mb-6">
+          <div class="flex justify-between items-center text-xs font-semibold text-slate-500 mb-2">
+            <span id="onboard-step-label">STEP 1 OF 8</span>
+            <span id="onboard-step-name" class="text-slate-800 font-bold">About You</span>
+          </div>
+          <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+            <div id="onboard-progress-bar" class="bg-brand-500 h-full transition-all duration-300 w-1/8"></div>
+          </div>
+        </div>
+
+        <!-- Wizard Container -->
+        <div id="onboarding-steps" class="flex-1 flex flex-col">
+
+          <!-- STEP 1: ABOUT YOU -->
+          <div id="step-1" class="onboard-pane space-y-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900">Let's Get to Know You</h2>
+              <p class="text-xs text-slate-500">We tailor calories and routines to your demographic baseline.</p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">First Name</label>
+              <input type="text" id="ob-name" placeholder="Alex" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-brand-500 outline-none">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Age</label>
+              <input type="number" id="ob-age" min="16" max="95" value="29" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-brand-500 outline-none">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-2">Biological Sex</label>
+              <div class="grid grid-cols-2 gap-3">
+                <button type="button" onclick="App.setObSex('Male')" id="sex-btn-male" class="sex-selector p-3.5 rounded-xl border-2 border-brand-500 bg-brand-50/50 text-slate-900 font-semibold text-sm flex items-center justify-center gap-2">
+                  <i data-lucide="user" class="w-4 h-4 text-brand-600"></i> Male
+                </button>
+                <button type="button" onclick="App.setObSex('Female')" id="sex-btn-female" class="sex-selector p-3.5 rounded-xl border-2 border-slate-200 bg-white text-slate-700 font-semibold text-sm flex items-center justify-center gap-2">
+                  <i data-lucide="user" class="w-4 h-4 text-slate-400"></i> Female
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: YOUR BODY -->
+          <div id="step-2" class="onboard-pane hidden space-y-4">
+            <div class="flex justify-between items-start">
+              <div>
+                <h2 class="text-xl font-bold text-slate-900">Your Starting Point</h2>
+                <p class="text-xs text-slate-500">Accurate metrics ensure realistic pacing.</p>
+              </div>
+              <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-lg text-xs font-semibold">
+                <button onclick="App.setUnitSystem('metric')" id="unit-metric-btn" class="px-2 py-1 rounded bg-white shadow-sm text-slate-900">Metric (kg/cm)</button>
+                <button onclick="App.setUnitSystem('imperial')" id="unit-imperial-btn" class="px-2 py-1 rounded text-slate-500">Imperial (lb/ft)</button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1" id="label-height">Height (cm)</label>
+              <input type="number" id="ob-height" value="175" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-brand-500 outline-none">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1" id="label-cur-weight">Current Weight (kg)</label>
+              <input type="number" id="ob-cur-weight" value="92" step="0.5" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-brand-500 outline-none">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1" id="label-target-weight">Target Weight (kg)</label>
+              <input type="number" id="ob-target-weight" value="84" step="0.5" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-brand-500 outline-none">
+            </div>
+          </div>
+
+          <!-- STEP 3: ACTIVITY LEVEL -->
+          <div id="step-3" class="onboard-pane hidden space-y-3">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900">How Active Are You?</h2>
+              <p class="text-xs text-slate-500">Select what matches your average current week.</p>
+            </div>
+
+            <div class="space-y-2.5" id="activity-options-container">
+              <!-- Dynamically handled by selectOption -->
+              <div onclick="App.selectActivity('Sedentary')" class="activity-opt p-3.5 rounded-2xl border-2 border-slate-200 hover:border-slate-300 cursor-pointer flex items-center gap-3 transition">
+                <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700"><i data-lucide="armchair" class="w-5 h-5"></i></div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">Sedentary</h4>
+                  <p class="text-xs text-slate-500">Desk job, little intentional daily movement</p>
+                </div>
+              </div>
+
+              <div onclick="App.selectActivity('Lightly Active')" class="activity-opt p-3.5 rounded-2xl border-2 border-slate-200 hover:border-slate-300 cursor-pointer flex items-center gap-3 transition">
+                <div class="w-9 h-9 rounded-xl bg-blue-100 flex items-center justify-center text-blue-700"><i data-lucide="footprints" class="w-5 h-5"></i></div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">Lightly Active</h4>
+                  <p class="text-xs text-slate-500">1–2 short walks or light sessions per week</p>
+                </div>
+              </div>
+
+              <div onclick="App.selectActivity('Moderately Active')" class="activity-opt active-opt p-3.5 rounded-2xl border-2 border-brand-500 bg-brand-50/50 cursor-pointer flex items-center gap-3 transition">
+                <div class="w-9 h-9 rounded-xl bg-brand-200 flex items-center justify-center text-brand-800"><i data-lucide="activity" class="w-5 h-5"></i></div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">Moderately Active</h4>
+                  <p class="text-xs text-slate-500">3–4 exercise sessions or frequent daily walking</p>
+                </div>
+              </div>
+
+              <div onclick="App.selectActivity('Very Active')" class="activity-opt p-3.5 rounded-2xl border-2 border-slate-200 hover:border-slate-300 cursor-pointer flex items-center gap-3 transition">
+                <div class="w-9 h-9 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700"><i data-lucide="zap" class="w-5 h-5"></i></div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">Very Active</h4>
+                  <p class="text-xs text-slate-500">Daily rigorous training or manual labor career</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: GOAL -->
+          <div id="step-4" class="onboard-pane hidden space-y-3">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900">What Are You Working Toward?</h2>
+              <p class="text-xs text-slate-500">Focus directs your 39-day program structure.</p>
+            </div>
+
+            <div class="space-y-2.5">
+              <div onclick="App.selectGoal('Lose Weight')" class="goal-opt p-3.5 rounded-2xl border-2 border-brand-500 bg-brand-50/50 cursor-pointer flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center"><i data-lucide="trending-down" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">Lose Weight</h4>
+                    <p class="text-xs text-slate-500">Gradual, sustainable energy deficit</p>
+                  </div>
+                </div>
+                <i data-lucide="check-circle" class="w-5 h-5 text-brand-600"></i>
+              </div>
+
+              <div onclick="App.selectGoal('Reduce Body Fat')" class="goal-opt p-3.5 rounded-2xl border-2 border-slate-200 cursor-pointer flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center"><i data-lucide="flame" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">Reduce Body Fat</h4>
+                    <p class="text-xs text-slate-500">Preserve lean tissue while trimming fat</p>
+                  </div>
+                </div>
+                <i data-lucide="circle" class="w-5 h-5 text-slate-300"></i>
+              </div>
+
+              <div onclick="App.selectGoal('Improve Fitness')" class="goal-opt p-3.5 rounded-2xl border-2 border-slate-200 cursor-pointer flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center"><i data-lucide="heart" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">Improve Fitness</h4>
+                    <p class="text-xs text-slate-500">Boost cardiovascular stamina & energy</p>
+                  </div>
+                </div>
+                <i data-lucide="circle" class="w-5 h-5 text-slate-300"></i>
+              </div>
+
+              <div onclick="App.selectGoal('Build Better Habits')" class="goal-opt p-3.5 rounded-2xl border-2 border-slate-200 cursor-pointer flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">Build Better Habits</h4>
+                    <p class="text-xs text-slate-500">Consistency in water, sleep & daily rhythm</p>
+                  </div>
+                </div>
+                <i data-lucide="circle" class="w-5 h-5 text-slate-300"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 5: NUTRITION -->
+          <div id="step-5" class="onboard-pane hidden space-y-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900">Personalize Your Nutrition</h2>
+              <p class="text-xs text-slate-500">Help us balance your daily meal structure.</p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Preferred Meals Per Day</label>
+              <select id="ob-meals-per-day" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-brand-500 outline-none bg-white">
+                <option value="3">3 Meals (Breakfast, Lunch, Dinner)</option>
+                <option value="4" selected>3 Meals + 1 Snack</option>
+                <option value="2">2 Meals (Intermittent Fasting)</option>
+                <option value="5">5 Small Frequent Meals</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Diet Preference</label>
+              <select id="ob-diet-type" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-brand-500 outline-none bg-white">
+                <option value="No Preference">Standard / Balanced</option>
+                <option value="High Protein" selected>High Protein Focus</option>
+                <option value="Mediterranean">Mediterranean</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Vegan">Vegan / Plant-Based</option>
+                <option value="Low Carb">Low Carb / Keto-friendly</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Allergies or Restrictions (Optional)</label>
+              <input type="text" id="ob-diet-restrictions" placeholder="e.g. Gluten-free, Lactose intolerance" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-brand-500 outline-none">
+            </div>
+          </div>
+
+          <!-- STEP 6: EXERCISE -->
+          <div id="step-6" class="onboard-pane hidden space-y-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900">Your Exercise Setup</h2>
+              <p class="text-xs text-slate-500">Workouts will fit your real schedule and gear.</p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Available Daily Workout Time</label>
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" onclick="App.setObTime('20 min')" class="time-btn py-2 text-xs font-bold rounded-xl border border-slate-200 hover:border-brand-500">20 min</button>
+                <button type="button" onclick="App.setObTime('30 min')" class="time-btn active-time py-2 text-xs font-bold rounded-xl border-2 border-brand-500 bg-brand-50 text-brand-700">30 min</button>
+                <button type="button" onclick="App.setObTime('45+ min')" class="time-btn py-2 text-xs font-bold rounded-xl border border-slate-200 hover:border-brand-500">45+ min</button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Available Equipment</label>
+              <select id="ob-equipment" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-brand-500 outline-none bg-white">
+                <option value="No Equipment (Bodyweight)">No Equipment (Bodyweight only)</option>
+                <option value="Dumbbells & Bands" selected>Dumbbells & Resistance Bands</option>
+                <option value="Home Gym Setup">Home Gym (Barbell/Bench/Rack)</option>
+                <option value="Full Commercial Gym">Full Commercial Gym</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Training Experience</label>
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" onclick="App.setObExp('Beginner')" class="exp-btn py-2 text-xs font-bold rounded-xl border border-slate-200">Beginner</button>
+                <button type="button" onclick="App.setObExp('Intermediate')" class="exp-btn active-exp py-2 text-xs font-bold rounded-xl border-2 border-brand-500 bg-brand-50 text-brand-700">Intermediate</button>
+                <button type="button" onclick="App.setObExp('Advanced')" class="exp-btn py-2 text-xs font-bold rounded-xl border border-slate-200">Advanced</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 7: LIFESTYLE -->
+          <div id="step-7" class="onboard-pane hidden space-y-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900">Lifestyle Baseline</h2>
+              <p class="text-xs text-slate-500">Small daily levers create massive compound results.</p>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>Average Sleep Per Night</span>
+                <span id="label-sleep-val" class="text-brand-600 font-bold">7.5 Hours</span>
+              </div>
+              <input type="range" id="ob-sleep" min="5" max="10" step="0.5" value="7.5" oninput="document.getElementById('label-sleep-val').innerText = this.value + ' Hours'" class="w-full accent-brand-500 cursor-pointer">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>Daily Water Baseline</span>
+                <span id="label-water-val" class="text-blue-600 font-bold">2.5 Liters</span>
+              </div>
+              <input type="range" id="ob-water" min="1.5" max="4.0" step="0.25" value="2.5" oninput="document.getElementById('label-water-val').innerText = this.value + ' Liters'" class="w-full accent-blue-500 cursor-pointer">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span>Daily Step Target Goal</span>
+                <span id="label-step-val" class="text-slate-800 font-bold">8,500 Steps</span>
+              </div>
+              <input type="range" id="ob-steps" min="4000" max="16000" step="500" value="8500" oninput="document.getElementById('label-step-val').innerText = Number(this.value).toLocaleString() + ' Steps'" class="w-full accent-brand-500 cursor-pointer">
+            </div>
+          </div>
+
+          <!-- STEP 8: GENERATING & SUMMARY -->
+          <div id="step-8" class="onboard-pane hidden flex-1 flex flex-col justify-center text-center py-4">
+            <!-- Loading Stage -->
+            <div id="generation-spinner-view" class="space-y-6">
+              <div class="relative w-20 h-20 mx-auto">
+                <div class="w-20 h-20 rounded-full border-4 border-slate-100 border-t-brand-500 animate-spin"></div>
+                <div class="absolute inset-0 flex items-center justify-center font-bold text-slate-800 text-xs">
+                  39DAY
+                </div>
+              </div>
+              <div>
+                <h3 id="generation-status-text" class="text-lg font-bold text-slate-900 transition-all">Analyzing your profile...</h3>
+                <p class="text-xs text-slate-400 mt-1">Applying the 39-day habit framework</p>
+              </div>
+            </div>
+
+            <!-- Ready Summary Stage -->
+            <div id="generation-ready-view" class="hidden space-y-5 text-left">
+              <div class="text-center">
+                <div class="w-12 h-12 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-2">
+                  <i data-lucide="check" class="w-6 h-6 stroke-[3]"></i>
+                </div>
+                <h2 class="text-xl font-black text-slate-900">Your 39-Day Journey Is Ready</h2>
+                <p class="text-xs text-slate-500 mt-0.5">Here is your tailored blueprint</p>
+              </div>
+
+              <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 space-y-3">
+                <div class="flex justify-between items-center pb-2 border-b border-slate-200 text-xs">
+                  <span class="text-slate-500">Plan Duration</span>
+                  <span class="font-bold text-slate-800">39 Days</span>
+                </div>
+                <div class="flex justify-between items-center pb-2 border-b border-slate-200 text-xs">
+                  <span class="text-slate-500">Starting Weight</span>
+                  <span id="summary-start-wt" class="font-bold text-slate-800">92 kg</span>
+                </div>
+                <div class="flex justify-between items-center pb-2 border-b border-slate-200 text-xs">
+                  <span class="text-slate-500">Target Weight</span>
+                  <span id="summary-target-wt" class="font-bold text-brand-600">84 kg</span>
+                </div>
+                <div class="flex justify-between items-center pb-2 border-b border-slate-200 text-xs">
+                  <span class="text-slate-500">Calculated BMI</span>
+                  <span id="summary-bmi" class="font-bold text-slate-800">30.0 (Educational ref)</span>
+                </div>
+                <div class="flex justify-between items-center text-xs">
+                  <span class="text-slate-500">Estimated Calorie Baseline</span>
+                  <span id="summary-calories" class="font-bold text-slate-800">2,150 kcal/day*</span>
+                </div>
+              </div>
+
+              <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-[11px] text-amber-800 leading-snug flex items-start gap-2">
+                <i data-lucide="info" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                <span><strong>*Disclaimer:</strong> Calorie & nutrient values are algorithmic estimates for routine planning, not medical prescriptions.</span>
+              </div>
+
+              <button onclick="App.finalizeOnboarding()" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2">
+                <span>Start Day 1</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Wizard Navigation Buttons (Steps 1-7) -->
+        <div id="onboard-nav-buttons" class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+          <button id="ob-btn-back" onclick="App.prevOnboardStep()" class="text-xs font-semibold text-slate-400 hover:text-slate-700 py-2 px-3 rounded-lg flex items-center gap-1 transition">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i> Back
+          </button>
+          <button id="ob-btn-next" onclick="App.nextOnboardStep()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-6 rounded-xl flex items-center gap-1.5 transition">
+            <span>Continue</span> <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 6: DASHBOARD (HOME)
+           ============================================== -->
+      <section id="view-dashboard" class="view hidden flex flex-col p-4 space-y-5">
+        <!-- Top Day Greeting Card -->
+        <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-5 rounded-3xl shadow-float relative overflow-hidden">
+          <div class="relative z-10 flex items-center justify-between">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-brand-400">Welcome Back</p>
+              <h2 id="dash-greeting-name" class="text-xl font-black mt-0.5">Good morning, Alex</h2>
+              <p class="text-xs text-slate-300 mt-1">Focus today: <span class="font-medium text-white underline decoration-brand-500">Build Momentum</span></p>
+            </div>
+
+            <!-- Circular Progress Indicator for 39-day progress -->
+            <div class="relative w-20 h-20 shrink-0">
+              <svg class="w-20 h-20 -rotate-90">
+                <circle cx="40" cy="40" r="32" stroke="currentColor" stroke-width="6" class="text-slate-700" fill="transparent"/>
+                <circle id="dash-circle-progress" cx="40" cy="40" r="32" stroke="currentColor" stroke-width="6" class="text-brand-500 circle-progress" stroke-dasharray="201" stroke-dashoffset="140" stroke-linecap="round" fill="transparent"/>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <span id="dash-day-number" class="text-sm font-black tracking-tighter">12</span>
+                <span class="text-[9px] text-slate-300 font-semibold uppercase tracking-tight">of 39</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom micro-metrics in card -->
+          <div class="relative z-10 mt-4 pt-3 border-t border-slate-700/60 grid grid-cols-3 text-center">
+            <div>
+              <p class="text-[10px] text-slate-400 uppercase font-semibold">Streak</p>
+              <p id="dash-streak-days" class="text-sm font-bold text-white mt-0.5">12 Days</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-slate-400 uppercase font-semibold">Weight Delta</p>
+              <p id="dash-weight-delta" class="text-sm font-bold text-emerald-400 mt-0.5">-2.4 kg</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-slate-400 uppercase font-semibold">Score Today</p>
+              <p id="dash-habits-score" class="text-sm font-bold text-brand-400 mt-0.5">4 / 6</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Today's Habits Checklist -->
+        <div>
+          <div class="flex items-center justify-between mb-3 px-1">
+            <h3 class="font-bold text-slate-900 text-sm">Today's Daily Habits</h3>
+            <span id="dash-habit-percent" class="text-xs font-semibold text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full">66% Completed</span>
+          </div>
+
+          <div class="space-y-2.5" id="dash-habit-cards">
+            <!-- Nutrition Card -->
+            <div onclick="App.toggleHabit('nutrition')" class="habit-item bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-sm flex items-center justify-between cursor-pointer hover:border-brand-500 transition">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                  <i data-lucide="utensils" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Hit Nutrition & Protein Target</h4>
+                  <p class="text-[11px] text-slate-500" id="dash-nutri-sub">Est. 2,150 kcal • 140g protein</p>
+                </div>
+              </div>
+              <div id="check-icon-nutrition" class="w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-white transition">
+                <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3] hidden"></i>
+              </div>
+            </div>
+
+            <!-- Water Card -->
+            <div onclick="App.toggleHabit('water')" class="habit-item bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-sm flex items-center justify-between cursor-pointer hover:border-brand-500 transition">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                  <i data-lucide="droplet" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Drink Daily Water Target</h4>
+                  <p class="text-[11px] text-slate-500" id="dash-water-sub">1,750 / 2,500 ml logged</p>
+                </div>
+              </div>
+              <div id="check-icon-water" class="w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-white transition">
+                <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3] hidden"></i>
+              </div>
+            </div>
+
+            <!-- Workout Card -->
+            <div onclick="App.toggleHabit('workout')" class="habit-item bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-sm flex items-center justify-between cursor-pointer hover:border-brand-500 transition">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center">
+                  <i data-lucide="dumbbell" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Daily 30-Min Workout</h4>
+                  <p class="text-[11px] text-slate-500">Upper Body & Core Foundation</p>
+                </div>
+              </div>
+              <div id="check-icon-workout" class="w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-white transition">
+                <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3] hidden"></i>
+              </div>
+            </div>
+
+            <!-- Steps Card -->
+            <div onclick="App.toggleHabit('steps')" class="habit-item bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-sm flex items-center justify-between cursor-pointer hover:border-brand-500 transition">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                  <i data-lucide="footprints" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Reach 8,500 Steps</h4>
+                  <p class="text-[11px] text-slate-500" id="dash-step-sub">6,420 steps logged today</p>
+                </div>
+              </div>
+              <div id="check-icon-steps" class="w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-white transition">
+                <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3] hidden"></i>
+              </div>
+            </div>
+
+            <!-- Sleep Card -->
+            <div onclick="App.toggleHabit('sleep')" class="habit-item bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-sm flex items-center justify-between cursor-pointer hover:border-brand-500 transition">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                  <i data-lucide="moon" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">7.5+ Hours Restful Sleep</h4>
+                  <p class="text-[11px] text-slate-500">Recovery & hormone stabilization</p>
+                </div>
+              </div>
+              <div id="check-icon-sleep" class="w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-white transition">
+                <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3] hidden"></i>
+              </div>
+            </div>
+
+            <!-- Log Weight Habit -->
+            <div onclick="App.toggleHabit('weight')" class="habit-item bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-sm flex items-center justify-between cursor-pointer hover:border-brand-500 transition">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center">
+                  <i data-lucide="scale" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Log Morning Weight</h4>
+                  <p class="text-[11px] text-slate-500">Track trend without judgment</p>
+                </div>
+              </div>
+              <div id="check-icon-weight" class="w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-white transition">
+                <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3] hidden"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Access Banner to Today's Plan -->
+        <div onclick="App.navigateTo('today')" class="bg-brand-50 hover:bg-brand-100 border border-brand-200 p-4 rounded-2xl cursor-pointer flex items-center justify-between transition">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-500 text-white flex items-center justify-center">
+              <i data-lucide="calendar" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-slate-900">Open Detailed Plan for Today</h4>
+              <p class="text-[11px] text-brand-800">Review meals, workout sets, and hydration</p>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-brand-700"></i>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 7: TODAY'S DETAILED PLAN
+           ============================================== -->
+      <section id="view-today" class="view hidden flex flex-col p-4 space-y-5">
+        <!-- Daily Focus Header -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+          <div class="flex items-center gap-2 text-xs font-bold text-brand-600 mb-1">
+            <i data-lucide="compass" class="w-4 h-4"></i> TODAY'S FOCUS
+          </div>
+          <h2 class="text-lg font-black text-slate-900">Build Momentum & High Protein Priority</h2>
+          <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+            Day 12 marks the transition where early friction diminishes into natural habits. Stay hydrated early and front-load protein.
+          </p>
+        </div>
+
+        <!-- Nutrition Targets Card -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3">
+          <div class="flex justify-between items-center">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <i data-lucide="pie-chart" class="w-4 h-4 text-emerald-600"></i> Nutrition Estimates
+            </h3>
+            <span class="text-[10px] text-slate-400 bg-slate-100 px-2 py-0.5 rounded font-medium">Non-prescriptive</span>
+          </div>
+
+          <div class="grid grid-cols-4 gap-2 text-center">
+            <div class="bg-slate-50 p-2 rounded-xl">
+              <span class="text-[10px] text-slate-500 block">Calories</span>
+              <span id="plan-cal-val" class="text-xs font-black text-slate-900">2,150</span>
+              <span class="text-[9px] text-slate-400 block">kcal</span>
+            </div>
+            <div class="bg-emerald-50 p-2 rounded-xl">
+              <span class="text-[10px] text-emerald-700 block">Protein</span>
+              <span id="plan-protein-val" class="text-xs font-black text-emerald-800">145g</span>
+              <span class="text-[9px] text-emerald-600 block">target</span>
+            </div>
+            <div class="bg-amber-50 p-2 rounded-xl">
+              <span class="text-[10px] text-amber-700 block">Carbs</span>
+              <span id="plan-carbs-val" class="text-xs font-black text-amber-800">210g</span>
+              <span class="text-[9px] text-amber-600 block">energy</span>
+            </div>
+            <div class="bg-indigo-50 p-2 rounded-xl">
+              <span class="text-[10px] text-indigo-700 block">Healthy Fat</span>
+              <span id="plan-fat-val" class="text-xs font-black text-indigo-800">65g</span>
+              <span class="text-[9px] text-indigo-600 block">hormones</span>
+            </div>
+          </div>
+
+          <!-- Suggested Meal Structure -->
+          <div class="mt-3 space-y-2 pt-2 border-t border-slate-100">
+            <p class="text-xs font-bold text-slate-700">Planned Meals for Today</p>
+
+            <div class="flex items-center justify-between text-xs p-2 bg-slate-50 rounded-xl">
+              <div>
+                <span class="font-semibold text-slate-800">Breakfast:</span> 3 Eggs, Spinach & Oatmeal
+              </div>
+              <button onclick="App.toggleMeal(this)" class="text-[11px] font-bold text-brand-600 px-2 py-0.5 bg-white rounded border border-slate-200">Done</button>
+            </div>
+
+            <div class="flex items-center justify-between text-xs p-2 bg-slate-50 rounded-xl">
+              <div>
+                <span class="font-semibold text-slate-800">Lunch:</span> Grilled Chicken Breast Bowl with Quinoa
+              </div>
+              <button onclick="App.toggleMeal(this)" class="text-[11px] font-bold text-brand-600 px-2 py-0.5 bg-white rounded border border-slate-200">Done</button>
+            </div>
+
+            <div class="flex items-center justify-between text-xs p-2 bg-slate-50 rounded-xl">
+              <div>
+                <span class="font-semibold text-slate-800">Dinner:</span> Salmon or Tofu with Roasted Vegetables
+              </div>
+              <button onclick="App.toggleMeal(this)" class="text-[11px] font-bold text-brand-600 px-2 py-0.5 bg-white rounded border border-slate-200">Done</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Water Tracker -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3">
+          <div class="flex justify-between items-center">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <i data-lucide="droplets" class="w-4 h-4 text-blue-500"></i> Hydration Tracker
+            </h3>
+            <span id="water-intake-readout" class="text-xs font-bold text-blue-600">1,750 / 2,500 ml</span>
+          </div>
+
+          <!-- Water Progress Bar -->
+          <div class="w-full bg-slate-100 h-4 rounded-full overflow-hidden p-0.5">
+            <div id="water-progress-fill" class="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full transition-all duration-500" style="width: 70%;"></div>
+          </div>
+
+          <!-- Water Quick Add Buttons -->
+          <div class="grid grid-cols-3 gap-2 pt-1">
+            <button onclick="App.addWater(250)" class="py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i> 250 ml
+            </button>
+            <button onclick="App.addWater(500)" class="py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i> 500 ml
+            </button>
+            <button onclick="App.addWater(750)" class="py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i> 750 ml
+            </button>
+          </div>
+          <button onclick="App.resetWater()" class="text-[10px] text-slate-400 hover:text-slate-600 text-center block w-full">Reset water for today</button>
+        </div>
+
+        <!-- Movement / Steps Tracker -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3">
+          <div class="flex justify-between items-center">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <i data-lucide="footprints" class="w-4 h-4 text-orange-500"></i> Daily Movement
+            </h3>
+            <span id="steps-readout" class="text-xs font-bold text-slate-800">6,420 / 8,500</span>
+          </div>
+
+          <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+            <div id="steps-progress-fill" class="h-full bg-orange-500 rounded-full transition-all duration-500" style="width: 75%;"></div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <input type="number" id="input-add-steps" placeholder="Add steps (e.g. 1000)" class="flex-1 px-3 py-1.5 border border-slate-200 rounded-xl text-xs outline-none focus:border-brand-500">
+            <button onclick="App.quickAddSteps()" class="bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl hover:bg-slate-800 transition">Log Steps</button>
+          </div>
+        </div>
+
+        <!-- Today's Workout Routine -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3">
+          <div class="flex justify-between items-center">
+            <div>
+              <span class="text-[10px] font-bold text-brand-600 uppercase">30-Min Session</span>
+              <h3 class="text-sm font-bold text-slate-900">Upper Body & Core Foundation</h3>
+            </div>
+            <button id="btn-start-workout" onclick="App.toggleWorkoutTimer()" class="bg-brand-600 text-white font-bold text-xs px-3 py-1.5 rounded-xl hover:bg-brand-500 transition flex items-center gap-1">
+              <i data-lucide="play" class="w-3.5 h-3.5"></i> <span id="workout-timer-label">Start Workout</span>
+            </button>
+          </div>
+
+          <div id="workout-timer-box" class="hidden bg-slate-900 text-white p-3 rounded-xl flex items-center justify-between text-xs">
+            <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span> Active Session Timer</span>
+            <span id="workout-timer-display" class="font-mono font-bold text-brand-400">00:00</span>
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
+              <div>
+                <p class="font-bold text-slate-800">1. Push-ups / Elevated Push-ups</p>
+                <p class="text-[11px] text-slate-500">3 sets • 10-12 reps • 60s rest</p>
+              </div>
+              <input type="checkbox" class="w-4 h-4 rounded text-brand-600 focus:ring-brand-500">
+            </div>
+
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
+              <div>
+                <p class="font-bold text-slate-800">2. Dumbbell Bent-Over Row</p>
+                <p class="text-[11px] text-slate-500">3 sets • 12 reps • 60s rest</p>
+              </div>
+              <input type="checkbox" class="w-4 h-4 rounded text-brand-600 focus:ring-brand-500">
+            </div>
+
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
+              <div>
+                <p class="font-bold text-slate-800">3. Plank Hold</p>
+                <p class="text-[11px] text-slate-500">3 sets • 45s hold • 45s rest</p>
+              </div>
+              <input type="checkbox" class="w-4 h-4 rounded text-brand-600 focus:ring-brand-500">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 8: 39-DAY JOURNEY TIMELINE
+           ============================================== -->
+      <section id="view-journey" class="view hidden flex flex-col p-4 space-y-5">
+        <div>
+          <div class="flex justify-between items-center">
+            <h2 class="text-xl font-black text-slate-900">39-Day Roadmap</h2>
+            <span class="text-xs font-bold text-brand-600 bg-brand-50 px-2 py-1 rounded-full">Day 12 Active</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-1">6 strategic phases designed to build lifelong adherence</p>
+        </div>
+
+        <div id="journey-weeks-container" class="space-y-4">
+          <!-- Dynamically populated by JS renderJourney() -->
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 9: PROGRESS & ANALYTICS
+           ============================================== -->
+      <section id="view-progress" class="view hidden flex flex-col p-4 space-y-5">
+        <div>
+          <h2 class="text-xl font-black text-slate-900">Your Progress Hub</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Objective metric trends and habit consistency</p>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-white p-3.5 rounded-2xl border border-slate-200">
+            <span class="text-[10px] text-slate-400 font-bold uppercase">Current Weight</span>
+            <div class="flex items-baseline gap-1 mt-1">
+              <span id="prog-cur-weight" class="text-xl font-black text-slate-900">89.6</span>
+              <span class="text-xs font-semibold text-slate-500" id="prog-unit-1">kg</span>
+            </div>
+            <span class="text-[10px] text-emerald-600 font-bold flex items-center gap-0.5 mt-1">
+              <i data-lucide="trending-down" class="w-3 h-3"></i> -2.4 kg from start
+            </span>
+          </div>
+
+          <div class="bg-white p-3.5 rounded-2xl border border-slate-200">
+            <span class="text-[10px] text-slate-400 font-bold uppercase">Consistency Rate</span>
+            <div class="flex items-baseline gap-1 mt-1">
+              <span id="prog-consistency-pct" class="text-xl font-black text-brand-600">88%</span>
+            </div>
+            <span class="text-[10px] text-slate-500 font-medium mt-1 block">
+              11 of 12 days on track
+            </span>
+          </div>
+        </div>
+
+        <!-- Quick Log Weight Action Card -->
+        <div class="bg-slate-900 text-white p-4 rounded-2xl flex items-center justify-between">
+          <div>
+            <h4 class="text-xs font-bold">Log Today's Weight</h4>
+            <p class="text-[11px] text-slate-400">Keep your line trend calibrated</p>
+          </div>
+          <button onclick="App.openLogWeightModal()" class="bg-brand-500 hover:bg-brand-400 text-slate-950 font-bold text-xs px-3.5 py-2 rounded-xl transition flex items-center gap-1">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i> Log Entry
+          </button>
+        </div>
+
+        <!-- Weight Trend Interactive Chart -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-2">
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+              <i data-lucide="line-chart" class="w-4 h-4 text-brand-600"></i> Weight Trajectory (Days 1–12)
+            </h3>
+            <span class="text-[10px] text-slate-400">Target: <strong id="prog-target-inline" class="text-slate-700">84 kg</strong></span>
+          </div>
+          <div class="h-44 w-full">
+            <canvas id="weightChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Habit Adherence Bar Chart -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-2">
+          <div class="flex justify-between items-center mb-1">
+            <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+              <i data-lucide="bar-chart-2" class="w-4 h-4 text-indigo-600"></i> Weekly Habit Adherence
+            </h3>
+            <span class="text-[10px] text-slate-400">6 Daily Habits</span>
+          </div>
+          <div class="h-36 w-full">
+            <canvas id="habitsChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 10: USER PROFILE & SETTINGS
+           ============================================== -->
+      <section id="view-profile" class="view hidden flex flex-col p-4 space-y-5">
+        <div>
+          <h2 class="text-xl font-black text-slate-900">Profile & Settings</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Manage your preferences and saved measurements</p>
+        </div>
+
+        <!-- User Identity Summary -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-600 to-brand-400 text-white font-extrabold text-lg flex items-center justify-center shadow-md shadow-brand-500/20">
+            <span id="prof-avatar-letter">A</span>
+          </div>
+          <div>
+            <h3 id="prof-display-name" class="font-bold text-slate-900 text-sm">Alex</h3>
+            <p id="prof-display-email" class="text-xs text-slate-500">alex@example.com</p>
+            <div class="inline-flex items-center gap-1 px-2 py-0.5 mt-1 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-semibold">
+              <i data-lucide="shield-check" class="w-3 h-3"></i> 39DAY Active Member
+            </div>
+          </div>
+        </div>
+
+        <!-- Editable Profile Fields -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3">
+          <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Personal Parameters</h4>
+
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div>
+              <label class="text-slate-500 block mb-1">Age</label>
+              <input type="number" id="prof-edit-age" value="29" class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl outline-none font-semibold">
+            </div>
+            <div>
+              <label class="text-slate-500 block mb-1">Current Weight</label>
+              <input type="number" id="prof-edit-weight" value="89.6" step="0.5" class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl outline-none font-semibold">
+            </div>
+            <div>
+              <label class="text-slate-500 block mb-1">Target Weight</label>
+              <input type="number" id="prof-edit-target" value="84" step="0.5" class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl outline-none font-semibold">
+            </div>
+            <div>
+              <label class="text-slate-500 block mb-1">Daily Steps Goal</label>
+              <input type="number" id="prof-edit-steps" value="8500" step="500" class="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl outline-none font-semibold">
+            </div>
+          </div>
+
+          <button onclick="App.saveProfileChanges()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs py-2.5 rounded-xl transition mt-2">
+            Save Profile Changes
+          </button>
+        </div>
+
+        <!-- System & Measurement Units -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3">
+          <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Preferences</h4>
+
+          <div class="flex items-center justify-between text-xs py-1">
+            <span class="text-slate-700 font-medium">Measurement Units</span>
+            <div class="flex bg-slate-100 p-0.5 rounded-lg">
+              <button onclick="App.setUnitSystem('metric')" id="pref-metric-btn" class="px-2.5 py-1 rounded bg-white text-slate-900 font-bold shadow-sm">Metric</button>
+              <button onclick="App.setUnitSystem('imperial')" id="pref-imperial-btn" class="px-2.5 py-1 rounded text-slate-500 font-medium">Imperial</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between text-xs py-1 border-t border-slate-100">
+            <span class="text-slate-700 font-medium">Hydration Reminders</span>
+            <input type="checkbox" checked class="w-4 h-4 rounded text-brand-600 focus:ring-brand-500">
+          </div>
+        </div>
+
+        <!-- Supabase Architecture & Cloud Sync Box -->
+        <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-4 rounded-2xl space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold flex items-center gap-1.5 text-brand-400">
+              <i data-lucide="database" class="w-3.5 h-3.5"></i> Cloud Sync Architecture
+            </span>
+            <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300 font-mono">SUPABASE READY</span>
+          </div>
+          <p class="text-[11px] text-slate-300 leading-relaxed">
+            Data models for <code>profiles</code>, <code>weight_entries</code>, and <code>habit_entries</code> are isolated for seamless backend connection.
+          </p>
+          <button onclick="App.showSupabaseConfigModal()" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-medium text-xs py-2 rounded-xl transition">
+            View Cloud Architecture
+          </button>
+        </div>
+
+        <!-- Danger Zone Actions -->
+        <div class="space-y-2 pt-2">
+          <button onclick="App.resetAllData()" class="w-full bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold text-xs py-2.5 rounded-xl border border-rose-200 transition">
+            Reset All Journey Data
+          </button>
+          <button onclick="App.handleLogout()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs py-2.5 rounded-xl transition">
+            Log Out
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <nav id="bottom-nav" class="hidden fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 py-2 z-40 flex items-center justify-around">
+      <button onclick="App.navigateTo('dashboard')" id="nav-btn-dashboard" class="nav-item flex flex-col items-center gap-1 py-1 px-2.5 rounded-xl text-brand-600">
+        <i data-lucide="home" class="w-5 h-5"></i>
+        <span class="text-[10px] font-bold">Home</span>
+      </button>
+
+      <button onclick="App.navigateTo('today')" id="nav-btn-today" class="nav-item flex flex-col items-center gap-1 py-1 px-2.5 rounded-xl text-slate-400 hover:text-slate-700">
+        <i data-lucide="calendar" class="w-5 h-5"></i>
+        <span class="text-[10px] font-bold">Today</span>
+      </button>
+
+      <button onclick="App.navigateTo('journey')" id="nav-btn-journey" class="nav-item flex flex-col items-center gap-1 py-1 px-2.5 rounded-xl text-slate-400 hover:text-slate-700">
+        <i data-lucide="map" class="w-5 h-5"></i>
+        <span class="text-[10px] font-bold">Journey</span>
+      </button>
+
+      <button onclick="App.navigateTo('progress')" id="nav-btn-progress" class="nav-item flex flex-col items-center gap-1 py-1 px-2.5 rounded-xl text-slate-400 hover:text-slate-700">
+        <i data-lucide="trending-up" class="w-5 h-5"></i>
+        <span class="text-[10px] font-bold">Progress</span>
+      </button>
+
+      <button onclick="App.navigateTo('profile')" id="nav-btn-profile" class="nav-item flex flex-col items-center gap-1 py-1 px-2.5 rounded-xl text-slate-400 hover:text-slate-700">
+        <i data-lucide="user" class="w-5 h-5"></i>
+        <span class="text-[10px] font-bold">Profile</span>
+      </button>
+    </nav>
+
   </div>
 
   <script>
-    const overlay = document.getElementById('cookieOverlay');
-    const closeBtn = document.getElementById('closeBtn');
+    /**
+     * 39DAY SaaS Application Core Engine
+     * Handles routing, calculation of BMI/calories, habit states, chart updates,
+     * localStorage persistence, and Supabase integration readiness.
+     */
+    const STORAGE_KEY = '39day_application_state_v1';
 
-    // Fecha o modal e deixa o site 100% nítido e navegável
-    function dismissModal() {
-      overlay.classList.add('closed');
-      // Destrava o scroll do site se necessário
-      document.body.style.overflow = 'auto';
-    }
+    // Default initialized state
+    const DefaultState = {
+      user: null, // null means visitor, populated object means authenticated
+      unitSystem: 'metric', // 'metric' or 'imperial'
+      onboarding: {
+        step: 1,
+        name: 'Alex',
+        age: 29,
+        sex: 'Male',
+        height: 175, // cm
+        weight: 92, // kg
+        targetWeight: 84, // kg
+        activity: 'Moderately Active',
+        goal: 'Lose Weight',
+        mealsPerDay: 4,
+        dietType: 'High Protein',
+        restrictions: '',
+        workoutTime: '30 min',
+        equipment: 'Dumbbells & Bands',
+        experience: 'Intermediate',
+        sleepTarget: 7.5,
+        waterTarget: 2500, // ml
+        stepTarget: 8500
+      },
+      currentDay: 12,
+      habits: {
+        nutrition: true,
+        water: true,
+        workout: true,
+        steps: false,
+        sleep: true,
+        weight: false
+      },
+      waterLogged: 1750, // ml
+      stepsLogged: 6420,
+      weightHistory: [
+        { day: 1, weight: 92.0 },
+        { day: 3, weight: 91.6 },
+        { day: 5, weight: 91.2 },
+        { day: 8, weight: 90.5 },
+        { day: 10, weight: 90.1 },
+        { day: 12, weight: 89.6 }
+      ],
+      weeklyHabitRates: [83, 100, 66, 83, 100, 83, 66] // last 7 days %
+    };
 
-    closeBtn.addEventListener('click', dismissModal);
+    let AppState = JSON.parse(JSON.stringify(DefaultState));
+    let weightChartInstance = null;
+    let habitsChartInstance = null;
+    let workoutTimerInterval = null;
+    let workoutTimerSeconds = 0;
 
-    // Fecha também ao clicar fora da caixinha branca
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) {
-        dismissModal();
+    const App = {
+      init() {
+        this.loadStorage();
+        lucide.createIcons();
+        
+        if (AppState.user) {
+          this.navigateTo('dashboard');
+        } else {
+          this.navigateTo('landing');
+        }
+      },
+
+      loadStorage() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            AppState = JSON.parse(raw);
+          }
+        } catch (e) {
+          console.warn('Storage retrieval failed, fallback to defaults', e);
+        }
+      },
+
+      saveStorage() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(AppState));
+        } catch (e) {
+          console.warn('Storage persist failed', e);
+        }
+      },
+
+      navigateTo(viewName) {
+        // Hide all views
+        document.querySelectorAll('.view').forEach(el => el.classList.add('hidden'));
+        
+        // Show target view
+        const target = document.getElementById(`view-${viewName}`);
+        if (target) {
+          target.classList.remove('hidden');
+        }
+
+        // Configure Navigation and Header based on state
+        const bottomNav = document.getElementById('bottom-nav');
+        const authHeaderBtn = document.getElementById('auth-header-btn');
+
+        const authenticatedViews = ['dashboard', 'today', 'journey', 'progress', 'profile'];
+
+        if (authenticatedViews.includes(viewName)) {
+          bottomNav.classList.remove('hidden');
+          authHeaderBtn.textContent = 'Demo Mode';
+          authHeaderBtn.onclick = () => App.showToast('Currently using local interactive storage.');
+          this.updateNavHighlight(viewName);
+          this.refreshActiveScreens();
+        } else {
+          bottomNav.classList.add('hidden');
+          authHeaderBtn.textContent = AppState.user ? 'Dashboard' : 'Log In';
+          authHeaderBtn.onclick = () => AppState.user ? App.navigateTo('dashboard') : App.navigateTo('login');
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        lucide.createIcons();
+      },
+
+      updateNavHighlight(activeView) {
+        document.querySelectorAll('.nav-item').forEach(btn => {
+          btn.classList.remove('text-brand-600');
+          btn.classList.add('text-slate-400');
+        });
+        const activeBtn = document.getElementById(`nav-btn-${activeView}`);
+        if (activeBtn) {
+          activeBtn.classList.remove('text-slate-400');
+          activeBtn.classList.add('text-brand-600');
+        }
+      },
+
+      handleLogin(e) {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const btn = document.getElementById('btn-login-submit');
+        btn.innerHTML = `<span class="inline-block animate-spin mr-2">⟳</span> Logging in...`;
+
+        setTimeout(() => {
+          AppState.user = {
+            id: 'user_' + Math.random().toString(36).substr(2, 9),
+            name: email.split('@')[0],
+            email: email
+          };
+          this.saveStorage();
+          btn.innerHTML = 'Log In';
+          this.showToast(`Welcome back, ${AppState.user.name}!`);
+          this.navigateTo('dashboard');
+        }, 500);
+      },
+
+      handleSignup(e) {
+        e.preventDefault();
+        const name = document.getElementById('signup-name').value;
+        const email = document.getElementById('signup-email').value;
+        const pass = document.getElementById('signup-password').value;
+        const pass2 = document.getElementById('signup-confirm-password').value;
+
+        if (pass !== pass2) {
+          this.showToast('Passwords do not match.', 'error');
+          return;
+        }
+
+        AppState.user = {
+          id: 'user_' + Math.random().toString(36).substr(2, 9),
+          name: name,
+          email: email
+        };
+        AppState.onboarding.name = name;
+        this.saveStorage();
+        this.showToast('Account created! Let us configure your plan.');
+        this.startOnboarding();
+      },
+
+      handleForgotPassword(e) {
+        e.preventDefault();
+        this.showToast('Check your email for the password reset link.', 'success');
+        setTimeout(() => this.navigateTo('login'), 1800);
+      },
+
+      simulateSocialAuth(provider) {
+        AppState.user = {
+          id: 'user_social_' + Math.random().toString(36).substr(2, 9),
+          name: 'Alex Social',
+          email: 'alex.google@example.com'
+        };
+        this.saveStorage();
+        this.showToast(`Signed in with ${provider}!`);
+        this.navigateTo('dashboard');
+      },
+
+      handleLogout() {
+        AppState.user = null;
+        this.saveStorage();
+        this.showToast('Logged out successfully.');
+        this.navigateTo('landing');
+      },
+
+      loadDemoData() {
+        AppState = JSON.parse(JSON.stringify(DefaultState));
+        AppState.user = {
+          id: 'demo_user_1',
+          name: 'Alex',
+          email: 'alex@39day.demo'
+        };
+        this.saveStorage();
+        this.showToast('Demo plan loaded (Day 12 of 39).');
+        this.navigateTo('dashboard');
+      },
+
+      togglePasswordVisibility(inputId) {
+        const input = document.getElementById(inputId);
+        input.type = input.type === 'password' ? 'text' : 'password';
+      },
+
+      startOnboarding() {
+        AppState.onboarding.step = 1;
+        this.navigateTo('onboarding');
+        this.renderOnboardStep(1);
+      },
+
+      renderOnboardStep(step) {
+        AppState.onboarding.step = step;
+        
+        // Hide all panes
+        document.querySelectorAll('.onboard-pane').forEach(el => el.classList.add('hidden'));
+        
+        // Show current
+        const curPane = document.getElementById(`step-${step}`);
+        if (curPane) curPane.classList.remove('hidden');
+
+        // Update step titles
+        const titles = [
+          'About You',
+          'Your Starting Point',
+          'Activity Level',
+          'Your Goal',
+          'Nutrition Plan',
+          'Exercise Routine',
+          'Lifestyle Baseline',
+          'Your Personalized Plan'
+        ];
+
+        document.getElementById('onboard-step-label').textContent = `STEP ${step} OF 8`;
+        document.getElementById('onboard-step-name').textContent = titles[step - 1];
+        document.getElementById('onboard-progress-bar').style.width = `${(step / 8) * 100}%`;
+
+        // Configure step 8 vs steps 1-7
+        const navBtns = document.getElementById('onboard-nav-buttons');
+        if (step === 8) {
+          navBtns.classList.add('hidden');
+          this.triggerPlanGeneration();
+        } else {
+          navBtns.classList.remove('hidden');
+          document.getElementById('ob-btn-back').style.visibility = step === 1 ? 'hidden' : 'visible';
+        }
+
+        lucide.createIcons();
+      },
+
+      nextOnboardStep() {
+        if (AppState.onboarding.step < 8) {
+          this.harvestCurrentStepData(AppState.onboarding.step);
+          this.renderOnboardStep(AppState.onboarding.step + 1);
+        }
+      },
+
+      prevOnboardStep() {
+        if (AppState.onboarding.step > 1) {
+          this.renderOnboardStep(AppState.onboarding.step - 1);
+        }
+      },
+
+      setObSex(sex) {
+        AppState.onboarding.sex = sex;
+        document.querySelectorAll('.sex-selector').forEach(btn => {
+          btn.className = "sex-selector p-3.5 rounded-xl border-2 border-slate-200 bg-white text-slate-700 font-semibold text-sm flex items-center justify-center gap-2";
+        });
+        const active = document.getElementById(`sex-btn-${sex.toLowerCase()}`);
+        if (active) {
+          active.className = "sex-selector p-3.5 rounded-xl border-2 border-brand-500 bg-brand-50/50 text-slate-900 font-semibold text-sm flex items-center justify-center gap-2";
+        }
+      },
+
+      selectActivity(act) {
+        AppState.onboarding.activity = act;
+        const items = document.querySelectorAll('.activity-opt');
+        items.forEach(el => {
+          el.classList.remove('border-brand-500', 'bg-brand-50/50');
+          el.classList.add('border-slate-200');
+        });
+        if (event && event.currentTarget) {
+          event.currentTarget.classList.remove('border-slate-200');
+          event.currentTarget.classList.add('border-brand-500', 'bg-brand-50/50');
+        }
+      },
+
+      selectGoal(goal) {
+        AppState.onboarding.goal = goal;
+        const items = document.querySelectorAll('.goal-opt');
+        items.forEach(el => {
+          el.classList.remove('border-brand-500', 'bg-brand-50/50');
+          el.classList.add('border-slate-200');
+          const icon = el.querySelector('i');
+          if (icon) icon.setAttribute('data-lucide', 'circle');
+        });
+        if (event && event.currentTarget) {
+          event.currentTarget.classList.remove('border-slate-200');
+          event.currentTarget.classList.add('border-brand-500', 'bg-brand-50/50');
+        }
+        lucide.createIcons();
+      },
+
+      setObTime(t) {
+        AppState.onboarding.workoutTime = t;
+        document.querySelectorAll('.time-btn').forEach(btn => {
+          btn.className = "time-btn py-2 text-xs font-bold rounded-xl border border-slate-200 hover:border-brand-500";
+        });
+        if (event && event.currentTarget) {
+          event.currentTarget.className = "time-btn active-time py-2 text-xs font-bold rounded-xl border-2 border-brand-500 bg-brand-50 text-brand-700";
+        }
+      },
+
+      setObExp(exp) {
+        AppState.onboarding.experience = exp;
+        document.querySelectorAll('.exp-btn').forEach(btn => {
+          btn.className = "exp-btn py-2 text-xs font-bold rounded-xl border border-slate-200";
+        });
+        if (event && event.currentTarget) {
+          event.currentTarget.className = "exp-btn active-exp py-2 text-xs font-bold rounded-xl border-2 border-brand-500 bg-brand-50 text-brand-700";
+        }
+      },
+
+      harvestCurrentStepData(step) {
+        if (step === 1) {
+          const name = document.getElementById('ob-name').value;
+          const age = parseInt(document.getElementById('ob-age').value) || 29;
+          if (name) AppState.onboarding.name = name;
+          AppState.onboarding.age = age;
+        } else if (step === 2) {
+          AppState.onboarding.height = parseFloat(document.getElementById('ob-height').value) || 175;
+          AppState.onboarding.weight = parseFloat(document.getElementById('ob-cur-weight').value) || 92;
+          AppState.onboarding.targetWeight = parseFloat(document.getElementById('ob-target-weight').value) || 84;
+        } else if (step === 5) {
+          AppState.onboarding.mealsPerDay = parseInt(document.getElementById('ob-meals-per-day').value);
+          AppState.onboarding.dietType = document.getElementById('ob-diet-type').value;
+          AppState.onboarding.restrictions = document.getElementById('ob-diet-restrictions').value;
+        } else if (step === 6) {
+          AppState.onboarding.equipment = document.getElementById('ob-equipment').value;
+        } else if (step === 7) {
+          AppState.onboarding.sleepTarget = parseFloat(document.getElementById('ob-sleep').value);
+          AppState.onboarding.waterTarget = parseFloat(document.getElementById('ob-water').value) * 1000;
+          AppState.onboarding.stepTarget = parseInt(document.getElementById('ob-steps').value);
+        }
+        this.saveStorage();
+      },
+
+      triggerPlanGeneration() {
+        const spinnerView = document.getElementById('generation-spinner-view');
+        const readyView = document.getElementById('generation-ready-view');
+        const statusText = document.getElementById('generation-status-text');
+
+        spinnerView.classList.remove('hidden');
+        readyView.classList.add('hidden');
+
+        const phrases = [
+          'Analyzing your body metrics...',
+          'Building your 39-day progression...',
+          'Calibrating estimated calorie targets...',
+          'Preparing your personalized plan...'
+        ];
+
+        let i = 0;
+        const interval = setInterval(() => {
+          i++;
+          if (i < phrases.length) {
+            statusText.textContent = phrases[i];
+          } else {
+            clearInterval(interval);
+            spinnerView.classList.add('hidden');
+            readyView.classList.remove('hidden');
+            App.populatePlanSummary();
+          }
+        }, 650);
+      },
+
+      calculateBMI(weightKg, heightCm) {
+        if (!weightKg || !heightCm) return 24.5;
+        const hMeters = heightCm / 100;
+        return (weightKg / (hMeters * hMeters)).toFixed(1);
+      },
+
+      calculateEstimatedCalories() {
+        // Mifflin-St Jeor Estimation
+        const ob = AppState.onboarding;
+        let bmr = (10 * ob.weight) + (6.25 * ob.height) - (5 * ob.age);
+        bmr = ob.sex === 'Female' ? bmr - 161 : bmr + 5;
+
+        let multiplier = 1.35; // default moderate
+        if (ob.activity === 'Sedentary') multiplier = 1.2;
+        if (ob.activity === 'Lightly Active') multiplier = 1.375;
+        if (ob.activity === 'Moderately Active') multiplier = 1.55;
+        if (ob.activity === 'Very Active') multiplier = 1.725;
+
+        let tdee = bmr * multiplier;
+        let targetCalories = tdee;
+
+        if (ob.goal === 'Lose Weight') {
+          targetCalories = tdee - 450; // safe deficit
+        } else if (ob.goal === 'Reduce Body Fat') {
+          targetCalories = tdee - 300;
+        }
+
+        // Sensible health safety floor
+        const floor = ob.sex === 'Female' ? 1350 : 1600;
+        if (targetCalories < floor) targetCalories = floor;
+
+        return Math.round(targetCalories);
+      },
+
+      populatePlanSummary() {
+        const ob = AppState.onboarding;
+        const bmi = this.calculateBMI(ob.weight, ob.height);
+        const calories = this.calculateEstimatedCalories();
+
+        document.getElementById('summary-start-wt').textContent = `${ob.weight} kg`;
+        document.getElementById('summary-target-wt').textContent = `${ob.targetWeight} kg`;
+        document.getElementById('summary-bmi').textContent = `${bmi} (Healthy habit focus)`;
+        document.getElementById('summary-calories').textContent = `${calories.toLocaleString()} kcal / day*`;
+      },
+
+      finalizeOnboarding() {
+        if (!AppState.user) {
+          AppState.user = {
+            id: 'user_' + Math.random().toString(36).substr(2, 9),
+            name: AppState.onboarding.name,
+            email: 'user@39day.app'
+          };
+        }
+        AppState.currentDay = 1;
+        this.saveStorage();
+        this.showToast('Your 39-Day plan has begun! Day 1 is live.');
+        this.navigateTo('dashboard');
+      },
+
+      refreshActiveScreens() {
+        const ob = AppState.onboarding;
+        const userName = AppState.user ? AppState.user.name : ob.name;
+
+        // Dashboard Greeting
+        const dashGreeting = document.getElementById('dash-greeting-name');
+        if (dashGreeting) dashGreeting.textContent = `Good morning, ${userName}`;
+
+        const dashDay = document.getElementById('dash-day-number');
+        if (dashDay) dashDay.textContent = AppState.currentDay;
+
+        // Radial circle stroke offset calculation: circumference = 2 * pi * 32 ≈ 201
+        const circle = document.getElementById('dash-circle-progress');
+        if (circle) {
+          const circumference = 201;
+          const ratio = AppState.currentDay / 39;
+          const offset = circumference - (circumference * ratio);
+          circle.style.strokeDashoffset = offset;
+        }
+
+        // Habit Cards status
+        let completedHabits = 0;
+        const habitKeys = Object.keys(AppState.habits);
+        habitKeys.forEach(k => {
+          const isDone = AppState.habits[k];
+          if (isDone) completedHabits++;
+          const checkIcon = document.getElementById(`check-icon-${k}`);
+          if (checkIcon) {
+            if (isDone) {
+              checkIcon.classList.add('bg-brand-500', 'border-brand-500');
+              checkIcon.classList.remove('border-slate-300');
+              checkIcon.querySelector('i').classList.remove('hidden');
+            } else {
+              checkIcon.classList.remove('bg-brand-500', 'border-brand-500');
+              checkIcon.classList.add('border-slate-300');
+              checkIcon.querySelector('i').classList.add('hidden');
+            }
+          }
+        });
+
+        // Habit Score Readouts
+        const score = document.getElementById('dash-habits-score');
+        if (score) score.textContent = `${completedHabits} / ${habitKeys.length}`;
+
+        const pct = document.getElementById('dash-habit-percent');
+        if (pct) {
+          const val = Math.round((completedHabits / habitKeys.length) * 100);
+          pct.textContent = `${val}% Completed`;
+        }
+
+        // Nutrition numbers in Today's plan
+        const cal = this.calculateEstimatedCalories();
+        const proteinG = Math.round(ob.weight * 1.6);
+        const fatG = Math.round((cal * 0.25) / 9);
+        const carbsG = Math.round((cal - (proteinG * 4) - (fatG * 9)) / 4);
+
+        if (document.getElementById('plan-cal-val')) document.getElementById('plan-cal-val').textContent = cal.toLocaleString();
+        if (document.getElementById('plan-protein-val')) document.getElementById('plan-protein-val').textContent = `${proteinG}g`;
+        if (document.getElementById('plan-fat-val')) document.getElementById('plan-fat-val').textContent = `${fatG}g`;
+        if (document.getElementById('plan-carbs-val')) document.getElementById('plan-carbs-val').textContent = `${carbsG}g`;
+
+        // Water Readout
+        this.updateWaterUI();
+
+        // Steps UI
+        this.updateStepsUI();
+
+        // Profile fields
+        if (document.getElementById('prof-display-name')) document.getElementById('prof-display-name').textContent = userName;
+        if (document.getElementById('prof-display-email')) document.getElementById('prof-display-email').textContent = AppState.user?.email || 'alex@example.com';
+        if (document.getElementById('prof-avatar-letter')) document.getElementById('prof-avatar-letter').textContent = userName.charAt(0).toUpperCase();
+
+        // Render Charts & Timeline
+        this.renderJourneyTimeline();
+        this.renderProgressCharts();
+      },
+
+      toggleHabit(habitKey) {
+        AppState.habits[habitKey] = !AppState.habits[habitKey];
+        this.saveStorage();
+        this.refreshActiveScreens();
+        if (AppState.habits[habitKey]) {
+          this.showToast('Habit checked off! Keep the streak alive.', 'success');
+        }
+      },
+
+      addWater(amount) {
+        AppState.waterLogged += amount;
+        if (AppState.waterLogged >= AppState.onboarding.waterTarget) {
+          AppState.habits.water = true;
+        }
+        this.saveStorage();
+        this.updateWaterUI();
+        this.refreshActiveScreens();
+        this.showToast(`Added +${amount} ml water`, 'info');
+      },
+
+      resetWater() {
+        AppState.waterLogged = 0;
+        AppState.habits.water = false;
+        this.saveStorage();
+        this.updateWaterUI();
+        this.refreshActiveScreens();
+      },
+
+      updateWaterUI() {
+        const target = AppState.onboarding.waterTarget || 2500;
+        const current = AppState.waterLogged;
+        const ratio = Math.min(100, Math.round((current / target) * 100));
+
+        const fill = document.getElementById('water-progress-fill');
+        if (fill) fill.style.width = `${ratio}%`;
+
+        const readout = document.getElementById('water-intake-readout');
+        if (readout) readout.textContent = `${current.toLocaleString()} / ${target.toLocaleString()} ml`;
+
+        const sub = document.getElementById('dash-water-sub');
+        if (sub) sub.textContent = `${current.toLocaleString()} / ${target.toLocaleString()} ml logged`;
+      },
+
+      quickAddSteps() {
+        const inp = document.getElementById('input-add-steps');
+        const added = parseInt(inp.value);
+        if (!added || added <= 0) return;
+
+        AppState.stepsLogged += added;
+        if (AppState.stepsLogged >= AppState.onboarding.stepTarget) {
+          AppState.habits.steps = true;
+        }
+        inp.value = '';
+        this.saveStorage();
+        this.refreshActiveScreens();
+        this.showToast(`Logged ${added.toLocaleString()} steps!`);
+      },
+
+      updateStepsUI() {
+        const target = AppState.onboarding.stepTarget || 8500;
+        const current = AppState.stepsLogged;
+        const ratio = Math.min(100, Math.round((current / target) * 100));
+
+        const fill = document.getElementById('steps-progress-fill');
+        if (fill) fill.style.width = `${ratio}%`;
+
+        const readout = document.getElementById('steps-readout');
+        if (readout) readout.textContent = `${current.toLocaleString()} / ${target.toLocaleString()}`;
+
+        const sub = document.getElementById('dash-step-sub');
+        if (sub) sub.textContent = `${current.toLocaleString()} steps logged today`;
+      },
+
+      toggleMeal(btn) {
+        if (btn.classList.contains('bg-brand-600')) {
+          btn.classList.remove('bg-brand-600', 'text-white');
+          btn.classList.add('bg-white', 'text-brand-600');
+          btn.textContent = 'Done';
+        } else {
+          btn.classList.remove('bg-white', 'text-brand-600');
+          btn.classList.add('bg-brand-600', 'text-white');
+          btn.textContent = 'Completed';
+        }
+      },
+
+      toggleWorkoutTimer() {
+        const box = document.getElementById('workout-timer-box');
+        const label = document.getElementById('workout-timer-label');
+        const display = document.getElementById('workout-timer-display');
+
+        if (workoutTimerInterval) {
+          clearInterval(workoutTimerInterval);
+          workoutTimerInterval = null;
+          label.textContent = 'Resume Workout';
+          this.showToast('Workout paused');
+        } else {
+          box.classList.remove('hidden');
+          label.textContent = 'Pause Workout';
+          workoutTimerInterval = setInterval(() => {
+            workoutTimerSeconds++;
+            const mins = String(Math.floor(workoutTimerSeconds / 60)).padStart(2, '0');
+            const secs = String(workoutTimerSeconds % 60).padStart(2, '0');
+            display.textContent = `${mins}:${secs}`;
+          }, 1000);
+          this.showToast('Workout timer started!');
+        }
+      },
+
+      renderJourneyTimeline() {
+        const container = document.getElementById('journey-weeks-container');
+        if (!container) return;
+
+        const phases = [
+          { title: 'WEEK 1: Foundation Building', days: [1, 2, 3, 4, 5, 6, 7] },
+          { title: 'WEEK 2: Routine Consistency', days: [8, 9, 10, 11, 12, 13, 14] },
+          { title: 'WEEK 3: Metabolic Adaptation', days: [15, 16, 17, 18, 19, 20, 21] },
+          { title: 'WEEK 4: Deepening Discipline', days: [22, 23, 24, 25, 26, 27, 28] },
+          { title: 'WEEK 5: Peak Momentum', days: [29, 30, 31, 32, 33, 34, 35] },
+          { title: 'FINAL SPRINT: Consolidation', days: [36, 37, 38, 39] }
+        ];
+
+        let html = '';
+        phases.forEach((phase, phaseIdx) => {
+          html += `
+            <div class="bg-white p-3.5 rounded-2xl border border-slate-200">
+              <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2.5 flex items-center justify-between">
+                <span>${phase.title}</span>
+                <span class="text-[10px] text-slate-400 font-normal">Phase ${phaseIdx + 1}</span>
+              </h4>
+              <div class="grid grid-cols-7 gap-1.5">
+          `;
+
+          phase.days.forEach(d => {
+            let statusClass = "bg-slate-100 text-slate-400 border border-transparent";
+            let statusIcon = "";
+
+            if (d < AppState.currentDay) {
+              statusClass = "bg-brand-50 text-brand-700 border border-brand-200 font-bold";
+              statusIcon = `<i data-lucide="check" class="w-3 h-3 mx-auto mt-0.5 stroke-[3]"></i>`;
+            } else if (d === AppState.currentDay) {
+              statusClass = "bg-slate-900 text-white font-black shadow-md border-2 border-brand-500 scale-105";
+              statusIcon = `<span class="block text-[8px] uppercase tracking-tighter text-brand-400">Now</span>`;
+            } else {
+              statusIcon = `<i data-lucide="lock" class="w-2.5 h-2.5 mx-auto mt-0.5 text-slate-300"></i>`;
+            }
+
+            html += `
+              <div onclick="App.inspectJourneyDay(${d})" class="${statusClass} h-12 rounded-xl flex flex-col items-center justify-center cursor-pointer transition active:scale-95 text-center p-0.5">
+                <span class="text-xs leading-none">${d}</span>
+                ${statusIcon}
+              </div>
+            `;
+          });
+
+          html += `
+              </div>
+            </div>
+          `;
+        });
+
+        container.innerHTML = html;
+        lucide.createIcons();
+      },
+
+      inspectJourneyDay(dayNumber) {
+        if (dayNumber > AppState.currentDay) {
+          this.showToast(`Day ${dayNumber} is locked. Focus on Day ${AppState.currentDay} today!`, 'info');
+        } else {
+          this.showModal(`Day ${dayNumber} Overview`, `Focus: Hydration consistency and lean protein targets. You have logged daily compliance for this milestone.`);
+        }
+      },
+
+      renderProgressCharts() {
+        // Line Chart for Weight
+        const weightCanvas = document.getElementById('weightChart');
+        if (weightCanvas) {
+          const ctx = weightCanvas.getContext('2d');
+          const labels = AppState.weightHistory.map(item => `Day ${item.day}`);
+          const dataValues = AppState.weightHistory.map(item => item.weight);
+
+          if (weightChartInstance) {
+            weightChartInstance.destroy();
+          }
+
+          weightChartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Weight (kg)',
+                data: dataValues,
+                borderColor: '#16a34a',
+                backgroundColor: 'rgba(34, 197, 94, 0.08)',
+                borderWidth: 2.5,
+                fill: true,
+                tension: 0.35,
+                pointRadius: 4,
+                pointBackgroundColor: '#16a34a'
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { display: false }
+              },
+              scales: {
+                y: {
+                  grid: { color: '#f1f5f9' },
+                  ticks: { font: { size: 10, family: 'Inter' } }
+                },
+                x: {
+                  grid: { display: false },
+                  ticks: { font: { size: 10, family: 'Inter' } }
+                }
+              }
+            }
+          });
+        }
+
+        // Bar Chart for Habit Consistency
+        const habitsCanvas = document.getElementById('habitsChart');
+        if (habitsCanvas) {
+          const ctx = habitsCanvas.getContext('2d');
+
+          if (habitsChartInstance) {
+            habitsChartInstance.destroy();
+          }
+
+          habitsChartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+              datasets: [{
+                label: 'Compliance %',
+                data: AppState.weeklyHabitRates,
+                backgroundColor: '#3b82f6',
+                borderRadius: 6
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { display: false } },
+              scales: {
+                y: {
+                  max: 100,
+                  grid: { color: '#f1f5f9' },
+                  ticks: {
+                    callback: (val) => `${val}%`,
+                    font: { size: 9, family: 'Inter' }
+                  }
+                },
+                x: {
+                  grid: { display: false },
+                  ticks: { font: { size: 10, family: 'Inter' } }
+                }
+              }
+            }
+          });
+        }
+      },
+
+      openLogWeightModal() {
+        const lastWeight = AppState.weightHistory[AppState.weightHistory.length - 1]?.weight || 90;
+        this.showModal(
+          'Log Today\'s Weight',
+          `
+          <p class="text-xs text-slate-500 mb-3">Consistent morning weigh-ins provide the cleanest data trend.</p>
+          <div class="space-y-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Current Scale Reading</label>
+              <input type="number" id="modal-input-weight" value="${lastWeight}" step="0.1" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm outline-none focus:border-brand-500 font-bold">
+            </div>
+            <button onclick="App.submitWeightLog()" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-2.5 rounded-xl transition text-xs">
+              Save Entry
+            </button>
+          </div>
+          `
+        );
+      },
+
+      submitWeightLog() {
+        const input = document.getElementById('modal-input-weight');
+        const val = parseFloat(input.value);
+        if (val && val > 30 && val < 300) {
+          AppState.weightHistory.push({
+            day: AppState.currentDay,
+            weight: val
+          });
+          AppState.habits.weight = true;
+          this.saveStorage();
+          this.closeModal();
+          this.refreshActiveScreens();
+          this.showToast(`Logged ${val} kg for Day ${AppState.currentDay}!`);
+        }
+      },
+
+      saveProfileChanges() {
+        AppState.onboarding.age = parseInt(document.getElementById('prof-edit-age').value) || 29;
+        const curW = parseFloat(document.getElementById('prof-edit-weight').value);
+        const tarW = parseFloat(document.getElementById('prof-edit-target').value);
+        AppState.onboarding.stepTarget = parseInt(document.getElementById('prof-edit-steps').value) || 8500;
+
+        if (curW) AppState.onboarding.weight = curW;
+        if (tarW) AppState.onboarding.targetWeight = tarW;
+
+        this.saveStorage();
+        this.refreshActiveScreens();
+        this.showToast('Profile and daily targets updated!', 'success');
+      },
+
+      setUnitSystem(sys) {
+        AppState.unitSystem = sys;
+        const isMetric = sys === 'metric';
+        
+        // Update labels in step 2 if present
+        const lblH = document.getElementById('label-height');
+        const lblCW = document.getElementById('label-cur-weight');
+        const lblTW = document.getElementById('label-target-weight');
+
+        if (lblH) lblH.textContent = isMetric ? 'Height (cm)' : 'Height (in)';
+        if (lblCW) lblCW.textContent = isMetric ? 'Current Weight (kg)' : 'Current Weight (lb)';
+        if (lblTW) lblTW.textContent = isMetric ? 'Target Weight (kg)' : 'Target Weight (lb)';
+
+        this.showToast(`Switched units to ${sys}.`);
+      },
+
+      showSupabaseConfigModal() {
+        this.showModal(
+          'Supabase Architecture Layer',
+          `
+          <p class="text-xs text-slate-500 mb-2">39DAY is architected to plug directly into Supabase Auth & PostgreSQL:</p>
+          <div class="bg-slate-900 text-slate-200 p-3 rounded-xl font-mono text-[10px] space-y-1 overflow-x-auto">
+            <p class="text-brand-400">// Supabase Schema Blueprint</p>
+            <p>create table profiles (id uuid references auth.users, name text, start_weight numeric);</p>
+            <p>create table daily_progress (user_id uuid, day int, water_ml int, completed bool);</p>
+            <p>create table weight_entries (user_id uuid, day int, weight numeric, created_at timestamptz);</p>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2">When deploying to production, replace <code>localStorage</code> bindings with <code>supabase.from('...')</code> client calls.</p>
+          `
+        );
+      },
+
+      resetAllData() {
+        if (confirm('Reset all progress and habits back to default demo state?')) {
+          localStorage.removeItem(STORAGE_KEY);
+          AppState = JSON.parse(JSON.stringify(DefaultState));
+          this.saveStorage();
+          this.showToast('Application reset.');
+          this.navigateTo('landing');
+        }
+      },
+
+      showToast(message, type = 'info') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        
+        let colorClasses = 'bg-slate-900 text-white';
+        if (type === 'success') colorClasses = 'bg-emerald-600 text-white';
+        if (type === 'error') colorClasses = 'bg-rose-600 text-white';
+
+        toast.className = `${colorClasses} pointer-events-auto px-4 py-2.5 rounded-xl shadow-lg text-xs font-semibold flex items-center justify-between transition-all transform duration-300 opacity-0 -translate-y-2`;
+        toast.innerHTML = `<span>${message}</span>`;
+
+        container.appendChild(toast);
+
+        // Animate in
+        requestAnimationFrame(() => {
+          toast.classList.remove('opacity-0', '-translate-y-2');
+        });
+
+        // Dismiss after 2.6s
+        setTimeout(() => {
+          toast.classList.add('opacity-0', '-translate-y-2');
+          setTimeout(() => toast.remove(), 300);
+        }, 2600);
+      },
+
+      showModal(title, bodyHtml) {
+        const modal = document.getElementById('modal-container');
+        modal.innerHTML = `
+          <div class="bg-white rounded-3xl max-w-sm w-full p-5 shadow-2xl space-y-4 animate-in fade-in zoom-in-95 duration-200">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+              <h3 class="font-bold text-slate-900 text-sm">${title}</h3>
+              <button onclick="App.closeModal()" class="text-slate-400 hover:text-slate-600 p-1">
+                <i data-lucide="x" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <div class="text-xs text-slate-600 space-y-2 leading-relaxed">
+              ${bodyHtml}
+            </div>
+            <button onclick="App.closeModal()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-2.5 rounded-xl transition">
+              Close
+            </button>
+          </div>
+        `;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        lucide.createIcons();
+      },
+
+      closeModal() {
+        const modal = document.getElementById('modal-container');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        modal.innerHTML = '';
       }
+    };
+
+    // Initialize application on window load
+    window.addEventListener('DOMContentLoaded', () => {
+      App.init();
     });
   </script>
 </body>
