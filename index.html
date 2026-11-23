@@ -150,6 +150,8 @@ h1{
   box-shadow:0 30px 70px rgba(43,15,30,.35),0 0 0 8px rgba(255,255,255,.55),0 0 0 9px rgba(217,164,65,.28);
 }
 .player video,.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
+.player video{object-fit:contain}
+.player.portrait{width:min(440px,100%)}
 .overlay{
   position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;
   background:
@@ -589,7 +591,7 @@ footer a:hover{text-decoration:underline}
     </span>
     <p>Producto digital · Precio: $9.90 USD · Pago único · Pago procesado por Kiwify</p>
     <!-- ⚠️ EDITA esta línea con tu correo real de soporte (o elimínala) -->
-    <p>Soporte y facturación: <a href="/cdn-cgi/l/email-protection#d1a2bea1bea3a5b491a5a4b2bea3a3b4beffb2bebc"><span class="__cf_email__" data-cfemail="493a2639263b3d2c093d3c2a263b3b2c26672a2624">[email&#160;protected]</span></a></p>
+    <p>Soporte y facturación: <a href="/cdn-cgi/l/email-protection#ff8c908f908d8b9abf8b8a9c908d8d9a90d19c9092"><span class="__cf_email__" data-cfemail="dfacb0afb0adabba9fabaabcb0adadbab0f1bcb0b2">[email&#160;protected]</span></a></p>
     <div class="f-line"></div>
     <p>© 2026 · Todos los derechos reservados.</p>
     <p>Los resultados pueden variar según la práctica y dedicación de cada persona.</p>
@@ -612,8 +614,9 @@ footer a:hover{text-decoration:underline}
    pega aquí la URL terminada en .mp4  →  ej: "https://miosito.com/vsl.mp4"
    videoAspect: "16/9" (horizontal) o "9/16" (vertical/reels).        */
 const CONFIG = {
-  videoSrc: "",
-  videoAspect: "16/9",
+  videoSrc: "assets/video.mp4",
+  videoAspect: "9/16",
+  videoPoster: "assets/video-poster.jpg",
   canvaDesignId: "DAHbveqKQZw",
   canvaEmbedToken: "2AYXlGZfUalBuTGPnp1prw",
 };
@@ -624,7 +627,7 @@ const player = $("#player"), overlay = $("#overlay"),
       audioFab = $("#audioFab"), fabLabel = $("#fabLabel"), toast = $("#toast");
 
 player.style.setProperty("--video-ar", CONFIG.videoAspect === "9/16" ? "9/16" : "16/9");
-if (CONFIG.videoAspect === "9/16") document.documentElement.style.setProperty("--video-ar","9/16");
+if (CONFIG.videoAspect === "9/16"){ document.documentElement.style.setProperty("--video-ar","9/16"); player.classList.add("portrait"); }
 
 let videoEl = null, iframeEl = null, mode = CONFIG.videoSrc ? "mp4" : "canva", audioOn = false;
 
@@ -651,9 +654,13 @@ function startPlayback(wantAudio){
       videoEl.src = CONFIG.videoSrc;
       videoEl.playsInline = true; videoEl.controls = true;
       videoEl.muted = true; videoEl.preload = "metadata";
+      if (CONFIG.videoPoster) videoEl.poster = CONFIG.videoPoster;
       videoEl.addEventListener("loadedmetadata", () => {
         const r = videoEl.videoWidth / videoEl.videoHeight;
-        if (r > 0) player.style.aspectRatio = String(Math.min(Math.max(r, 9/16), 16/9));
+        if (r > 0){
+          player.style.aspectRatio = String(r);
+          player.classList.toggle("portrait", r < 1);
+        }
       });
       player.prepend(videoEl);
     }
@@ -704,5 +711,5 @@ const io = new IntersectionObserver((es) => es.forEach(e => {
 }), { threshold: .15 });
 document.querySelectorAll(".rv").forEach(el => io.observe(el));
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5f05f1dbe5af21d',t:'MTc5NTQzODk4MA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5f05f1dbe5af21d',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5f06c3d8945f21d',t:'MTc5NTQzOTUxOA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5f06c3d8945f21d',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
