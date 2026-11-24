@@ -187,6 +187,12 @@
       iframe.setAttribute('allow', 'autoplay; fullscreen');
       iframe.setAttribute('allowfullscreen', '');
       iframe.loading = 'lazy';
+      iframe.style.position = 'absolute';
+      iframe.style.top = '-7%';
+      iframe.style.left = '0';
+      iframe.style.width = '100%';
+      iframe.style.height = '114%';
+      iframe.style.border = '0';
       videoWrapper.innerHTML = '';
       videoWrapper.appendChild(iframe);
     });
